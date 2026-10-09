@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://oryneo.com.br/sitemap.xml

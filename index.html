@@ -1,0 +1,2118 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#F8F7F4" />
+    <meta name="description" content="CRM com WhatsApp e automação comercial para organizar leads, conversas e retornos. Conheça os planos, landing pages e gestão de tráfego pago da ORYNEO." />
+    <meta property="og:title" content="CRM com WhatsApp e automação comercial | ORYNEO" />
+    <meta property="og:site_name" content="ORYNEO" />
+    <meta property="og:url" content="https://oryneo.com.br/" />
+    <link rel="canonical" href="https://oryneo.com.br/" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:description" content="CRM com WhatsApp e automação comercial para organizar leads, conversas e retornos. Conheça os planos, landing pages e gestão de tráfego pago da ORYNEO." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <title>CRM com WhatsApp e automação comercial | ORYNEO</title>
+    <link rel="icon" type="image/svg+xml" href="assets/oryneo-symbol.svg" />
+    <style>
+      :root {
+        --graphite: #0f1115;
+        --indigo: #4f6bff;
+        --indigo-ink: #4357e8;
+        --paper: #f8f7f4;
+        --muted: #60646d;
+        --rule: #d8d8d5;
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--paper);
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--graphite);
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      :focus-visible {
+        outline: 2px solid var(--indigo);
+        outline-offset: 5px;
+      }
+
+      .skip-link {
+        position: absolute;
+        z-index: 30;
+        top: -100px;
+        left: 20px;
+        padding: 12px 16px;
+        background: var(--graphite);
+        color: white;
+      }
+
+      .skip-link:focus { top: 12px; }
+
+      .site-header {
+        position: sticky;
+        z-index: 20;
+        top: 0;
+        padding-top: env(safe-area-inset-top);
+        background: var(--paper);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .nav {
+        width: min(1260px, calc(100% - 64px));
+        min-height: 76px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        align-items: center;
+        column-gap: 28px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        min-height: 44px;
+      }
+
+      .brand img {
+        display: block;
+        width: 143px;
+        height: auto;
+      }
+
+      .nav-descriptor {
+        justify-self: center;
+        color: var(--muted);
+        font-size: 0.67rem;
+        font-weight: 650;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        min-height: 44px;
+        font-size: 0.82rem;
+        font-weight: 650;
+        white-space: nowrap;
+      }
+
+      .nav-link span:last-child {
+        color: var(--indigo);
+        font-size: 1.15rem;
+        line-height: 1;
+      }
+
+      .nav-link-short { display: none; }
+
+      .intro {
+        width: min(1260px, calc(100% - 64px));
+        min-height: calc(100svh - 77px - env(safe-area-inset-top));
+        margin: auto;
+        padding: clamp(60px, 7vw, 104px) 0 clamp(72px, 7vw, 104px);
+        display: grid;
+        grid-template-columns: minmax(0, 1.16fr) minmax(360px, 0.84fr);
+        align-items: center;
+        gap: clamp(58px, 7vw, 112px);
+      }
+
+      .intro-copy { min-width: 0; }
+
+      .section-index {
+        margin: 0 0 38px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 22px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .section-index span:first-child { color: var(--indigo-ink); }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(3.65rem, 6.2vw, 6.5rem);
+        font-weight: 650;
+        letter-spacing: -0.067em;
+        line-height: 0.99;
+      }
+
+      h1 span { color: var(--indigo); }
+
+      .intro-lead {
+        max-width: 555px;
+        margin: 32px 0 0;
+        color: #41454d;
+        font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+        line-height: 1.58;
+      }
+
+      .intro-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 44px;
+        min-height: 48px;
+        margin-top: 28px;
+        border-bottom: 1px solid var(--graphite);
+        font-size: 0.91rem;
+        font-weight: 650;
+        transition: color 160ms ease, border-color 160ms ease;
+      }
+
+      .intro-link span {
+        color: var(--indigo);
+        font-size: 1.3rem;
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .intro-link:hover,
+      .nav-link:hover { color: var(--indigo-ink); }
+
+      .intro-link:hover { border-color: var(--indigo); }
+
+      .entry {
+        max-width: 545px;
+        margin-top: 43px;
+        padding-top: 23px;
+        border-top: 1px solid var(--rule);
+      }
+
+      .entry-label, .field-label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 0.81rem;
+        font-weight: 670;
+      }
+
+      .entry-row { display: flex; gap: 9px; }
+
+      .entry-input, .field-input {
+        width: 100%;
+        min-width: 0;
+        height: 54px;
+        padding: 0 16px;
+        border: 1px solid #b9bbc0;
+        border-radius: 4px;
+        background: #fff;
+        color: var(--graphite);
+        font: inherit;
+        font-size: 1rem;
+        outline: none;
+      }
+
+      .entry-input:focus, .field-input:focus {
+        border-color: var(--indigo-ink);
+        box-shadow: 0 0 0 2px rgba(79, 107, 255, .13);
+      }
+
+      .entry-input::placeholder, .field-input::placeholder { color: #747780; }
+
+      .primary-button {
+        min-height: 54px;
+        padding: 0 22px;
+        border: 1px solid var(--graphite);
+        border-radius: 4px;
+        background: var(--graphite);
+        color: white;
+        font: inherit;
+        font-size: .87rem;
+        font-weight: 640;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+
+      .primary-button:hover { background: #272a31; }
+      .primary-button:disabled { opacity: .55; cursor: wait; }
+
+      .entry-caption, .field-hint {
+        margin: 9px 0 0;
+        color: var(--muted);
+        font-size: .76rem;
+        line-height: 1.45;
+      }
+
+      .form-feedback {
+        min-height: 1.35em;
+        margin: 8px 0 0;
+        color: #a02e32;
+        font-size: .79rem;
+        line-height: 1.45;
+      }
+
+      .form-feedback[data-kind="success"] { color: #2e5a41; }
+      .field-error { margin: 7px 0 0; color: #a02e32; font-size: .77rem; line-height: 1.4; }
+      .field-error:empty { display: none; }
+      .field-input[aria-invalid="true"] { border-color: #a02e32; }
+
+      .route {
+        min-width: 0;
+        padding-left: clamp(38px, 5vw, 74px);
+        border-left: 1px solid var(--rule);
+        scroll-margin-top: 100px;
+      }
+
+      .route-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .route-kicker {
+        margin: 0;
+        color: var(--indigo-ink);
+        font-size: 0.7rem;
+        font-weight: 750;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .route-count {
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .route h2 {
+        max-width: 420px;
+        margin: 12px 0 28px;
+        font-size: clamp(1.55rem, 2.3vw, 2rem);
+        font-weight: 620;
+        letter-spacing: -0.04em;
+        line-height: 1.12;
+      }
+
+      .route-list {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid var(--rule);
+      }
+
+      .route-list::before {
+        content: "";
+        position: absolute;
+        top: 29px;
+        bottom: 29px;
+        left: 9px;
+        width: 1px;
+        background: rgba(79, 107, 255, 0.42);
+      }
+
+      .route-list li {
+        min-height: 72px;
+        padding: 13px 0;
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        align-items: start;
+        column-gap: 12px;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .step-number {
+        position: relative;
+        z-index: 1;
+        width: 27px;
+        padding-top: 4px;
+        background: var(--paper);
+        color: var(--indigo-ink);
+        font-size: 0.73rem;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .route-list h3 {
+        margin: 0;
+        font-size: 0.96rem;
+        font-weight: 650;
+        line-height: 1.25;
+      }
+
+      .route-list p {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 0.77rem;
+        line-height: 1.4;
+      }
+
+      .route-note {
+        margin-top: 25px;
+        padding-left: 16px;
+        border-left: 2px solid var(--indigo);
+      }
+
+      .route-note-label {
+        display: block;
+        color: var(--indigo-ink);
+        font-size: 0.66rem;
+        font-weight: 750;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .route-note p {
+        max-width: 430px;
+        margin: 7px 0 0;
+        color: #41454d;
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      .consultation {
+        border-top: 1px solid var(--rule);
+        padding: 96px max(32px, calc((100vw - 1260px) / 2)) 125px;
+        scroll-margin-top: 77px;
+      }
+
+      .consultation-grid {
+        max-width: 1260px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: minmax(0, .76fr) minmax(0, 1fr);
+        gap: clamp(65px, 10vw, 150px);
+      }
+
+      .consultation-copy { padding-top: 4px; }
+      .consultation-index { margin: 0 0 23px; color: var(--indigo-ink); font-size: .71rem; font-weight: 720; letter-spacing: .1em; text-transform: uppercase; }
+      .consultation h2 { max-width: 480px; margin: 0; font-size: clamp(2.3rem, 4vw, 4.3rem); font-weight: 620; letter-spacing: -.06em; line-height: 1.06; }
+      .consultation-copy > p:last-child { max-width: 420px; margin: 26px 0 0; color: #41454d; font-size: 1rem; line-height: 1.55; }
+
+      .lead-panel { min-width: 0; }
+      .form-progress { margin: 0 0 42px; }
+      .selection-context { margin: 0 0 17px; padding-left: 12px; border-left: 2px solid var(--indigo); color: var(--indigo-ink); font-size: .82rem; font-weight: 650; line-height: 1.45; }
+      .selection-context[hidden] { display: none; }
+      .progress-caption { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 13px; color: var(--muted); font-size: .76rem; font-variant-numeric: tabular-nums; }
+      .progress-caption span:last-child { color: var(--graphite); font-weight: 650; }
+      .progress-track { height: 2px; background: var(--rule); }
+      .progress-track span { display: block; width: 25%; height: 100%; background: var(--indigo); transition: width 240ms ease; }
+      .stage { display: none; }
+      .stage[data-active="true"] { display: block; }
+      .stage h3 { margin: 0 0 10px; font-size: clamp(1.45rem, 2.3vw, 2rem); font-weight: 620; letter-spacing: -.045em; }
+      .stage-intro { margin: 0 0 27px; color: var(--muted); font-size: .92rem; line-height: 1.5; }
+      .company-result { padding: 20px 0 25px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+      .company-result small { display: block; margin-bottom: 7px; color: var(--indigo-ink); font-size: .68rem; font-weight: 730; letter-spacing: .09em; text-transform: uppercase; }
+      .company-result strong { display: block; font-size: 1.3rem; font-weight: 620; line-height: 1.25; }
+      .company-result span { display: block; margin-top: 7px; color: var(--muted); font-size: .84rem; }
+      .text-button { display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; border-bottom: 1px solid currentColor; background: none; color: var(--graphite); font: inherit; font-size: .82rem; cursor: pointer; }
+      .company-change { margin-top: 14px; }
+      .form-row { margin-bottom: 21px; }
+      .field-input { height: 52px; }
+      select.field-input { width: 100%; padding-right: 40px; background-color: #fff; color: var(--graphite); cursor: pointer; }
+      select.field-input:invalid { color: var(--muted); }
+      select.field-input option { color: var(--graphite); }
+      .email-suggestion { margin: -9px 0 23px; padding: 15px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: .82rem; line-height: 1.45; }
+      .email-suggestion[hidden] { display: none; }
+      .email-suggestion p { margin: 0 0 8px; }
+      .email-suggestion-actions { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+      .email-suggestion .text-button { min-height: 34px; color: var(--indigo-ink); }
+      .stage-actions { display: flex; align-items: center; gap: 25px; margin-top: 31px; }
+      .choices { margin: 22px 0 29px; border-top: 1px solid var(--rule); }
+      .choice { display: flex; align-items: center; gap: 16px; min-height: 62px; padding: 13px 3px; border-bottom: 1px solid var(--rule); cursor: pointer; }
+      .choice input { flex: 0 0 19px; width: 19px; height: 19px; margin: 0; accent-color: var(--indigo-ink); cursor: pointer; }
+      .choice span { font-size: .89rem; line-height: 1.35; }
+      .choice input:checked + span { font-weight: 620; }
+      .consent { display: flex; align-items: flex-start; gap: 11px; max-width: 525px; color: #41454d; font-size: .79rem; line-height: 1.5; cursor: pointer; }
+      .consent input { width: 18px; height: 18px; margin: 1px 0 0; flex: 0 0 18px; accent-color: var(--indigo-ink); }
+      .preview-note { max-width: 500px; margin: 18px 0 0; color: var(--muted); font-size: .75rem; line-height: 1.5; }
+      .summary { margin: 26px 0 0; padding: 0; border-top: 1px solid var(--rule); }
+      .summary div { display: grid; grid-template-columns: 130px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--rule); font-size: .85rem; }
+      .summary dt { color: var(--muted); }
+      .summary dd { margin: 0; overflow-wrap: anywhere; }
+
+      @media (max-width: 900px) {
+        .nav-descriptor { display: none; }
+      .nav { grid-template-columns: 1fr auto auto; }
+        .intro {
+          min-height: 0;
+          grid-template-columns: 1fr;
+          gap: 64px;
+          padding-top: 64px;
+        }
+        .route {
+          padding: 31px 0 0;
+          border-top: 1px solid var(--rule);
+          border-left: 0;
+        }
+        .consultation { padding: 73px 32px 100px; }
+        .consultation-grid { grid-template-columns: 1fr; gap: 43px; }
+        .consultation-copy > p:last-child { margin-top: 17px; }
+      }
+
+      @media (max-width: 560px) {
+        .nav { width: calc(100% - 40px); min-height: 67px; }
+        .brand img { width: 122px; }
+        .nav-link { gap: 7px; font-size: 0.8rem; }
+        .nav-link-long { display: none; }
+        .nav-link-short { display: inline; }
+        .intro {
+          width: calc(100% - 40px);
+          gap: 59px;
+          padding: 48px 0 calc(68px + env(safe-area-inset-bottom));
+        }
+        .section-index {
+          margin-bottom: 30px;
+          gap: 6px 13px;
+          font-size: 0.62rem;
+          letter-spacing: 0.085em;
+        }
+        h1 {
+          font-size: clamp(2.9rem, 11.8vw, 4rem);
+          letter-spacing: -0.063em;
+          line-height: 1.01;
+        }
+        .intro-lead {
+          margin-top: 25px;
+          font-size: 1rem;
+          line-height: 1.55;
+        }
+        .intro-link { margin-top: 24px; }
+        .entry { margin-top: 32px; }
+        .entry-row { flex-direction: column; }
+        .entry-row .primary-button { width: 100%; }
+        .consultation { padding: 67px 20px 88px; scroll-margin-top: 67px; }
+        .form-progress { margin-bottom: 36px; }
+        .stage-actions { gap: 21px; }
+        .summary div { grid-template-columns: 88px 1fr; }
+        .route h2 { margin-bottom: 23px; }
+        .route-list li { min-height: 67px; padding: 11px 0; }
+        .route-note { margin-top: 23px; }
+      }
+
+      /* One opportunity, three moments: the same record carries the context. */
+      .operation { border-top: 1px solid var(--rule); padding: 88px 0 96px; background: #eeefec; scroll-margin-top: 90px; }
+      .operation-inner { width: min(1260px, calc(100% - 64px)); margin: auto; }
+      .operation-header { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: end; margin-bottom: 44px; }
+      .operation-kicker { margin: 0 0 24px; color: var(--indigo-ink); font-size: .875rem; font-weight: 650; }
+      .operation h2 { margin: 0; max-width: 650px; font-size: clamp(2.35rem, 4.2vw, 4.2rem); line-height: 1.05; letter-spacing: -.052em; font-weight: 600; }
+      .operation-deck { margin: 0; max-width: 430px; color: #41454d; font-size: 1.0625rem; line-height: 1.65; }
+      .operation-tabs { display: flex; border-bottom: 1px solid #c4c7c4; gap: 36px; }
+      .operation-tab { position: relative; display: flex; gap: 12px; align-items: center; min-height: 60px; padding: 12px 0; color: var(--muted); background: none; border: 0; font: inherit; font-size: 1rem; cursor: pointer; }
+      .operation-tab span { font-size: .8125rem; font-variant-numeric: tabular-nums; }
+      .operation-tab[aria-selected="true"] { color: var(--graphite); font-weight: 650; }
+      .operation-tab[aria-selected="true"]::after { content: ""; position: absolute; height: 3px; background: var(--indigo-ink); bottom: -1px; left: 0; right: 0; }
+      .operation-tab:hover { color: var(--indigo-ink); }
+      .operation-panel { padding-top: 0; }
+      .operation-panel[hidden] { display: none; }
+      .operation-layout { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+      .operation-copy { padding-top: 18px; }
+      .operation-copy h3 { max-width: 340px; margin: 0 0 18px; font-size: clamp(1.65rem, 2.5vw, 2.25rem); font-weight: 600; line-height: 1.15; letter-spacing: -.035em; }
+      .operation-copy p { margin: 0; max-width: 360px; color: #41454d; line-height: 1.7; font-size: 1rem; }
+      .operation-copy .operation-principle { margin-top: 30px; padding-top: 18px; border-top: 1px solid #c4c7c4; color: var(--graphite); font-weight: 550; font-size: .9375rem; }
+      .operation-record { min-width: 0; background: #fff; border: 1px solid #cfd2cf; border-radius: 4px; }
+      .record-heading { padding: 22px 26px 18px; border-bottom: 1px solid #e0e2df; display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+      .record-heading strong { display: block; font-size: 1.0625rem; font-weight: 650; }
+      .record-heading small { display: block; margin-top: 6px; color: var(--muted); font-size: .8125rem; }
+      .record-stage { color: var(--indigo-ink); font-size: .8125rem; font-weight: 600; padding-top: 3px; white-space: nowrap; }
+      .record-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 16px 26px; background: #f7f8f6; color: var(--muted); font-size: .8125rem; line-height: 1.5; }
+      .record-meta b { color: var(--graphite); font-weight: 550; }
+      .record-events { margin: 0; padding: 8px 26px; list-style: none; }
+      .record-events li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid #e9eae8; }
+      .record-events li:last-child { border: 0; }
+      .record-events time { padding-top: 2px; color: var(--muted); font-size: .8125rem; font-variant-numeric: tabular-nums; }
+      .record-events strong { font-size: .9375rem; font-weight: 600; }
+      .record-events p { margin: 5px 0 0; color: var(--muted); line-height: 1.5; font-size: .875rem; }
+      .record-next { margin: 6px 26px 24px; padding: 15px 18px; border-left: 3px solid var(--indigo); background: #f3f5ff; }
+      .record-next small { display: block; color: var(--indigo-ink); font-size: .8125rem; margin-bottom: 6px; }
+      .record-next strong { font-size: .9375rem; font-weight: 600; line-height: 1.5; }
+      .record-next p { margin: 5px 0 0; color: var(--muted); font-size: .8125rem; line-height: 1.5; }
+      .conversation { padding: 22px 26px 10px; }
+      .conversation-label { margin: 0 0 18px; font-size: .8125rem; font-weight: 650; color: #226243; }
+      .conversation blockquote { max-width: 92%; margin: 0 0 16px; padding: 14px 16px; background: #f1f3f0; border-radius: 2px 10px 10px 10px; font-size: .9375rem; line-height: 1.55; }
+      .conversation blockquote.sent { margin-left: auto; background: #edf3ef; border-radius: 10px 2px 10px 10px; }
+      .conversation blockquote small { display: block; font-size: .75rem; color: #536057; margin-top: 8px; }
+      .conversation-context { margin: 4px 0 10px; color: var(--muted); font-size: .8125rem; line-height: 1.5; }
+      .operation-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 28px; }
+      .operation-footer p { margin: 0; max-width: 520px; color: var(--muted); font-size: .8125rem; line-height: 1.55; }
+      .operation-cta { display: inline-flex; min-height: 48px; align-items: center; border-bottom: 1px solid var(--graphite); font-size: .9375rem; font-weight: 600; white-space: nowrap; }
+      .operation-cta:hover { color: var(--indigo-ink); border-color: var(--indigo-ink); }
+      .operation-visual-caption { margin: 9px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
+      .plans { padding: 88px 0 96px; border-top: 1px solid var(--rule); scroll-margin-top: 90px; }
+      .plans-inner { width: min(1260px, calc(100% - 64px)); margin: auto; }
+      .plans-header { display: grid; grid-template-columns: 1.1fr .9fr; align-items: end; gap: 56px; margin-bottom: 42px; }
+      .plans-kicker { margin: 0 0 22px; color: var(--indigo-ink); font-size: .875rem; font-weight: 650; }
+      .plans h2 { max-width: 660px; margin: 0; font-size: clamp(2.35rem, 4.2vw, 4.1rem); font-weight: 600; letter-spacing: -.052em; line-height: 1.05; }
+      .plans-intro { max-width: 430px; margin: 0; color: #41454d; font-size: 1rem; line-height: 1.65; }
+      .plans-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #bfc2c0; border-bottom: 1px solid #bfc2c0; }
+      .plan-option { position: relative; min-width: 0; padding: 24px 26px 28px; border-right: 1px solid #d7d9d6; }
+      .plan-option:first-child { padding-left: 0; }
+      .plan-option:last-child { padding-right: 0; border-right: 0; }
+      .plan-option[data-recommended="true"] { background: #f1f3ff; }
+      .plan-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 26px; }
+      .plan-top h3 { margin: 0; font-size: 1.25rem; font-weight: 650; letter-spacing: -.025em; }
+      .plan-recommendation { color: var(--indigo-ink); font-size: .75rem; font-weight: 650; }
+      .plan-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 8px; margin: 23px 0 0; font-size: clamp(2rem, 2.8vw, 2.55rem); font-weight: 620; letter-spacing: -.06em; line-height: 1; font-variant-numeric: tabular-nums; }
+      .plan-price small { color: var(--muted); font-size: .875rem; font-weight: 450; letter-spacing: 0; white-space: nowrap; }
+      .plan-setup { margin: 12px 0 25px; color: #41454d; font-size: .875rem; font-variant-numeric: tabular-nums; }
+      .plan-features { margin: 0; padding: 0; list-style: none; border-top: 1px solid #d7d9d6; }
+      .plan-features li { position: relative; padding: 10px 0 10px 14px; border-bottom: 1px solid #e4e5e2; font-size: .835rem; line-height: 1.43; }
+      .plan-features li::before { content: ""; position: absolute; top: 17px; left: 0; width: 4px; height: 4px; border-radius: 50%; background: var(--indigo-ink); }
+      .plan-features strong { font-weight: 650; }
+      .plan-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 22px; }
+      .plan-cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 46px; width: 100%; padding: 10px 14px; border: 1px solid var(--graphite); background: var(--graphite); color: #fff; font: inherit; font-size: .85rem; font-weight: 630; text-align: left; cursor: pointer; }
+      .plan-cta:hover { background: #2a2d34; }
+      .plan-talk { display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; border-bottom: 1px solid transparent; background: none; color: var(--graphite); font: inherit; font-size: .84rem; font-weight: 570; cursor: pointer; }
+      .plan-talk:hover { color: var(--indigo-ink); border-color: var(--indigo-ink); }
+      .plan-preview-note { margin: 8px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+      .services { padding-top: 42px; }
+      .services h3 { margin: 0; font-size: 1rem; font-weight: 650; }
+      .services-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 10px; }
+      .services-heading p { margin: 0; color: var(--muted); font-size: .8125rem; }
+      .service-line { display: grid; grid-template-columns: auto minmax(180px, .7fr) minmax(0, 1fr) auto; align-items: center; gap: 18px; min-height: 75px; border-bottom: 1px solid var(--rule); }
+      .service-line input, .service-line button { cursor: pointer; }
+      .service-line input { width: 19px; height: 19px; accent-color: var(--indigo-ink); }
+      .service-name { font-size: .9375rem; font-weight: 620; }
+      .service-detail { color: var(--muted); font-size: .8125rem; line-height: 1.5; }
+      .service-price { white-space: nowrap; font-size: .9375rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+      .service-price small { display: block; margin-top: 4px; color: var(--muted); font-size: .75rem; font-weight: 450; text-align: right; }
+      .intent-choice { margin-top: 26px; padding: 22px 0; border-top: 1px solid #bfc2c0; border-bottom: 1px solid #bfc2c0; }
+      .intent-choice[hidden] { display: none; }
+      .intent-heading { margin: 0 0 14px; font-size: .9375rem; font-weight: 620; }
+      .intent-actions { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+      .intent-button { min-height: 46px; padding: 0 2px; border: 0; border-bottom: 1px solid var(--graphite); background: none; color: var(--graphite); font: inherit; font-weight: 620; cursor: pointer; }
+      .intent-button:hover { color: var(--indigo-ink); border-color: var(--indigo-ink); }
+      .intent-note, .plan-selection-feedback { margin: 14px 0 0; color: var(--muted); font-size: .8125rem; line-height: 1.55; }
+      .plan-selection-feedback { min-height: 1.3em; }
+      .plan-selected-label { display: none; }
+      .plan-option[aria-current="true"] .plan-selected-label { display: inline; color: var(--indigo-ink); font-size: .75rem; font-weight: 650; }
+      #solicitacao { scroll-margin-top: 90px; }
+      #cnpj { scroll-margin-top: 110px; }
+      @media (max-width: 800px) {
+        .operation { padding: 64px 0; }
+        .operation-header, .operation-layout { grid-template-columns: 1fr; gap: 24px; }
+        .plans { padding: 64px 0; }
+        .plans-header { grid-template-columns: 1fr; gap: 18px; margin-bottom: 28px; }
+        .plans-grid { grid-template-columns: 1fr; }
+        .plan-option, .plan-option:first-child, .plan-option:last-child { padding: 22px 0; border-right: 0; border-bottom: 1px solid #d7d9d6; }
+        .plan-option:last-child { border-bottom: 0; }
+        .plan-option[data-recommended="true"] { padding-left: 16px; padding-right: 16px; }
+        .plan-price { margin-top: 14px; }
+        .plan-setup { margin: 8px 0 16px; }
+        .plan-features li { font-size: .9rem; }
+        .operation-header { margin-bottom: 28px; }
+        .operation-deck, .operation-copy p, .operation-copy h3 { max-width: 620px; }
+        .operation-copy { padding-top: 0; }
+        .operation-copy .operation-principle { margin-top: 16px; padding-top: 12px; }
+        .operation-footer { align-items: start; flex-direction: column; gap: 14px; }
+      }
+      @media (max-width: 480px) {
+        .operation-inner { width: calc(100% - 40px); }
+        .plans-inner { width: calc(100% - 40px); }
+        .operation-tabs { justify-content: space-between; gap: 12px; }
+        .operation-tab { font-size: .875rem; gap: 6px; }
+        .operation-tab span { font-size: .75rem; }
+        .operation-panel { padding-top: 26px; }
+        .record-heading { padding: 20px 16px 16px; gap: 8px; }
+        .record-heading strong { font-size: 1rem; }
+        .record-stage { font-size: .75rem; }
+        .record-meta { padding: 14px 16px; gap: 6px 16px; }
+        .record-events { padding: 6px 16px; }
+        .record-events li { grid-template-columns: 38px 1fr; gap: 12px; }
+        .record-next { margin: 8px 16px 20px; padding: 12px 14px; }
+        .conversation { padding: 20px 16px 8px; }
+        .conversation blockquote { max-width: 96%; padding: 12px 14px; }
+        .plan-top { align-items: baseline; }
+        .plan-features li { font-size: .86rem; }
+        .plan-cta { font-size: .88rem; }
+        .services-heading { align-items: start; flex-direction: column; gap: 6px; }
+        .service-line { grid-template-columns: 22px 1fr auto; gap: 10px; padding: 13px 0; }
+        .service-detail { grid-column: 2 / 4; grid-row: 2; }
+        .service-price { grid-column: 3; grid-row: 1; text-align: right; font-size: .875rem; }
+        .service-price small { white-space: normal; max-width: 125px; }
+        .intent-actions { gap: 12px 20px; }
+      }
+      @media (max-width: 380px) {
+        .operation-tab span { display: none; }
+      }
+
+      /* V13: one illustrated customer journey, then a transparent order review. */
+      .intro { grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr); gap: clamp(40px, 6vw, 90px); }
+      .intro-actions { display: flex; flex-wrap: wrap; gap: 10px 30px; align-items: center; }
+      .quiet-link { border-color: transparent; color: var(--muted); gap: 0; }
+      .route { max-width: none; margin: 0; padding: 65px max(32px, calc((100vw - 1260px) / 2)) 72px; border-left: 0; border-top: 1px solid var(--rule); scroll-margin-top: 76px; }
+      .route h2 { max-width: none; margin-bottom: 30px; }
+      .route-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      .route-list::before { display: none; }
+      .route-list li { min-height: 100px; padding: 17px 16px 18px 0; grid-template-columns: 30px minmax(0, 1fr); gap: 4px; }
+      .route-note { margin-top: 22px; }
+      .billing-choice { display: flex; align-items: center; gap: 0; width: fit-content; margin: 0 0 28px; padding: 0; border: 1px solid #bfc2c0; }
+      .billing-choice legend { margin-bottom: 10px; padding: 0; font-size: .875rem; font-weight: 650; }
+      .billing-choice label { position: relative; min-height: 45px; cursor: pointer; }
+      .billing-choice label + label { border-left: 1px solid #bfc2c0; }
+      .billing-choice input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+      .billing-choice span { display: flex; align-items: center; gap: 9px; min-height: 45px; padding: 8px 15px; font-size: .875rem; }
+      .billing-choice input:checked + span { background: var(--graphite); color: #fff; }
+      .billing-choice input:focus-visible + span { outline: 2px solid var(--indigo); outline-offset: 3px; }
+      .billing-choice em { color: var(--indigo-ink); font-size: .75rem; font-style: normal; font-weight: 650; }
+      .billing-choice input:checked + span em { color: #bfc7ff; }
+      .plan-option[aria-current="true"] { box-shadow: inset 0 3px var(--indigo-ink); }
+      .plan-billing { min-height: 1.4em; margin: 10px 0 0; color: #41454d; font-size: .8rem; line-height: 1.4; font-variant-numeric: tabular-nums; }
+      .plan-setup { margin-top: 6px; }
+      .purchase-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(315px, .75fr); gap: clamp(34px, 5vw, 85px); align-items: start; margin-top: 44px; border-top: 1px solid #bfc2c0; }
+      .services { padding-top: 28px; }
+      .service-line { grid-template-columns: auto minmax(140px, .75fr) minmax(0, 1fr) auto; }
+      .service-price { color: var(--indigo-ink); font-size: .8rem; }
+      .service-footnote { margin: 15px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.55; }
+      .purchase-summary { padding: 29px 30px 32px; background: #efefec; border-top: 3px solid var(--graphite); scroll-margin-top: 96px; }
+      .purchase-kicker { margin: 0 0 8px; color: var(--indigo-ink); font-size: .68rem; font-weight: 750; letter-spacing: .1em; }
+      .purchase-summary h3 { margin: 0 0 23px; font-size: 1.7rem; font-weight: 620; letter-spacing: -.045em; }
+      .purchase-summary h3 small { color: var(--muted); font-size: .875rem; font-weight: 450; letter-spacing: 0; }
+      .purchase-summary dl { margin: 0; border-top: 1px solid #c8cac7; }
+      .purchase-summary dl div { display: flex; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid #c8cac7; font-size: .88rem; }
+      .purchase-summary dt { color: #41454d; }
+      .purchase-summary dd { margin: 0; font-weight: 620; font-variant-numeric: tabular-nums; white-space: nowrap; }
+      .purchase-summary .purchase-total { align-items: baseline; padding: 17px 0; }
+      .purchase-total dt { color: var(--graphite); font-weight: 650; }
+      .purchase-total dd { font-size: 1.25rem; letter-spacing: -.03em; }
+      .purchase-saving { margin: 15px 0; color: var(--indigo-ink); font-size: .84rem; line-height: 1.5; }
+      .purchase-capacity, .purchase-services, .purchase-disclaimer { color: #41454d; font-size: .875rem; line-height: 1.6; }
+      .purchase-capacity { margin: 18px 0 0; }
+      .purchase-services { margin: 20px 0 22px; padding: 17px 0; border-top: 1px solid #c8cac7; border-bottom: 1px solid #c8cac7; }
+      .purchase-services-head { display: flex; align-items: baseline; justify-content: space-between; gap: 15px; margin-bottom: 10px; }
+      .purchase-services-head strong { color: var(--graphite); font-size: .9rem; }
+      .purchase-services-count { color: var(--indigo-ink); font-size: .74rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+      .purchase-services-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+      .purchase-services-list li { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+      .purchase-services-list span { color: var(--graphite); font-weight: 560; }
+      .purchase-services-list small { flex: 0 0 auto; color: var(--indigo-ink); font-size: .75rem; font-weight: 650; }
+      .purchase-services-note { margin: 10px 0 0; color: var(--muted); font-size: .76rem; line-height: 1.5; }
+      .purchase-grand-total { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 0 0 22px; padding: 17px 0; border-top: 2px solid var(--graphite); border-bottom: 1px solid #c8cac7; }
+      .purchase-grand-total span { color: var(--graphite); font-size: .9rem; font-weight: 700; }
+      .purchase-grand-total strong { font-size: 1.35rem; letter-spacing: -.03em; white-space: nowrap; }
+      .purchase-continue { width: 100%; }
+      .purchase-disclaimer { margin: 13px 0 0; color: var(--muted); font-size: .8125rem; }
+      .service-detail, .service-footnote, .plan-preview-note { font-size: .875rem; }
+      .stage-company .entry, #stage-company .entry { max-width: none; margin-top: 0; padding-top: 0; border-top: 0; }
+
+      @media (max-width: 900px) {
+        .intro { grid-template-columns: 1fr; gap: 56px; }
+        .route { padding: 56px 32px 62px; }
+        .route-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .route-list li { min-height: 78px; }
+        .purchase-layout { grid-template-columns: 1fr; gap: 30px; }
+        .purchase-summary { max-width: 630px; }
+      }
+      @media (max-width: 560px) {
+        .intro { gap: 44px; }
+        .intro-actions { gap: 0 22px; }
+        .route { padding: 46px 20px 52px; scroll-margin-top: 68px; }
+        .route-list { grid-template-columns: 1fr; }
+        .route-list li { min-height: 66px; }
+        .billing-choice { width: 100%; }
+        .billing-choice label { flex: 1; }
+        .billing-choice span { justify-content: center; padding: 8px 10px; }
+        .billing-choice em { white-space: nowrap; }
+        .purchase-layout { margin-top: 30px; }
+        .purchase-summary { padding: 24px 20px 27px; }
+        .service-line { grid-template-columns: 22px minmax(0, 1fr); gap: 6px 10px; }
+        .service-name { grid-column: 2; }
+        .service-detail { grid-column: 2; grid-row: auto; }
+        .service-price { grid-column: 2; grid-row: auto; text-align: left; }
+      }
+      @media (max-width: 375px) {
+        .billing-choice span { flex-wrap: wrap; gap: 0 5px; }
+        .purchase-summary dl div { font-size: .8rem; }
+        .purchase-total dd { font-size: 1.12rem; }
+      }
+
+      /* V14: show the acquisition product itself, then offer it after plan choice. */
+      .acquisition { padding: 92px 0 88px; border-top: 1px solid var(--rule); background: #fff; scroll-margin-top: 82px; }
+      .acquisition-inner { width: min(1260px, calc(100% - 64px)); margin: auto; }
+      .acquisition-header { display: grid; grid-template-columns: 1.1fr .9fr; gap: 58px; align-items: end; margin-bottom: 42px; }
+      .acquisition-kicker { margin: 0 0 21px; color: var(--indigo-ink); font-size: .875rem; font-weight: 650; }
+      .acquisition-header h2 { max-width: 700px; margin: 0; font-size: clamp(2.35rem, 4.2vw, 4.2rem); line-height: 1.04; letter-spacing: -.055em; font-weight: 600; }
+      .acquisition-header > p { max-width: 460px; margin: 0; color: #41454d; font-size: 1rem; line-height: 1.7; }
+      .acquisition-grid { display: grid; grid-template-columns: minmax(300px, .76fr) minmax(0, 1.24fr); gap: clamp(34px, 5vw, 76px); align-items: start; }
+      .acquisition-tabs { display: flex; flex-wrap: wrap; gap: 0 24px; border-bottom: 1px solid #c6c9c6; }
+      .acquisition-tab { position: relative; min-height: 50px; padding: 8px 0; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: .9rem; cursor: pointer; }
+      .acquisition-tab[aria-selected="true"] { color: var(--graphite); font-weight: 650; }
+      .acquisition-tab[aria-selected="true"]::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: var(--indigo-ink); content: ""; }
+      .acquisition-tab:hover { color: var(--indigo-ink); }
+      .acquisition-panel { min-height: 280px; padding: 29px 0 20px; }
+      .acquisition-panel[hidden] { display: none; }
+      .acquisition-panel-label { margin: 0 0 13px; color: var(--indigo-ink); font-size: .72rem; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+      .acquisition-panel h3 { max-width: 470px; margin: 0 0 13px; font-size: clamp(1.55rem, 2.3vw, 2.05rem); line-height: 1.15; letter-spacing: -.04em; font-weight: 600; }
+      .acquisition-panel > p:not(.acquisition-panel-label) { max-width: 470px; margin: 0; color: #41454d; font-size: .96rem; line-height: 1.65; }
+      .acquisition-panel ul { display: grid; gap: 10px; margin: 22px 0 0; padding: 17px 0 0 18px; border-top: 1px solid #d7d9d6; color: #41454d; font-size: .875rem; line-height: 1.5; }
+      .acquisition-panel li::marker { color: var(--indigo-ink); }
+      .acquisition-truth { margin: 0; padding-top: 16px; border-top: 1px solid #d7d9d6; color: var(--muted); font-size: .82rem; line-height: 1.55; }
+      .browser-figure { min-width: 0; margin: 0; }
+      .browser-frame { overflow: hidden; border: 1px solid #c7c9c7; border-radius: 5px 5px 2px 2px; background: #f2f3f1; box-shadow: 10px 13px 0 #e9ebe9; }
+      .browser-chrome { min-height: 44px; padding: 0 14px; display: grid; grid-template-columns: 52px minmax(0,1fr) 20px; align-items: center; gap: 14px; border-bottom: 1px solid #d7d9d6; background: #f6f7f5; }
+      .browser-dots { display: flex; gap: 5px; }
+      .browser-dots i { width: 7px; height: 7px; border-radius: 50%; background: #aeb2b3; }
+      .browser-address { overflow: hidden; padding: 6px 13px; border: 1px solid #e1e3e1; border-radius: 2px; background: #fff; color: #686d73; font-size: .69rem; white-space: nowrap; text-overflow: ellipsis; }
+      .browser-lock { color: #387653; font-size: .64rem; }
+      .demo-page { padding: 0 27px 22px; background: #fff; }
+      .demo-nav { min-height: 53px; display: flex; align-items: center; gap: 23px; border-bottom: 1px solid #e5e6e4; color: #555c60; font-size: .69rem; }
+      .demo-nav img { width: 91px; height: auto; margin-right: auto; }
+      .demo-nav a { min-height: 30px; padding: 7px 10px; background: var(--graphite); color: #fff; font-weight: 600; }
+      .demo-hero { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(150px,.8fr); gap: 21px; align-items: center; padding: 36px 0 29px; }
+      .demo-copy { padding: 3px; transition: background 160ms ease, outline-color 160ms ease; }
+      .demo-eyebrow { margin: 0 0 10px; color: var(--indigo-ink); font-size: .61rem; font-weight: 750; letter-spacing: .09em; }
+      .demo-copy h3 { max-width: 360px; margin: 0; font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.03; letter-spacing: -.05em; font-weight: 620; }
+      .demo-copy > p:not(.demo-eyebrow) { max-width: 345px; margin: 11px 0 13px; color: #52575d; font-size: .75rem; line-height: 1.5; }
+      .demo-cta { display: inline-flex; min-height: 31px; align-items: center; padding: 0 12px; background: var(--graphite); color: white; font-size: .68rem; font-weight: 600; }
+      .demo-copy > small { display: block; margin-top: 9px; color: #72777b; font-size: .63rem; }
+      .demo-flow { display: grid; gap: 0; border-top: 1px solid #d7d9d6; border-left: 2px solid var(--indigo); background: #f6f7f5; transition: background 160ms ease, outline-color 160ms ease; }
+      .demo-flow span { display: grid; gap: 5px; padding: 10px 13px; border-bottom: 1px solid #d7d9d6; color: #71767b; font-size: .56rem; font-weight: 700; letter-spacing: .07em; }
+      .demo-flow b { color: #24272d; font-size: .72rem; font-weight: 600; letter-spacing: 0; }
+      .demo-proof { display: flex; justify-content: space-between; gap: 10px; padding: 12px 0 0; border-top: 1px solid #e3e5e2; color: #454a50; font-size: .64rem; }
+      .demo-proof b { margin-right: 4px; color: var(--indigo-ink); font-variant-numeric: tabular-nums; }
+      .demo-meta { display: flex; flex-wrap: wrap; gap: 6px 15px; max-height: 0; overflow: hidden; opacity: 0; transition: max-height 180ms ease, opacity 180ms ease, padding 180ms ease; color: #686d73; font-size: .62rem; }
+      .browser-figure[data-preview-focus="search"] .demo-meta,
+      .browser-figure[data-preview-focus="measure"] .demo-meta { max-height: 60px; padding-top: 12px; opacity: 1; }
+      .browser-figure[data-preview-focus="copy"] .demo-copy { outline: 2px solid rgba(79,107,255,.65); outline-offset: 7px; }
+      .browser-figure[data-preview-focus="conversion"] .demo-cta { outline: 2px solid rgba(79,107,255,.65); outline-offset: 4px; }
+      .browser-figure[data-preview-focus="measure"] .demo-flow { outline: 2px solid rgba(79,107,255,.65); outline-offset: 3px; }
+      .browser-figure figcaption { margin-top: 18px; color: var(--muted); font-size: .8rem; line-height: 1.55; }
+      .acquisition-path { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 17px; margin-top: 57px; padding: 20px 0 0; border-top: 1px solid #c6c9c6; }
+      .acquisition-path span { color: #353a40; font-size: .9rem; font-weight: 600; }
+      .acquisition-path b { color: var(--indigo-ink); font-size: 1.2rem; font-weight: 400; }
+      .nav-link-method { gap: 8px; }
+      .nav-link-method .nav-link-short { display: none; }
+      .purchase-layout[hidden] { display: none; }
+      .services-step { margin: 0 0 8px; color: var(--indigo-ink); font-size: .68rem; font-weight: 750; letter-spacing: .09em; }
+      .services-heading { align-items: start; }
+      .services-heading > div { flex: 0 0 auto; }
+      .services-heading h3 { font-size: 1.35rem; letter-spacing: -.03em; }
+      .service-line { grid-template-columns: minmax(0,1fr) auto; gap: 8px 16px; min-height: 0; padding: 19px 0; }
+      .service-choice { display: flex; align-items: center; gap: 12px; min-height: 36px; cursor: pointer; }
+      .service-choice input { flex: 0 0 19px; width: 19px; height: 19px; margin: 0; accent-color: var(--indigo-ink); }
+      .service-choice .service-name { font-size: .95rem; }
+      .service-price { grid-column: 2; grid-row: 1; align-self: center; color: var(--indigo-ink); font-size: .83rem; font-weight: 650; white-space: nowrap; }
+      .service-scope { grid-column: 1 / -1; margin-left: 31px; color: #41454d; font-size: .85rem; line-height: 1.6; }
+      .service-scope summary { width: fit-content; min-height: 34px; display: flex; align-items: center; color: var(--graphite); font-weight: 600; cursor: pointer; }
+      .service-scope summary:hover { color: var(--indigo-ink); }
+      .service-scope p { max-width: 650px; margin: 8px 0 4px; }
+      .services-heading > p { max-width: 310px; font-size: .875rem; line-height: 1.5; }
+      @media (max-width: 900px) {
+        .acquisition { padding: 66px 0; }
+        .acquisition-inner { width: min(100% - 64px, 760px); }
+        .acquisition-header { grid-template-columns: 1fr; gap: 18px; margin-bottom: 31px; }
+        .acquisition-grid { grid-template-columns: 1fr; gap: 30px; }
+        .acquisition-panel { min-height: 0; }
+        .browser-figure { max-width: 760px; }
+        .acquisition-path { margin-top: 42px; }
+        .services-heading { flex-direction: row; }
+      }
+      @media (max-width: 560px) {
+        .nav { grid-template-columns: 1fr auto auto; column-gap: 14px; }
+        .nav-link-method .nav-link-long { display: none; }
+        .nav-link-method .nav-link-short { display: inline; }
+        .nav-link-method { min-height: 40px; }
+        .acquisition { padding: 55px 0 57px; scroll-margin-top: 67px; }
+        .acquisition-inner { width: calc(100% - 40px); }
+        .acquisition-header { gap: 14px; }
+        .acquisition-tabs { justify-content: space-between; gap: 6px; }
+        .acquisition-tab { font-size: .82rem; }
+        .acquisition-panel { padding-top: 23px; }
+        .browser-frame { box-shadow: 6px 9px 0 #e9ebe9; }
+        .browser-chrome { min-height: 38px; grid-template-columns: 37px minmax(0,1fr) 12px; gap: 7px; padding: 0 8px; }
+        .browser-dots { gap: 4px; }
+        .browser-dots i { width: 6px; height: 6px; }
+        .browser-address { padding: 5px 8px; font-size: .62rem; }
+        .demo-page { padding: 0 15px 17px; }
+        .demo-nav { min-height: 46px; gap: 12px; font-size: .62rem; }
+        .demo-nav img { width: 78px; }
+        .demo-nav a { min-height: 28px; padding: 6px 8px; }
+        .demo-hero { grid-template-columns: minmax(0,1fr) minmax(95px,.66fr); gap: 12px; padding: 24px 0 20px; }
+        .demo-copy h3 { font-size: clamp(1.15rem, 5vw, 1.55rem); }
+        .demo-copy > p:not(.demo-eyebrow) { font-size: .68rem; }
+        .demo-flow span { padding: 8px; font-size: .5rem; }
+        .demo-flow b { font-size: .64rem; }
+        .demo-proof { flex-wrap: wrap; font-size: .6rem; }
+        .demo-meta { font-size: .58rem; }
+        .browser-figure figcaption { font-size: .76rem; }
+        .acquisition-path { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 36px; }
+        .acquisition-path span { font-size: .8rem; }
+        .acquisition-path b { margin-left: 3px; transform: rotate(90deg); }
+        .services-heading { align-items: start; flex-direction: column; gap: 9px; }
+        .service-line { grid-template-columns: minmax(0,1fr) auto; gap: 5px 10px; }
+        .service-scope { margin-left: 31px; }
+      }
+      /* V23: the conversation and its next action share one product view. */
+      .intro { min-height: 0; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(40px, 5vw, 72px); padding: clamp(56px, 6vw, 88px) 0; }
+      .intro h1 { font-size: clamp(3.25rem, 5vw, 4.75rem); }
+      .hero-demo { min-width: 0; margin: 0; }
+      .hero-workspace { border-top: 2px solid var(--graphite); }
+      .hero-workspace-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 58px; border-bottom: 1px solid var(--rule); }
+      .hero-workspace-brand { display: flex; align-items: center; gap: 9px; font-size: .8125rem; font-weight: 650; }
+      .hero-workspace-brand img { width: 19px; height: 19px; }
+      .hero-channel { color: var(--muted); font-size: .75rem; }
+      .hero-contact { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 23px 0 18px; }
+      .hero-contact strong, .hero-contact small { display: block; }
+      .hero-contact strong { font-size: 1.125rem; font-weight: 650; letter-spacing: -.025em; }
+      .hero-contact small { margin-top: 5px; color: var(--muted); font-size: .8125rem; }
+      .hero-status { display: inline-flex; align-items: center; gap: 6px; color: #3e5550; font-size: .75rem; white-space: nowrap; }
+      .hero-status::before { content: ''; width: 5px; height: 5px; background: #4a7164; border-radius: 50%; }
+      .hero-messages { display: grid; gap: 15px; padding: 18px 0 23px; }
+      .hero-message { width: 88%; margin: 0; padding: 15px 17px; font-size: .9375rem; line-height: 1.5; }
+      .hero-message p { margin: 0; }
+      .hero-message-out { justify-self: end; background: #e9ede8; border-radius: 7px 7px 0 7px; }
+      .hero-message-in { background: #fff; border: 1px solid #e2e3dd; border-radius: 7px 7px 7px 0; }
+      .hero-message footer { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; color: #60665f; font-size: .6875rem; }
+      .hero-transcription { display: block; margin-bottom: 8px; color: #505b54; font-size: .6875rem; font-weight: 650; }
+      .hero-assignment { display: flex; align-items: center; gap: 11px; padding: 17px 0; border-top: 1px solid var(--rule); }
+      .hero-person { display: grid; place-items: center; flex: 0 0 32px; height: 32px; border-radius: 50%; background: #e3e6f3; color: #3548b9; font-size: .8125rem; font-weight: 650; }
+      .hero-assignment p { margin: 0; font-size: .8125rem; line-height: 1.5; }
+      .hero-assignment small { display: block; color: var(--muted); font-size: .75rem; }
+      .hero-next { padding: 18px 20px; border-left: 3px solid var(--indigo-ink); background: #eceefa; }
+      .hero-next small { display: block; color: #4352a2; font-size: .6875rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+      .hero-next strong { display: block; margin: 8px 0 6px; font-size: 1rem; letter-spacing: -.02em; font-weight: 650; }
+      .hero-next p { margin: 0; color: #535a73; font-size: .75rem; line-height: 1.5; }
+      .hero-demo figcaption { margin: 14px 0 0; color: var(--muted); font-size: .6875rem; line-height: 1.5; }
+      @media (max-width: 900px) {
+        .intro { grid-template-columns: 1fr; gap: 40px; padding: 52px 0; }
+        .hero-demo { width: 100%; max-width: 560px; }
+      }
+      @media (max-width: 560px) {
+        .intro { gap: 32px; padding: 36px 0 40px; }
+        .intro .section-index { margin-bottom: 24px; }
+        .intro h1 { font-size: clamp(2.65rem, 10.7vw, 3.75rem); }
+        .intro-lead { margin-top: 22px; }
+        .intro-actions { gap: 0 14px; }
+        .intro-link { margin-top: 18px; gap: 12px; font-size: .875rem; }
+        .hero-contact { flex-wrap: wrap; gap: 10px; padding-top: 18px; }
+        .hero-workspace-head { min-height: 50px; }
+        .hero-messages { padding-top: 10px; gap: 12px; }
+        .hero-message { width: 92%; padding: 13px 14px; }
+      }
+      .laptop-scene { min-width: 0; margin: 0; }
+      .laptop-screen { background: #fff; border: 1px solid #cfd2cf; border-radius: 4px; overflow: hidden; }
+      .crm-topbar { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 18px; background: #14181c; color: #fff; font-size: .8125rem; }
+      .crm-topbar img { width: 16px; height: 16px; }
+      .crm-topbar span:last-child { margin-left: auto; color: #c5c8d0; }
+      .operation-screen { min-width: 0; }
+      .laptop-screen .operation-record { border: 0; border-radius: 0; }
+      .channel-context { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px; margin: -7px 0 34px; padding: 0 0 20px; border-bottom: 1px solid #c6c9c6; font-size: .83rem; }
+      .channel-context > span:first-child { color: var(--muted); font-weight: 600; }
+      .channel-brand { display: inline-flex; align-items: center; gap: 7px; color: #292e32; font-weight: 650; }
+      .channel-brand img { display: block; object-fit: contain; }
+      .channel-context small { margin-left: auto; color: var(--muted); font-size: .75rem; }
+      .site-footer { border-top: 1px solid var(--rule); padding: 36px 0 44px; }
+      .site-footer-inner { width: min(1260px, calc(100% - 64px)); margin: auto; display: flex; justify-content: space-between; align-items: start; gap: 28px; }
+      .site-footer img { display: block; height: auto; }
+      .site-footer p { margin: 12px 0 0; color: var(--muted); font-size: .82rem; }
+      .site-footer nav { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+      .site-footer nav a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; font-size: .86rem; font-weight: 600; }
+      .site-footer nav a:hover { color: var(--indigo-ink); }
+      @media (max-width: 560px) {
+        .channel-context { gap: 10px 18px; margin-top: 0; }
+        .channel-context > span:first-child { flex-basis: 100%; }
+        .channel-context small { margin-left: 0; flex-basis: 100%; }
+        .site-footer-inner { width: calc(100% - 40px); flex-direction: column; gap: 19px; }
+        .site-footer nav { flex-direction: column; gap: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; }
+      }
+
+      .nav-link-method span:last-child { font-size: inherit; }
+      /* V24: readable product views, compact plan comparison and two contact paths. */
+      [hidden] { display: none !important; }
+      .route-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .route { padding-top: 40px; padding-bottom: 42px; }
+      .route h2 { font-size: clamp(1.6rem, 2.8vw, 2.6rem); margin-bottom: 18px; }
+      .route-list li { min-height: 0; }
+      .services-heading > div, .purchase-layout > *, .service-line > * { min-width: 0; }
+      .services-heading > div { flex: 1 1 auto; }
+      .purchase-summary .purchase-total { flex-wrap: wrap; gap: 8px 20px; }
+      .purchase-summary dd { overflow-wrap: anywhere; }
+      .plan-purpose { color: var(--muted); margin: 12px 0 0; font-size: .875rem; line-height: 1.5; min-height: 42px; }
+      .plan-inclusions { margin-top: 8px; }
+      .plan-inclusions summary, .buying-questions summary { cursor: pointer; padding: 15px 0; min-height: 48px; font-size: .875rem; font-weight: 600; line-height: 1.5; }
+      .plan-inclusions summary:hover, .buying-questions summary:hover { color: var(--indigo-ink); }
+      .buying-guide { border-top: 1px solid var(--rule); padding: 64px 0; }
+      .buying-guide-inner { width: min(1260px, calc(100% - 64px)); margin: auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; }
+      .buying-guide h2 { margin: 0 0 16px; font-size: clamp(1.8rem, 3vw, 2.75rem); letter-spacing: -.04em; line-height: 1.15; }
+      .buying-guide p { color: var(--muted); line-height: 1.65; }
+      .buying-questions details { border-bottom: 1px solid var(--rule); }
+      .buying-questions details:first-child { border-top: 1px solid var(--rule); }
+      .buying-questions p { margin: 0 0 20px; font-size: .9375rem; }
+      .quick-panel { min-width: 0; border-top: 2px solid var(--graphite); padding-top: 24px; }
+      .quick-panel h3 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -.03em; margin: 0 0 24px; }
+      .quick-panel textarea { resize: vertical; min-height: 82px; line-height: 1.5; }
+      .field-optional { color: var(--muted); font-size: .86em; font-weight: 450; }
+      .quick-panel .summary dd { overflow-wrap: anywhere; white-space: pre-line; }
+      .submission-success { grid-column: 1 / -1; max-width: 920px; padding: clamp(32px, 6vw, 72px); border-top: 3px solid var(--indigo-ink); background: #fff; }
+      .submission-success-kicker { margin: 0 0 18px; color: var(--indigo-ink); font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+      .submission-success h3 { max-width: 760px; margin: 0; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 620; letter-spacing: -.055em; line-height: 1.08; }
+      .submission-success-copy { max-width: 690px; margin: 22px 0 0; color: #41454d; font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.65; }
+      .submission-success-next { margin: 18px 0 0; color: var(--muted); font-size: .94rem; line-height: 1.55; }
+      .submission-success-demo { margin: 14px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+      .submission-success a { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; margin-top: 26px; border-bottom: 1px solid currentColor; font-size: .92rem; font-weight: 650; }
+      .consent a { text-decoration: underline; text-underline-offset: 3px; }
+      .manual-company { padding-top: 20px; margin-top: 16px; border-top: 1px solid var(--rule); }
+      #manual-company-toggle { margin-top: 8px; }
+      .demo-eyebrow, .demo-copy > small, .demo-flow span, .demo-proof, .demo-meta, .browser-address { font-size: .75rem; }
+      .demo-copy > p:not(.demo-eyebrow), .demo-flow b { font-size: .875rem; }
+      .demo-cta { font-size: .8125rem; min-height: 44px; }
+      .demo-nav { font-size: .8125rem; }
+      .demo-nav a { min-height: 44px; display: inline-flex; align-items: center; }
+      .hero-message footer, .hero-transcription, .hero-next small, .hero-demo figcaption { font-size: .75rem; }
+      @media (max-width: 900px) {
+        .buying-guide-inner { gap: 32px; grid-template-columns: 1fr; }
+      }
+      @media (max-width: 560px) {
+        .nav { column-gap: 10px; }
+        .brand img { width: 112px; }
+        .intro h1 { font-size: clamp(2.3rem, 9.8vw, 3.2rem); }
+        .intro .section-index { margin-bottom: 18px; }
+        .intro-lead { font-size: 1rem; line-height: 1.6; }
+        .route { padding-top: 28px; padding-bottom: 28px; }
+        .route-list { grid-template-columns: 1fr; }
+        .route-list li { min-height: 0; padding: 12px 0; }
+        .acquisition, .operation, .plans { padding-top: 44px; padding-bottom: 44px; }
+        .acquisition h2, .operation h2, .plans h2 { font-size: 2rem; }
+        .acquisition-header { margin-bottom: 24px; }
+        .acquisition-panel { min-height: 0; padding-top: 22px; }
+        .acquisition-grid { gap: 26px; }
+        .demo-page { padding: 0 16px 18px; }
+        .demo-nav { gap: 10px; }
+        .demo-nav > span { display: none; }
+        .demo-hero { grid-template-columns: 1fr; padding: 24px 0 20px; gap: 18px; }
+        .demo-copy h3 { font-size: 1.6rem; }
+        .demo-flow { grid-template-columns: repeat(3, minmax(0,1fr)); }
+        .demo-flow span { padding: 9px 7px; font-size: .6875rem; letter-spacing: 0; }
+        .demo-flow b { font-size: .75rem; }
+        .demo-proof { flex-wrap: wrap; }
+        .demo-meta { line-height: 1.5; }
+        .browser-figure[data-preview-focus="search"] .demo-meta, .browser-figure[data-preview-focus="measure"] .demo-meta { max-height: 150px; }
+        .browser-chrome { grid-template-columns: 30px minmax(0,1fr) 12px; gap: 8px; padding: 0 10px; }
+        .browser-frame { box-shadow: 4px 5px 0 #e9ebe9; }
+        .operation-header { margin-bottom: 20px; }
+        .operation-copy .operation-principle { margin-top: 12px; }
+        .record-heading { flex-wrap: wrap; }
+        .buying-guide { padding: 40px 0; }
+        .buying-guide-inner { width: calc(100% - 40px); gap: 22px; }
+        .service-line { grid-template-columns: minmax(0,1fr); align-items: start; gap: 8px; }
+        .service-choice { grid-column: 1; align-items: start; }
+        .service-choice input { margin-top: 4px; }
+        .service-price { grid-column: 1; grid-row: auto; text-align: left; margin-left: 31px; }
+        .service-price small { text-align: left; max-width: none; }
+        .service-scope { grid-column: 1; }
+        .purchase-services-head { flex-wrap: wrap; gap: 8px; }
+        .purchase-continue { white-space: normal; height: auto; min-height: 52px; }
+        .plan-purpose { min-height: 0; }
+        .quick-panel .primary-button { width: 100%; white-space: normal; }
+        .crm-topbar { font-size: .75rem; padding: 10px 12px; }
+      }
+
+      /* V29: capítulos visuais com alternância forte e pausas reais entre as seções. */
+      .hero-contact-cta {
+        display: inline-flex;
+        min-height: 56px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 25px;
+        border: 0;
+        border-radius: 2px;
+        background: var(--graphite);
+        color: #fff;
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 650;
+        cursor: pointer;
+        transition: background 160ms ease, transform 160ms ease;
+      }
+      .hero-contact-cta:hover { background: var(--indigo-ink); }
+      .hero-contact-cta:active { transform: translateY(1px); }
+      .intro-actions { gap: 16px 28px; margin-top: 4px; }
+      .intro-actions .intro-link { margin-top: 0; }
+
+      .route {
+        padding: clamp(120px, 12vw, 176px) max(32px, calc((100vw - 1260px) / 2));
+        background: var(--indigo-ink);
+        color: #fff;
+        border: 0;
+      }
+      .route h2 {
+        max-width: 820px;
+        margin: 0 0 64px;
+        color: #fff;
+        font-size: clamp(2.8rem, 5.2vw, 5rem);
+        line-height: 1.02;
+        letter-spacing: -.06em;
+      }
+      .route-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0 clamp(28px, 5vw, 72px);
+        border-top: 1px solid rgba(255,255,255,.38);
+        border-bottom: 1px solid rgba(255,255,255,.38);
+      }
+      .route-list li {
+        min-height: 202px;
+        padding: 29px 0 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        border: 0;
+      }
+      .step-number {
+        width: auto;
+        padding: 0;
+        color: #d9deff;
+        background: none;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      .route-list h3 { color: #fff; font-size: clamp(1.55rem, 2vw, 2rem); letter-spacing: -.035em; }
+      .route-list p { max-width: 330px; margin-top: 9px; color: #f0f2ff; font-size: 1rem; line-height: 1.6; }
+
+      .acquisition {
+        padding: clamp(132px, 12vw, 176px) 0;
+        background: #fff;
+        border: 0;
+      }
+      .acquisition-header { gap: clamp(64px, 9vw, 132px); margin-bottom: 76px; }
+      .acquisition-header h2, .operation h2, .plans h2 { font-size: clamp(2.9rem, 5vw, 5rem); line-height: 1.02; letter-spacing: -.06em; }
+      .acquisition-header > p, .operation-deck, .plans-intro { font-size: 1.08rem; line-height: 1.72; }
+      .acquisition-grid { gap: clamp(60px, 8vw, 116px); }
+      .acquisition-panel { min-height: 350px; padding-top: 42px; }
+      .acquisition-panel-label { font-size: .84rem; letter-spacing: .04em; }
+      .acquisition-panel h3 { font-size: clamp(1.8rem, 2.7vw, 2.5rem); }
+      .acquisition-panel > p:not(.acquisition-panel-label) { font-size: 1rem; line-height: 1.7; }
+      .acquisition-panel ul { display: block; padding: 0; margin-top: 32px; border-top: 1px solid #d7d9d6; list-style: none; font-size: 1rem; }
+      .acquisition-panel li { padding: 16px 0; border-bottom: 1px solid #e5e6e3; }
+      .acquisition-panel li::marker { content: none; }
+      .acquisition-path { margin-top: 88px; padding-top: 30px; }
+
+      .operation {
+        padding: clamp(132px, 12vw, 176px) 0;
+        background: #111318;
+        color: #f8f7f4;
+        border: 0;
+      }
+      .operation-kicker { color: #b8c2ff; font-size: .92rem; }
+      .operation h2 { color: #fff; }
+      .operation-deck, .operation-copy p { color: #d3d5dc; }
+      .operation-header { gap: clamp(60px, 9vw, 128px); margin-bottom: 68px; }
+      .operation-tabs { gap: clamp(30px, 5vw, 68px); border-color: #484b53; }
+      .operation-tab { min-height: 76px; color: #b9bdc7; font-size: 1.05rem; }
+      .operation-tab[aria-selected="true"] { color: #fff; }
+      .operation-tab[aria-selected="true"]::after { background: #8798ff; }
+      .operation-tab:hover { color: #c7ceff; }
+      .operation-layout { gap: clamp(56px, 8vw, 120px); }
+      .operation-copy { padding-top: 32px; }
+      .operation-copy h3 { color: #fff; font-size: clamp(2rem, 3vw, 2.7rem); }
+      .operation-copy .operation-principle { border-color: #484b53; color: #fff; font-size: 1rem; }
+      .operation-record { color: var(--graphite); }
+      .operation-footer { margin-top: 46px; }
+      .operation-footer p, .operation-visual-caption { color: #c4c7d0; }
+      .operation-cta { color: #fff; border-color: #fff; }
+      .operation-cta:hover { color: #bdc7ff; border-color: #bdc7ff; }
+
+      .plans {
+        padding: clamp(132px, 12vw, 176px) 0;
+        background: #edf0ff;
+        border: 0;
+      }
+      .plans-header { gap: clamp(56px, 8vw, 112px); margin-bottom: 72px; }
+      .billing-choice { margin-bottom: 38px; background: #fff; }
+      .plans-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        border: 0;
+      }
+      .plan-option, .plan-option:first-child, .plan-option:last-child {
+        padding: 34px 30px 36px;
+        background: #fff;
+        border: 1px solid #d5d9e9;
+      }
+      .plan-option[data-recommended="true"] { background: #fff; border-color: var(--indigo-ink); }
+      .plan-option[aria-current="true"] { box-shadow: inset 0 4px var(--indigo-ink); }
+      .plan-features { border-color: #d7d9e2; }
+      .plan-features li { padding: 15px 0; font-size: .95rem; line-height: 1.55; border-color: #e6e7ed; }
+      .plan-features li::before { display: none; }
+      .plan-inclusions summary, .buying-questions summary { padding: 19px 0; font-size: .97rem; }
+      .plan-preview-note { max-width: 900px; margin-top: 24px; font-size: .95rem; line-height: 1.65; }
+
+      .buying-guide { padding: clamp(100px, 10vw, 144px) 0; border: 0; background: #fff; }
+      .buying-guide-inner { gap: clamp(60px, 9vw, 128px); }
+      .buying-guide h2 { font-size: clamp(2.4rem, 4vw, 3.7rem); line-height: 1.05; }
+      .buying-guide-inner > div:first-child > p:not(.plans-kicker) { max-width: 440px; font-size: 1.04rem; line-height: 1.7; }
+      .buying-questions details { border-color: #d7d9d6; }
+      .buying-questions summary { font-size: 1rem; }
+      .buying-questions p { font-size: .98rem; line-height: 1.65; }
+      .consultation { padding-top: clamp(120px, 12vw, 168px); padding-bottom: clamp(132px, 13vw, 184px); }
+      .consultation-index { font-size: .9rem; letter-spacing: .015em; }
+
+      @media (max-width: 900px) {
+        .route { padding: 100px 32px 106px; }
+        .route h2 { margin-bottom: 44px; font-size: clamp(2.7rem, 6vw, 4rem); }
+        .route-list { gap: 0 26px; }
+        .route-list li { min-height: 188px; }
+        .acquisition, .operation, .plans { padding-top: 100px; padding-bottom: 104px; }
+        .acquisition-header, .operation-header, .plans-header { gap: 30px; margin-bottom: 48px; }
+        .acquisition-grid { gap: 46px; }
+        .plans-grid { grid-template-columns: 1fr; gap: 14px; }
+        .plan-option, .plan-option:first-child, .plan-option:last-child { padding: 30px; border: 1px solid #d5d9e9; }
+        .buying-guide { padding: 88px 0; }
+        .consultation { padding-top: 96px; padding-bottom: 108px; }
+      }
+      @media (max-width: 560px) {
+        .hero-contact-cta { width: 100%; min-height: 56px; }
+        .intro-actions { display: grid; grid-template-columns: 1fr; gap: 6px; align-items: stretch; }
+        .intro-actions .quiet-link { justify-content: center; min-height: 48px; margin: 0; border-bottom: 0; }
+        .route { padding: 82px 20px 88px; }
+        .route h2 { margin-bottom: 35px; font-size: 2.65rem; }
+        .route-list { grid-template-columns: 1fr; }
+        .route-list li { min-height: 0; padding: 22px 0 25px; gap: 9px; border-bottom: 1px solid rgba(255,255,255,.34); }
+        .route-list li:last-child { border-bottom: 0; }
+        .route-list h3 { font-size: 1.5rem; }
+        .route-list p { max-width: 360px; margin-top: 5px; font-size: .98rem; }
+        .acquisition, .operation, .plans { padding: 82px 0 88px; }
+        .acquisition-header, .operation-header, .plans-header { margin-bottom: 35px; }
+        .acquisition-header h2, .operation h2, .plans h2 { font-size: clamp(2.45rem, 10vw, 3.2rem); }
+        .acquisition-header > p, .operation-deck, .plans-intro { font-size: 1rem; }
+        .acquisition-panel { min-height: 0; padding-top: 28px; }
+        .acquisition-panel ul { margin-top: 24px; }
+        .acquisition-panel li { padding: 13px 0; font-size: .95rem; }
+        .acquisition-path { margin-top: 48px; padding-top: 22px; }
+        .operation-tabs { gap: 18px; }
+        .operation-tab { min-height: 64px; gap: 8px; font-size: .94rem; }
+        .operation-copy { padding-top: 12px; }
+        .operation-footer { align-items: flex-start; flex-direction: column; margin-top: 32px; }
+        .plans-header { gap: 18px; }
+        .billing-choice { margin-bottom: 30px; }
+        .plan-option, .plan-option:first-child, .plan-option:last-child { padding: 26px 20px; }
+        .plan-features li { font-size: .94rem; }
+        .buying-guide { padding: 76px 0; }
+        .buying-guide h2 { font-size: 2.35rem; }
+        .buying-guide-inner { gap: 32px; }
+        .consultation { padding: 84px 20px 96px; }
+        .submission-success { padding: 30px 22px; }
+        .submission-success h3 { font-size: clamp(2rem, 9vw, 2.7rem); }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Navegação principal">
+        <a class="brand" href="#conteudo" aria-label="ORYNEO, início">
+          <img src="assets/oryneo-wordmark.svg" alt="ORYNEO" />
+        </a>
+        <span class="nav-descriptor">Marketing / Vendas / Tecnologia</span>
+        <a class="nav-link nav-link-method" href="#aquisicao"><span class="nav-link-long">Página e anúncios</span><span class="nav-link-short">Soluções</span></a>
+        <a class="nav-link" href="#planos">
+          <span class="nav-link-long">Ver planos</span>
+          <span class="nav-link-short">Planos</span>
+          <span aria-hidden="true">↘</span>
+        </a>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section class="intro" aria-labelledby="hero-title">
+        <div class="intro-copy">
+          <p class="section-index"><span>ORYNEO / 01</span><span>Crescimento em sistema</span></p>
+          <h1 id="hero-title">Alguém demonstrou interesse.<br>E agora, <span>quem cuida?</span></h1>
+          <p class="intro-lead">
+            A ORYNEO conecta aquisição, atendimento e CRM para sua equipe entender o contexto, assumir cada oportunidade e saber qual é o próximo passo.
+          </p>
+          <div class="intro-actions"><button class="hero-contact-cta" type="button" data-open-talk>Converse com a ORYNEO</button><a class="intro-link quiet-link" href="#planos">Compare os planos</a></div>
+        </div>
+        <figure class="hero-demo" aria-label="Exemplo de uma conversa no WhatsApp acompanhada no CRM da ORYNEO">
+          <div class="hero-workspace">
+            <div class="hero-workspace-head">
+              <span class="hero-workspace-brand"><img src="assets/oryneo-symbol.svg" alt="" />CRM ORYNEO</span>
+              <span class="hero-channel">Conversa no WhatsApp</span>
+            </div>
+            <div class="hero-contact">
+              <div><strong>Marina Costa</strong><small>Estúdio Forma</small></div>
+              <span class="hero-status">Em atendimento</span>
+            </div>
+            <div class="hero-messages">
+              <div class="hero-message hero-message-out">
+                <p>Olá, Marina! Recebemos seu contato. Podemos conversar sobre a rotina da equipe?</p>
+                <footer><span>Mensagem programada</span><time>09:05</time></footer>
+              </div>
+              <div class="hero-message hero-message-in">
+                <span class="hero-transcription">Áudio recebido · transcrição automática</span>
+                <p>Somos quatro pessoas e alguns retornos se perdem.</p>
+                <footer><span>Marina</span><time>09:08</time></footer>
+              </div>
+            </div>
+            <div class="hero-assignment">
+              <span class="hero-person" aria-hidden="true">A</span>
+              <p><strong>Ana</strong> é responsável pelo atendimento.<small>Conversa e histórico no mesmo lugar.</small></p>
+            </div>
+            <div class="hero-next">
+              <small>Próxima ação · Ana</small>
+              <strong>Entender a rotina da equipe</strong>
+              <p>Resposta recebida · Conversa em andamento</p>
+            </div>
+          </div>
+          <figcaption>Exemplo ilustrativo · dados fictícios.</figcaption>
+        </figure>
+      </section>
+
+      <section class="route" id="percurso" aria-labelledby="route-title">
+          <h2 id="route-title">Da chegada do contato ao próximo passo.</h2>
+          <ol class="route-list">
+            <li><span class="step-number" aria-hidden="true">01</span><div><h3>Atrair</h3><p>Página e anúncios com uma proposta clara.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">02</span><div><h3>Atender</h3><p>WhatsApp, histórico e responsável no CRM.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">03</span><div><h3>Acompanhar</h3><p>Próxima ação definida até o desfecho.</p></div></li>
+          </ol>
+      </section>
+      <section class="acquisition" id="aquisicao" aria-labelledby="acquisition-title">
+        <div class="acquisition-inner">
+          <header class="acquisition-header">
+            <div><p class="acquisition-kicker">ORYNEO / 02 — Landing pages e tráfego pago</p><h2 id="acquisition-title">A campanha não termina no clique.</h2></div>
+            <p>Criação de landing pages e gestão de tráfego pago com o mesmo objetivo: transformar interesse em uma conversa que sua equipe consiga acompanhar.</p>
+          </header>
+          <p class="channel-context"><span>Canais de aquisição</span><span class="channel-brand"><img src="assets/google-ads-mark.svg" width="24" height="24" alt="" /> Google Ads</span><span class="channel-brand"><img src="assets/meta-mark.svg" width="31" height="23.25" alt="" /> Meta Ads</span><small>Plataformas definidas conforme a estratégia e a proposta.</small></p>
+          <div class="acquisition-grid">
+            <div class="acquisition-explainer">
+              <div class="acquisition-tabs" role="tablist" aria-label="Como a ORYNEO estrutura uma landing page">
+                <button class="acquisition-tab" id="acq-tab-copy" role="tab" aria-selected="true" aria-controls="acq-panel-copy" tabindex="0" data-focus="copy" type="button">Texto</button>
+                <button class="acquisition-tab" id="acq-tab-conversion" role="tab" aria-selected="false" aria-controls="acq-panel-conversion" tabindex="-1" data-focus="conversion" type="button">Conversão</button>
+                <button class="acquisition-tab" id="acq-tab-search" role="tab" aria-selected="false" aria-controls="acq-panel-search" tabindex="-1" data-focus="search" type="button">Busca</button>
+                <button class="acquisition-tab" id="acq-tab-measure" role="tab" aria-selected="false" aria-controls="acq-panel-measure" tabindex="-1" data-focus="measure" type="button">Medição</button>
+              </div>
+              <div class="acquisition-panel" id="acq-panel-copy" role="tabpanel" aria-labelledby="acq-tab-copy" tabindex="0">
+                <p class="acquisition-panel-label">01 / A promessa continua</p><h3>O anúncio faz uma promessa. A página explica.</h3><p>Título, argumento e próximo passo respondem ao que a pessoa veio buscar.</p>
+                <ul><li>Oferta explicada sem rodeio</li><li>Benefício ligado ao problema do público</li><li>Próxima ação visível</li></ul>
+              </div>
+              <div class="acquisition-panel" id="acq-panel-conversion" role="tabpanel" aria-labelledby="acq-tab-conversion" tabindex="0" hidden>
+                <p class="acquisition-panel-label">02 / A ação fica clara</p><h3>Uma hierarquia que ajuda a decidir.</h3><p>Conteúdo, prova e formulário aparecem na ordem da decisão, com leitura e toque ajustados para celular.</p>
+                <ul><li>Uma ação principal por página</li><li>Formulário com campos proporcionais à oferta</li><li>Botões e leitura conferidos no celular</li></ul>
+              </div>
+              <div class="acquisition-panel" id="acq-panel-search" role="tabpanel" aria-labelledby="acq-tab-search" tabindex="0" hidden>
+                <p class="acquisition-panel-label">03 / Busca e desempenho</p><h3>Preparada para buscas no Google.</h3><p>Conteúdo útil, página rápida e informações bem organizadas ajudam as pessoas a encontrar sua empresa. Nenhuma configuração garante posição ou tráfego.</p>
+                <ul><li>Título e descrição claros para pessoas e buscadores</li><li>Endereço e prévia de compartilhamento revisados</li><li>Velocidade e leitura no celular conferidas antes de publicar</li></ul>
+              </div>
+              <div class="acquisition-panel" id="acq-panel-measure" role="tabpanel" aria-labelledby="acq-tab-measure" tabindex="0" hidden>
+                <p class="acquisition-panel-label">04 / A origem acompanha o contato</p><h3>A campanha continua ligada ao atendimento.</h3><p>Os dados de origem e o envio do formulário podem conectar anúncio, página e oportunidade no CRM.</p>
+                <ul><li>Origem e campanha registradas quando disponíveis</li><li>Envio do formulário medido como evento</li><li>Contato encaminhado para a equipe responsável</li></ul>
+              </div>
+              <p class="acquisition-truth">Landing page e tráfego são serviços opcionais em todos os planos. A verba dos anúncios é paga à parte.</p>
+            </div>
+            <figure class="browser-figure" data-preview-focus="copy">
+              <div class="browser-frame">
+                <div class="browser-chrome"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser-address">oryneo.com.br/operacao-comercial</span><span class="browser-lock" aria-hidden="true">●</span></div>
+                <div class="demo-page">
+                  <div class="demo-nav"><img src="assets/oryneo-wordmark.svg" alt="ORYNEO"/><span>Produto</span><span>Planos</span><a href="#planos">Conversar</a></div>
+                  <div class="demo-hero">
+                    <div class="demo-copy"><p class="demo-eyebrow">CRM · WHATSAPP · AUTOMAÇÃO</p><h3>Do primeiro contato ao próximo passo.</h3><p>Conversa, histórico e retorno organizados para a equipe comercial acompanhar cada oportunidade.</p><a class="demo-cta" href="#planos">Conheça a operação</a><small>Exemplo de estrutura de página</small></div>
+                    <div class="demo-flow" aria-label="Exemplo ilustrativo de novo contato no CRM"><span>ORIGEM <b>Campanha</b></span><span>CONTATO <b>Novo pedido</b></span><span>PRÓXIMA AÇÃO <b>Retorno organizado</b></span></div>
+                  </div>
+                  <div class="demo-proof"><span><b>01</b> Promessa clara</span><span><b>02</b> Próxima ação</span><span><b>03</b> Origem preservada</span></div>
+                  <div class="demo-meta" aria-label="Exemplo de informações da página"><span>Título: Do primeiro contato ao próximo passo</span><span>Formulário: envio acompanhado</span><span>Origem: campanha registrada</span></div>
+                </div>
+              </div>
+              <figcaption>Exemplo de página e pontos de medição. Conteúdo e comportamento são definidos para cada projeto.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section class="operation" id="operacao" aria-labelledby="operation-title">
+        <div class="operation-inner">
+          <div class="operation-header">
+            <div>
+              <p class="operation-kicker">ORYNEO / 03 — A operação por dentro</p>
+              <h2 id="operation-title">Cada conversa tem<br>um próximo passo.</h2>
+            </div>
+            <p class="operation-deck">O WhatsApp mantém a conversa. O CRM guarda o contexto. As automações organizam responsáveis, tarefas e retornos ao longo da negociação.</p>
+          </div>
+          <div class="operation-tabs" role="tablist" aria-label="Acompanhe uma oportunidade">
+            <button class="operation-tab" id="op-tab-receber" role="tab" aria-selected="true" aria-controls="op-receber" tabindex="0" type="button"><span aria-hidden="true">01</span> Receber</button>
+            <button class="operation-tab" id="op-tab-acompanhar" role="tab" aria-selected="false" aria-controls="op-acompanhar" tabindex="-1" type="button"><span aria-hidden="true">02</span> Acompanhar</button>
+            <button class="operation-tab" id="op-tab-negociar" role="tab" aria-selected="false" aria-controls="op-negociar" tabindex="-1" type="button"><span aria-hidden="true">03</span> Negociar</button>
+          </div>
+          <div class="operation-layout">
+            <div class="operation-copy">
+              <div class="operation-panel" id="op-receber" role="tabpanel" aria-labelledby="op-tab-receber" tabindex="0">
+                <h3>Chegou um contato.<br>A equipe já sabe o que fazer.</h3>
+                <p>A entrada pela página leva a origem e os dados do contato ao CRM. A automação encaminha a oportunidade e cria a primeira tarefa.</p>
+                <p class="operation-principle">Responsável definido. Primeiro contato organizado.</p>
+              </div>
+              <div class="operation-panel" id="op-acompanhar" role="tabpanel" aria-labelledby="op-tab-acompanhar" tabindex="0" hidden>
+                <h3>A conversa começa.<br>O contexto acompanha.</h3>
+                <p>O WhatsApp integrado conecta a conversa à oportunidade. Respostas com IA apoiam o atendimento, enquanto lembretes organizam os retornos e mantêm a equipe no controle.</p>
+                <p class="operation-principle">Áudios recebidos são transcritos automaticamente, sem interromper a conversa.</p>
+              </div>
+              <div class="operation-panel" id="op-negociar" role="tabpanel" aria-labelledby="op-tab-negociar" tabindex="0" hidden>
+                <h3>A proposta saiu.<br>O retorno já está na agenda.</h3>
+                <p>A mudança de etapa aciona a próxima tarefa. A equipe sabe quando retomar a conversa, e a gestão acompanha o andamento até o desfecho.</p>
+                <p class="operation-principle">Lembretes ajustados ao processo de cada empresa.</p>
+              </div>
+            </div>
+            <figure class="laptop-scene" aria-label="Exemplo de uma oportunidade acompanhada no CRM da ORYNEO">
+              <div class="laptop-screen">
+                <div class="crm-topbar"><img src="assets/oryneo-symbol.svg" alt="" /><span>CRM · Oportunidades</span><span>Equipe ORYNEO</span></div>
+                <div class="operation-screen">
+                  <div class="operation-record" data-operation-record="receber" aria-label="Exemplo de novo contato recebido">
+                    <div class="record-heading"><div><strong>Marina Costa</strong><small>Estúdio Forma · Solicitação comercial</small></div><span class="record-stage">Novo contato</span></div>
+                    <div class="record-meta"><span>Origem <b>Página da empresa</b></span><span>Responsável <b>Ana</b></span></div>
+                    <ol class="record-events">
+                      <li><time>09:00</time><div><strong>Contato recebido</strong><p>Empresa, interesse e telefone reunidos no CRM.</p></div></li>
+                      <li><time>09:00</time><div><strong>Responsável definido</strong><p>Ana recebeu a oportunidade.</p></div></li>
+                      <li><time>09:00</time><div><strong>Primeira tarefa criada</strong><p>A equipe já sabe quem fará o primeiro contato.</p></div></li>
+                    </ol>
+                    <div class="record-next"><small>Próxima ação · Ana</small><strong>Falar com Marina</strong><p>Hoje, 09:15 · Lembrete programado</p></div>
+                  </div>
+                  <div class="operation-record" data-operation-record="acompanhar" aria-label="Exemplo de conversa no WhatsApp ligada ao CRM" hidden>
+                    <div class="record-heading"><div><strong>Marina Costa</strong><small>Estúdio Forma · Solicitação comercial</small></div><span class="record-stage">Em atendimento</span></div>
+                    <div class="record-meta"><span>Canal <b>WhatsApp</b></span><span>Responsável <b>Ana</b></span></div>
+                    <div class="conversation">
+                      <p class="conversation-label">Conversa ligada ao CRM</p>
+                      <blockquote class="sent">Olá, Marina! Recebemos seu contato. Podemos conversar sobre a rotina da equipe?<small>09:05 · Mensagem programada</small></blockquote>
+                      <blockquote>Somos quatro pessoas e alguns retornos se perdem.<small>09:08 · Áudio recebido · transcrição automática</small></blockquote>
+                      <p class="conversation-context">Exemplo de conversa com os dados fictícios de Marina.</p>
+                    </div>
+                    <div class="record-next"><small>Próxima ação · Ana</small><strong>Entender a rotina da equipe</strong><p>Resposta recebida · Conversa em andamento</p></div>
+                  </div>
+                  <div class="operation-record" data-operation-record="negociar" aria-label="Exemplo de proposta com retorno programado" hidden>
+                    <div class="record-heading"><div><strong>Marina Costa</strong><small>Estúdio Forma · Solicitação comercial</small></div><span class="record-stage">Em negociação</span></div>
+                    <div class="record-meta"><span>Origem <b>Página da empresa</b></span><span>Responsável <b>Ana</b></span></div>
+                    <ol class="record-events">
+                      <li><time>14:20</time><div><strong>Proposta enviada</strong><p>Ana registrou o envio e os pontos da conversa.</p></div></li>
+                      <li><time>14:21</time><div><strong>Etapa atualizada</strong><p>A oportunidade passou para Em negociação.</p></div></li>
+                      <li><time>14:21</time><div><strong>Retorno organizado</strong><p>Um lembrete foi criado para a próxima conversa.</p></div></li>
+                    </ol>
+                    <div class="record-next"><small>Próxima ação · Ana</small><strong>Retomar a proposta com Marina</strong><p>Amanhã, 10:00 · Tarefa na agenda comercial</p></div>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="operation-visual-caption">A mesma oportunidade, do primeiro contato à próxima conversa.</figcaption>
+            </figure>
+          </div>
+          <div class="operation-footer">
+            <p>Demonstração com dados fictícios. Etapas e lembretes são ajustados à sua operação.</p>
+            <a class="operation-cta" href="#planos">Quero organizar minha operação</a>
+          </div>
+        </div>
+      </section>
+      <section class="plans" id="planos" aria-labelledby="plans-title">
+        <div class="plans-inner">
+          <div class="plans-header">
+            <div><p class="plans-kicker">ORYNEO / 04 — Planos</p><h2 id="plans-title">Escolha a capacidade.<br>O essencial já está incluído.</h2></div>
+            <p class="plans-intro">Todos conectam CRM, WhatsApp e retornos. O que muda é a capacidade e a profundidade do desenho da operação na implantação.</p>
+          </div>
+          <fieldset class="billing-choice"><legend>Como prefere contratar?</legend><label><input type="radio" name="billing" value="monthly" checked /><span>Mensal</span></label><label><input type="radio" name="billing" value="annual" /><span>Anual <em>10% de desconto</em></span></label></fieldset>
+          <div class="plans-grid" role="group" aria-label="Planos ORYNEO">
+            <article class="plan-option" data-plan="Start" aria-current="false">
+              <div class="plan-top"><h3>Start</h3><span class="plan-selected-label">Selecionado</span></div>
+              <p class="plan-purpose">Para organizar o atendimento e manter os retornos em dia.</p>
+              <p class="plan-price"><span data-price="Start">R$ 749,90</span><small>/ mês</small></p>
+              <p class="plan-billing" data-billing="Start">Cobrança mensal.</p>
+              <p class="plan-setup">Implantação única: R$ 989,90</p>
+              <ul class="plan-features"><li>Até <strong>5 usuários</strong></li><li>Automações essenciais de atendimento e retorno, configuradas na implantação</li><li>Até <strong>1.500 respostas automáticas geradas por IA por mês</strong></li><li>Até <strong>300 minutos de áudios recebidos transcritos por mês</strong></li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>3 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
+              <div class="plan-actions">
+                <button class="plan-cta" type="button" data-plan-action="Start" data-intent="contract">Quero contratar este plano <span aria-hidden="true">↗</span></button>
+                <button class="plan-talk" type="button" data-plan-action="Start" data-intent="conversation" aria-label="Quero conversar sobre o Start">Quero conversar</button>
+              </div>
+            </article>
+            <article class="plan-option" data-plan="Growth" data-recommended="true" aria-current="false">
+              <div class="plan-top"><h3>Growth</h3><span class="plan-selected-label">Selecionado</span></div>
+              <p class="plan-purpose">Para transformar o follow-up em um processo comercial consistente.</p>
+              <p class="plan-price"><span data-price="Growth">R$ 1.099,90</span><small>/ mês</small></p>
+              <p class="plan-billing" data-billing="Growth">Cobrança mensal.</p>
+              <p class="plan-setup">Implantação única: R$ 1.389,90</p>
+              <ul class="plan-features"><li>Até <strong>10 usuários</strong></li><li>Desenho de cadência comercial ajustada às etapas do funil</li><li>Até <strong>5.000 respostas automáticas geradas por IA por mês</strong></li><li>Até <strong>700 minutos de áudios recebidos transcritos por mês</strong></li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>7 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
+              <div class="plan-actions">
+                <button class="plan-cta" type="button" data-plan-action="Growth" data-intent="contract">Quero contratar este plano <span aria-hidden="true">↗</span></button>
+                <button class="plan-talk" type="button" data-plan-action="Growth" data-intent="conversation" aria-label="Quero conversar sobre o Growth">Quero conversar</button>
+              </div>
+            </article>
+            <article class="plan-option" data-plan="Scale" aria-current="false">
+              <div class="plan-top"><h3>Scale</h3><span class="plan-selected-label">Selecionado</span></div>
+              <p class="plan-purpose">Para coordenar fluxos em uma operação com mais equipes e etapas.</p>
+              <p class="plan-price"><span data-price="Scale">R$ 1.479,90</span><small>/ mês</small></p>
+              <p class="plan-billing" data-billing="Scale">Cobrança mensal.</p>
+              <p class="plan-setup">Implantação única: R$ 1.849,90</p>
+              <ul class="plan-features"><li>Até <strong>20 usuários</strong></li><li>Desenho de fluxos entre equipes, etapas e funis na implantação</li><li>Até <strong>10.000 respostas automáticas geradas por IA por mês</strong></li><li>Até <strong>1.200 minutos de áudios recebidos transcritos por mês</strong></li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>10 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
+              <div class="plan-actions">
+                <button class="plan-cta" type="button" data-plan-action="Scale" data-intent="contract">Quero contratar este plano <span aria-hidden="true">↗</span></button>
+                <button class="plan-talk" type="button" data-plan-action="Scale" data-intent="conversation" aria-label="Quero conversar sobre o Scale">Quero conversar</button>
+              </div>
+            </article>
+          </div>
+          <p class="plan-preview-note">Escolha o plano e confira a configuração completa. A contratação é formalizada após a análise da solicitação e apresentação das condições.</p>
+          <div class="purchase-layout" id="purchase-layout" hidden><div class="services" aria-labelledby="services-title">
+            <div class="services-heading"><div><p class="services-step">PASSO 02 · OPCIONAL</p><h3 id="services-title" tabindex="-1">Quer ampliar a aquisição?</h3></div><p>Os dois serviços estão disponíveis em qualquer plano. Marque só o que deseja receber em proposta.</p></div>
+            <div class="service-line"><label class="service-choice"><input type="checkbox" name="service" value="Landing page de conversão" data-service="landing-page" /><span class="service-name">Landing page de conversão</span></label><span class="service-price">R$ 889,90 · único</span><details class="service-scope"><summary>Ver escopo</summary><p>Entendimento do negócio e organização do conteúdo; textos; layout para computador e celular; desenvolvimento; formulário conectado ao CRM; registro da origem e do envio; preparação para buscas no Google; revisão de acessibilidade e velocidade; publicação após aprovação.</p></details></div>
+            <div class="service-line"><label class="service-choice"><input type="checkbox" name="service" value="Gestão de tráfego pago" data-service="traffic" /><span class="service-name">Gestão de tráfego pago</span></label><span class="service-price">R$ 989,90/mês<small>R$ 2.969,70 por trimestre</small></span><details class="service-scope"><summary>Ver escopo</summary><p>Planejamento e configuração das plataformas acordadas; textos e variações de anúncios; registro da origem e dos contatos; acompanhamento e ajustes; relatório ligado a contatos e oportunidades. Contratação trimestral, cobrada em um único valor de R$ 2.969,70. Verba de mídia paga separadamente.</p></details></div>
+            <p class="service-footnote">Os complementos são opcionais e entram no total ao selecionar. Tráfego: R$ 2.969,70 por trimestre. Verba de mídia à parte.</p>
+          </div>
+          <aside class="purchase-summary" id="resumo-plano" aria-labelledby="purchase-title"><p class="purchase-kicker">PASSO 03 · REVISÃO</p><h3 id="purchase-title"><span id="purchase-plan">Selecione um plano</span> <small id="purchase-cycle"></small></h3><dl><div><dt>Plano <span id="purchase-period-label">—</span></dt><dd id="purchase-period">—</dd></div><div><dt>Implantação única</dt><dd id="purchase-setup">—</dd></div></dl><p class="purchase-saving" id="purchase-saving" hidden></p><p class="purchase-capacity" id="purchase-capacity"></p><div class="purchase-services" id="purchase-services" aria-live="polite"><div class="purchase-services-head"><strong>Complementos</strong><span class="purchase-services-count" id="purchase-services-count">Nenhum</span></div><ul class="purchase-services-list" id="purchase-services-list"></ul><p class="purchase-services-note" id="purchase-services-note">Selecione landing page ou gestão de tráfego para incluir.</p></div><div class="purchase-grand-total"><span>Primeira cobrança estimada</span><strong id="purchase-first">—</strong></div><button class="primary-button purchase-continue" id="purchase-continue" type="button">Continuar com esta configuração</button><p class="purchase-disclaimer">Total do período escolhido, implantação e complementos selecionados. Verba de mídia à parte. Você revisa a solicitação antes de enviá-la por e-mail. Nenhuma cobrança é feita aqui.</p></aside></div>
+          <p class="plan-selection-feedback" id="plan-feedback" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+      <section class="buying-guide" aria-labelledby="guide-title">
+        <div class="buying-guide-inner"><div><p class="plans-kicker">Antes de contratar</p><h2 id="guide-title">Da escolha à implantação.</h2><p>Entendemos sua necessidade, confirmamos a proposta e organizamos a configuração e a orientação da equipe.</p><button class="text-button" type="button" data-open-talk>Quero conversar antes de escolher ↗</button></div>
+        <div class="buying-questions">
+          <details><summary>O que a implantação inclui?</summary><p>Entendimento da operação, configuração do ambiente conforme o escopo contratado, testes e orientação da equipe para começar. O cronograma e os responsáveis são combinados na proposta.</p></details>
+          <details><summary>Como funciona o plano anual?</summary><p>Você paga 12 meses antecipadamente com 10% de desconto sobre a assinatura. Implantação e complementos não recebem esse desconto.</p></details>
+          <details><summary>Preciso contratar página e anúncios?</summary><p>Não. Os dois serviços são opcionais. A landing page custa R$ 889,90, uma única vez. A gestão de tráfego custa R$ 2.969,70 por trimestre, equivalente a R$ 989,90/mês. A verba dos anúncios é paga separadamente.</p></details>
+          <details><summary>E se eu precisar de mais capacidade?</summary><p>Conte para a equipe o que sua operação precisa. A ORYNEO apresenta o escopo e as condições antes de você decidir.</p></details>
+          <details><summary>Quando a contratação é concluída?</summary><p>A escolha nesta página prepara sua solicitação. A contratação é formalizada após a apresentação do escopo, dos valores e das condições de pagamento, cancelamento e reembolso.</p></details>
+        </div></div>
+      </section>
+      <section class="consultation" id="solicitacao" aria-labelledby="consultation-title">
+        <div class="consultation-grid">
+          <div class="consultation-copy">
+            <p class="consultation-index">ORYNEO / 05 &nbsp;—&nbsp; Sua solicitação</p>
+            <h2 id="consultation-title">Conte um pouco sobre a sua operação.</h2>
+            <p id="consultation-description">Identifique sua empresa e confira os dados antes de enviar a solicitação.</p>
+          </div>
+          <div class="quick-panel" id="quick-panel" hidden>
+            <p class="selection-context" id="quick-context"></p>
+            <form id="quick-form" novalidate>
+              <h3 tabindex="-1">Vamos conversar.</h3>
+              <div class="form-row"><label class="field-label" for="quick-name">Seu nome</label><input class="field-input" id="quick-name" autocomplete="name" maxlength="90" required aria-describedby="quick-name-error" /><p class="field-error" id="quick-name-error"></p></div>
+              <div class="form-row"><label class="field-label" for="quick-phone">WhatsApp com DDD</label><input class="field-input" id="quick-phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="15" placeholder="(21) 99999-9999" required aria-describedby="quick-phone-error" /><p class="field-error" id="quick-phone-error"></p></div>
+              <div class="form-row"><label class="field-label" for="quick-email">E-mail <span class="field-optional">(opcional)</span></label><input class="field-input" id="quick-email" type="email" inputmode="email" autocomplete="email" maxlength="150" placeholder="voce@empresa.com.br" aria-describedby="quick-email-error quick-email-suggestion-text" /><p class="field-error" id="quick-email-error"></p><div class="email-suggestion" id="quick-email-suggestion" hidden><p id="quick-email-suggestion-text"></p><div class="email-suggestion-actions"><button class="text-button" id="quick-email-correct" type="button">Corrigir e-mail</button><button class="text-button" id="quick-email-keep" type="button">Manter como está</button></div></div></div>
+              <div class="form-row"><label class="field-label" for="quick-need">O que você quer organizar? <span class="field-optional">(opcional)</span></label><textarea class="field-input" id="quick-need" rows="2" maxlength="600" placeholder="Ex.: organizar os retornos dos leads." aria-describedby="quick-need-error"></textarea><p class="field-error" id="quick-need-error"></p></div>
+              <label class="consent"><input id="quick-consent" type="checkbox" /><span>Autorizo o contato sobre esta solicitação. <a href="privacidade.html" target="_blank" rel="noopener">Como usamos seus dados</a>.</span></label>
+              <p class="form-feedback" id="quick-feedback" role="status" aria-live="polite"></p>
+              <button class="primary-button" type="submit">Revisar minha solicitação ↗</button>
+            </form>
+            <div id="quick-review" hidden><h3 tabindex="-1">Confira antes de enviar.</h3><dl class="summary" id="quick-summary"></dl><p class="preview-note">Abra a solicitação no seu aplicativo de e-mail e confirme o envio. Nenhuma cobrança é feita aqui.</p><div class="stage-actions"><button class="primary-button" type="button" id="quick-send">Abrir e-mail para enviar ↗</button><button class="text-button" type="button" id="quick-copy">Copiar solicitação</button></div><p class="form-feedback" id="quick-send-feedback" role="status" aria-live="polite"></p><button class="text-button" type="button" id="quick-edit">Editar informações</button></div>
+          </div>
+          <div class="lead-panel" id="detailed-panel">
+            <div class="form-progress" aria-live="polite" aria-atomic="true">
+              <div class="progress-caption"><span id="progress-count">Etapa 1 de 4</span><span id="progress-label">Empresa</span></div>
+              <div class="progress-track" id="progress-track" role="progressbar" aria-label="Progresso do formulário" aria-valuemin="0" aria-valuemax="4" aria-valuenow="1"><span id="progress-fill"></span></div>
+            </div>
+
+            <div class="stage" id="stage-company" data-active="true">
+              <h3 tabindex="-1">Qual é a sua empresa?</h3>
+              <p class="stage-intro">Consulte o CNPJ para preencher os dados ou informe a empresa manualmente.</p>
+              <form class="entry" id="cnpj-form" novalidate>
+                <p class="selection-context" id="selection-context" role="status" aria-live="polite" hidden></p>
+                <label class="entry-label" for="cnpj">CNPJ da empresa</label>
+                <div class="entry-row">
+                  <input class="entry-input" id="cnpj" name="cnpj" type="text" inputmode="text" autocapitalize="characters" spellcheck="false" autocomplete="off" maxlength="18" placeholder="00.000.000/0000-00" aria-describedby="cnpj-caption cnpj-feedback" required />
+                  <button class="primary-button" id="cnpj-button" type="submit">Identificar empresa</button>
+                </div>
+                <p class="entry-caption" id="cnpj-caption">Aceitamos CNPJ com números ou letras. A consulta usa o serviço público BrasilAPI; você pode optar pelo preenchimento manual.</p>
+                <p class="form-feedback" id="cnpj-feedback" role="status" aria-live="polite"></p>
+                <button class="text-button" id="manual-company-toggle" type="button" aria-expanded="false" aria-controls="manual-company-form">Preencher dados da empresa</button>
+              </form>
+              <form id="manual-company-form" class="manual-company" hidden novalidate>
+                <label class="field-label" for="manual-company-name">Nome da empresa</label>
+                <input class="field-input" id="manual-company-name" autocomplete="organization" maxlength="150" required aria-describedby="manual-company-error" />
+                <p class="field-error" id="manual-company-error" role="status"></p>
+                <button class="primary-button" type="submit">Continuar com estes dados</button>
+              </form>
+            </div>
+
+            <form class="stage" id="stage-contact" novalidate>
+              <h3 tabindex="-1">Quem vai falar com a ORYNEO?</h3>
+              <p class="stage-intro">Confirme a empresa e deixe seus dados de contato.</p>
+              <div class="company-result" aria-live="polite">
+                <small id="company-status">Empresa identificada</small>
+                <strong id="company-name"></strong>
+                <span id="company-detail"></span>
+              </div>
+              <button class="text-button company-change" id="change-company" type="button">Corrigir CNPJ</button>
+              <div class="form-row" style="margin-top: 30px">
+                <label class="field-label" for="contact-name">Seu nome</label>
+                <input class="field-input" id="contact-name" name="name" type="text" autocomplete="name" maxlength="90" aria-describedby="contact-name-error" required />
+                <p class="field-error" id="contact-name-error" aria-live="polite"></p>
+              </div>
+              <div class="form-row">
+                <label class="field-label" for="contact-phone">WhatsApp</label>
+                <input class="field-input" id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="15" placeholder="(00) 00000-0000" aria-describedby="contact-phone-error" required />
+                <p class="field-error" id="contact-phone-error" aria-live="polite"></p>
+              </div>
+              <div class="form-row">
+                <label class="field-label" for="contact-email">E-mail</label>
+                <input class="field-input" id="contact-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="150" aria-describedby="contact-email-error email-suggestion-text" required />
+                <p class="field-error" id="contact-email-error" aria-live="polite"></p>
+              </div>
+              <div class="email-suggestion" id="email-suggestion" hidden>
+                <p id="email-suggestion-text"></p>
+                <div class="email-suggestion-actions">
+                  <button class="text-button" id="email-correct" type="button">Corrigir e-mail</button>
+                  <button class="text-button" id="email-keep" type="button">O endereço está correto</button>
+                </div>
+              </div>
+              <div class="stage-actions"><button class="primary-button" type="submit">Continuar <span aria-hidden="true">↗</span></button></div>
+            </form>
+
+            <form class="stage" id="stage-operation" novalidate>
+              <h3 tabindex="-1">Como a operação funciona hoje?</h3>
+              <p class="stage-intro">Essas informações ajudam a preparar a proposta para sua equipe.</p>
+              <div class="form-row">
+                <label class="field-label" for="team-size">Quantas pessoas atuam na operação comercial?</label>
+                <select class="field-input" id="team-size" name="team_size" aria-describedby="operation-feedback" required>
+                  <option value="" selected disabled>Selecione uma faixa</option>
+                  <option>Somente eu</option><option>2 a 5 pessoas</option><option>6 a 10 pessoas</option><option>11 a 20 pessoas</option><option>Mais de 20 pessoas</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label class="field-label" for="acquisition-channel">De onde vem a maior parte dos clientes hoje?</label>
+                <select class="field-input" id="acquisition-channel" name="acquisition_channel" aria-describedby="operation-feedback" required>
+                  <option value="" selected disabled>Selecione o canal principal</option>
+                  <option>Indicações e parcerias</option><option>Instagram e Facebook</option><option>Google</option><option>Prospecção ativa</option><option>Portais e marketplaces</option><option>Loja física e eventos</option><option>Ainda não temos um canal previsível</option><option>Outro canal</option>
+                </select>
+              </div>
+              <p class="form-feedback" id="operation-feedback" role="status" aria-live="polite"></p>
+              <div class="stage-actions">
+                <button class="primary-button" type="submit">Continuar <span aria-hidden="true">↗</span></button>
+                <button class="text-button" id="back-contact" type="button">Voltar</button>
+              </div>
+            </form>
+
+            <form class="stage" id="stage-goal" novalidate>
+              <h3 tabindex="-1">Por onde começamos?</h3>
+              <p class="stage-intro">Selecione tudo o que faz sentido para sua empresa agora.</p>
+              <div class="choices" role="group" aria-label="Interesses da sua empresa" aria-describedby="goal-feedback">
+                <label class="choice"><input type="checkbox" name="goal" value="Atrair contatos com páginas e anúncios" /><span>Atrair contatos com páginas e anúncios</span></label>
+                <label class="choice"><input type="checkbox" name="goal" value="Organizar contatos e negociações no CRM" /><span>Organizar contatos e negociações no CRM</span></label>
+                <label class="choice"><input type="checkbox" name="goal" value="Organizar retornos pelo WhatsApp" /><span>Organizar retornos pelo WhatsApp</span></label>
+                <label class="choice"><input type="checkbox" name="goal" value="Acompanhar resultados e gestão" /><span>Acompanhar resultados e gestão</span></label>
+              </div>
+              <label class="consent"><input id="consent" type="checkbox" /><span>Autorizo o contato da ORYNEO sobre esta solicitação por WhatsApp ou e-mail. <a href="privacidade.html" target="_blank" rel="noopener">Como usamos seus dados</a>.</span></label>
+              <p class="form-feedback" id="goal-feedback" role="status" aria-live="polite"></p>
+              <div class="stage-actions">
+                <button class="primary-button" type="submit">Conferir dados <span aria-hidden="true">↗</span></button>
+                <button class="text-button" id="back-operation" type="button">Voltar</button>
+              </div>
+              <p class="preview-note">Na próxima etapa, você confere os dados e abre a solicitação em seu aplicativo de e-mail.</p>
+            </form>
+
+            <div class="stage" id="stage-summary">
+              <h3 tabindex="-1">Revise sua escolha.</h3>
+              <p class="stage-intro">Confira os dados e envie a solicitação pelo seu aplicativo de e-mail. Ela só será recebida após você confirmar o envio.</p>
+              <dl class="summary" id="request-summary"></dl>
+              <p class="preview-note">O envio solicita uma conversa sobre esta configuração. Preços e condições serão confirmados antes da contratação; nenhum pagamento ocorre nesta página.</p>
+              <div class="stage-actions"><button class="primary-button" id="send-request" type="button">Abrir e-mail para enviar <span aria-hidden="true">↗</span></button><button class="text-button" id="copy-request" type="button">Copiar solicitação</button></div>
+              <p class="form-feedback" id="request-feedback" role="status" aria-live="polite"></p>
+              <div class="stage-actions"><button class="text-button" id="back-goal" type="button">Editar informações</button><a class="text-button" href="#planos">Alterar plano</a></div>
+            </div>
+          </div>
+          <section class="submission-success" id="submission-success" aria-labelledby="submission-success-title" role="status" aria-live="polite" tabindex="-1" hidden>
+            <p class="submission-success-kicker">Solicitação recebida</p>
+            <h3 id="submission-success-title">Agora, a conversa começa pela sua operação.</h3>
+            <p class="submission-success-copy" id="submission-success-copy"></p>
+            <p class="submission-success-next" id="submission-success-next">Vamos falar com você pelo contato informado. Não é preciso enviar novamente.</p>
+            <p class="submission-success-demo" id="submission-success-demo" hidden>Prévia local: esta demonstração não enviou dados.</p>
+            <a href="#conteudo">Voltar para o início <span aria-hidden="true">↗</span></a>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div><img src="assets/oryneo-wordmark.svg" width="143" height="35" alt="ORYNEO" /><p>Marketing, vendas e tecnologia conectados à operação.</p></div>
+        <nav aria-label="Links institucionais"><a href="mailto:contato@oryneo.com.br">contato@oryneo.com.br</a><a href="https://www.instagram.com/oryneo_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da ORYNEO, @oryneo_, abre em nova aba"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg> @oryneo_</a><a href="privacidade.html">Privacidade</a></nav>
+      </div>
+    </footer>
+    <script>
+      (() => {
+        const tabs = [...document.querySelectorAll('.acquisition-tab')];
+        const figure = document.querySelector('.browser-figure');
+        function select(tab, moveFocus = false) {
+          tabs.forEach((item) => {
+            const active = item === tab;
+            item.setAttribute('aria-selected', String(active));
+            item.tabIndex = active ? 0 : -1;
+            document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
+          });
+          figure.dataset.previewFocus = tab.dataset.focus;
+          if (moveFocus) tab.focus();
+        }
+        tabs.forEach((tab, index) => tab.addEventListener('click', () => select(tab)));
+        tabs.forEach((tab, index) => tab.addEventListener('keydown', (event) => {
+          let next;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          if (next !== undefined) { event.preventDefault(); select(tabs[next], true); }
+        }));
+      })();
+    </script>
+    <script src="assets/commercial.js"></script>
+    <script>
+      (() => {
+        const choice = window.oryneoCommercialChoice = { plan: null, cycle: 'monthly', services: [], serviceKeys: [], intent: null };
+        const cards = [...document.querySelectorAll('.plan-option')];
+        const serviceInputs = [...document.querySelectorAll('input[name="service"]')];
+        const feedback = document.getElementById('plan-feedback');
+        const cnpj = document.getElementById('cnpj');
+        const selectedContext = document.getElementById('selection-context');
+        const byId = (id) => document.getElementById(id);
+        const purchaseLayout = byId('purchase-layout');
+        const { quote, brl } = window.OryneoPricing;
+        const motion = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+        function renderChoice() {
+          cards.forEach((card) => {
+            const selected = card.dataset.plan === choice.plan;
+            card.setAttribute('aria-current', String(selected));
+            const price = quote(card.dataset.plan, choice.cycle);
+            card.querySelector('[data-price]').textContent = brl(price.monthlyEquivalent);
+            card.querySelector('[data-billing]').textContent = choice.cycle === 'annual'
+              ? brl(price.periodCharge) + ' cobrados a cada 12 meses.' : 'Cobrança mensal.';
+          });
+          choice.services = serviceInputs.filter((input) => input.checked).map((input) => input.value);
+          choice.serviceKeys = serviceInputs.filter((input) => input.checked).map((input) => input.dataset.service);
+          purchaseLayout.hidden = !choice.plan;
+          if (choice.plan) {
+            const price = window.OryneoPricing.orderQuote(choice.plan, choice.cycle, choice.serviceKeys);
+            byId('purchase-plan').textContent = choice.plan;
+            byId('purchase-cycle').textContent = choice.cycle === 'annual' ? '· anual' : '· mensal';
+            byId('purchase-period-label').textContent = choice.cycle === 'annual' ? 'anual' : 'mensal';
+            byId('purchase-period').textContent = brl(price.periodCharge);
+            byId('purchase-setup').textContent = brl(price.setup);
+            byId('purchase-saving').hidden = choice.cycle !== 'annual';
+            byId('purchase-saving').textContent = 'Equivale a ' + brl(price.monthlyEquivalent) + '/mês. Economia de ' + brl(price.savings) + ' em 12 meses sobre o valor mensal.';
+            byId('purchase-capacity').textContent = 'Até ' + price.users + ' usuários · ' + price.aiReplies.toLocaleString('pt-BR') + ' respostas de IA/mês · ' + price.audioMinutes.toLocaleString('pt-BR') + ' min de áudio transcrito/mês.';
+            const servicesList = byId('purchase-services-list');
+            servicesList.replaceChildren();
+            price.serviceLines.forEach((service) => {
+              const item = document.createElement('li');
+              const name = document.createElement('span');
+              const priceLabel = document.createElement('small');
+              name.textContent = service.label;
+              priceLabel.textContent = service.billing === 'monthly'
+                ? brl(service.minimumCommitment) + ' · ' + service.minimumMonths + ' meses'
+                : brl(service.amount) + ' · único';
+              item.append(name, priceLabel);
+              servicesList.append(item);
+            });
+            byId('purchase-services-count').textContent = choice.services.length
+              ? choice.services.length + (choice.services.length === 1 ? ' selecionado' : ' selecionados')
+              : 'Nenhum';
+            byId('purchase-services-note').textContent = choice.services.length
+              ? (choice.serviceKeys.includes('traffic') ? 'Tráfego: R$ 2.969,70 por trimestre, equivalente a R$ 989,90/mês. Verba de mídia paga separadamente.' : 'Landing page: pagamento único, incluído na primeira cobrança.')
+              : 'Selecione landing page ou gestão de tráfego para incluir.';
+            byId('purchase-first').textContent = brl(price.firstCharge);
+          }
+          if (choice.intent) {
+            selectedContext.textContent = 'Plano ' + choice.plan + ' · ' + (choice.cycle === 'annual' ? 'anual' : 'mensal') + (choice.services.length ? ' · ' + choice.services.join(' + ') : '');
+            selectedContext.hidden = false;
+          } else {
+            selectedContext.textContent = '';
+            selectedContext.hidden = true;
+          }
+          window.dispatchEvent(new Event('oryneo-choice-changed'));
+        }
+        function continueWith(selectedPlan, selectedIntent) {
+          if (selectedPlan) choice.plan = selectedPlan;
+          choice.intent = selectedIntent;
+          renderChoice();
+          window.dispatchEvent(new CustomEvent('oryneo-form-mode', {detail: selectedIntent}));
+          if (selectedIntent === 'contract') {
+            feedback.textContent = 'Plano ' + choice.plan + ' selecionado. Confira os valores no resumo antes de avançar.';
+            byId('purchase-layout').scrollIntoView({ behavior: motion(), block: 'start' });
+            byId('services-title').focus({ preventScroll: true });
+          } else {
+            feedback.textContent = 'Plano ' + choice.plan + ' incluído no assunto da conversa.';
+            byId('solicitacao').scrollIntoView({ behavior: motion(), block: 'start' });
+            (byId('quick-review').hidden ? byId('quick-name') : byId('quick-review').querySelector('h3')).focus({ preventScroll: true });
+          }
+        }
+        document.querySelectorAll('[data-plan-action]').forEach((button) => button.addEventListener('click', () => {
+          continueWith(button.dataset.planAction, button.dataset.intent);
+        }));
+        serviceInputs.forEach((input) => input.addEventListener('change', () => {
+          feedback.textContent = input.checked ? input.value + ' incluído na configuração.' : input.value + ' removido da configuração.';
+          renderChoice();
+        }));
+        document.querySelectorAll('input[name="billing"]').forEach((input) => input.addEventListener('change', () => {
+          if (!input.checked) return;
+          choice.cycle = input.value;
+          renderChoice();
+        }));
+        byId('purchase-continue').addEventListener('click', () => {
+          choice.intent = 'contract';
+          renderChoice();
+          window.dispatchEvent(new CustomEvent('oryneo-form-mode', {detail: 'contract'}));
+          byId('solicitacao').scrollIntoView({ behavior: motion(), block: 'start' });
+          const target = document.querySelector('#detailed-panel .stage[data-active="true"] h3');
+          (target || cnpj).focus({ preventScroll: true });
+        });
+        renderChoice();
+      })();
+    </script>
+    <script>
+      (() => {
+        const tabs = [...document.querySelectorAll('.operation-tab')];
+        function selectTab(tab, focus = false) {
+          const stage = tab.id.replace('op-tab-', '');
+          tabs.forEach((item) => {
+            const active = item === tab;
+            item.setAttribute('aria-selected', String(active));
+            item.tabIndex = active ? 0 : -1;
+            document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
+          });
+          document.querySelectorAll('[data-operation-record]').forEach((record) => {
+            record.hidden = record.dataset.operationRecord !== stage;
+          });
+          if (focus) tab.focus();
+        }
+        tabs.forEach((tab, index) => {
+          tab.addEventListener('click', () => selectTab(tab));
+          tab.addEventListener('keydown', (event) => {
+            let next;
+            if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+            if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+            if (event.key === 'Home') next = 0;
+            if (event.key === 'End') next = tabs.length - 1;
+            if (next !== undefined) { event.preventDefault(); selectTab(tabs[next], true); }
+          });
+        });
+      })();
+    </script>
+    <script src="assets/company.js"></script>
+    <script>
+      (() => {
+        const $ = (id) => document.getElementById(id);
+        const form = $('cnpj-form');
+        const input = $('cnpj');
+        const feedback = $('cnpj-feedback');
+        const button = $('cnpj-button');
+        const stages = ['company', 'contact', 'operation', 'goal', 'summary'];
+        const progress = { company: ['Etapa 1 de 4', 'Empresa', 1], contact: ['Etapa 2 de 4', 'Contato', 2], operation: ['Etapa 3 de 4', 'Operação', 3], goal: ['Etapa 4 de 4', 'Interesses', 4], summary: ['Revisão', 'Conferir dados', 4] };
+        let company = null;
+        let activeRequest = 0;
+        let requestText = '';
+
+        const digits = (value) => value.replace(/\D/g, '');
+        const { formatCnpj, validCnpj, normalizeCnpj } = window.OryneoCompany;
+        const formatPhone = (value) => {
+          const d = digits(value).slice(0, 11);
+          if (d.length < 3) return d ? '(' + d : '';
+          if (d.length < 8) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+          return '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length === 11 ? 7 : 6) + '-' + d.slice(d.length === 11 ? 7 : 6);
+        };
+        function message(node, value, kind = 'error') {
+          node.textContent = value;
+          node.dataset.kind = kind;
+        }
+        function showStage(name, focus = false) {
+          stages.forEach((stage) => { $('stage-' + stage).dataset.active = String(stage === name); });
+          const [count, label, value] = progress[name];
+          $('progress-count').textContent = count;
+          $('progress-label').textContent = label;
+          $('progress-track').setAttribute('aria-valuenow', String(value));
+          $('progress-fill').style.width = (value / 4 * 100) + '%';
+          if (focus) {
+            $('solicitacao').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+            $('stage-' + name).querySelector('h3').focus({ preventScroll: true });
+          }
+        }
+
+        input.addEventListener('input', () => {
+          input.value = formatCnpj(input.value);
+          input.removeAttribute('aria-invalid');
+          message(feedback, '');
+          if (button.disabled) {
+            ++activeRequest;
+            button.disabled = false;
+            button.textContent = 'Identificar empresa';
+          }
+          if (company && normalizeCnpj(input.value) !== company.cnpj) {
+            company = null;
+            showStage('company');
+          }
+        });
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const cnpj = normalizeCnpj(input.value);
+          if (!validCnpj(cnpj)) {
+            input.setAttribute('aria-invalid','true');
+            message(feedback, 'Confira o CNPJ e tente novamente.');
+            input.focus();
+            return;
+          }
+          if (company?.cnpj === cnpj) { showStage('contact', true); return; }
+          if (/[A-Z]/.test(cnpj)) {
+            openManualCompany();
+            message(feedback, 'CNPJ válido. Informe o nome da empresa para continuar.', 'success');
+            return;
+          }
+          const request = ++activeRequest;
+          button.disabled = true;
+          button.textContent = 'Consultando…';
+          message(feedback, 'Buscando os dados da empresa…', 'success');
+          try {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 10000);
+            let response;
+            try { response = await fetch('https://brasilapi.com.br/api/cnpj/v1/' + cnpj, { signal: controller.signal }); }
+            finally { clearTimeout(timeout); }
+            if (request !== activeRequest) return;
+            if (response.status === 404) throw new Error('Não encontramos esse CNPJ. Confira os números e tente novamente.');
+            if (!response.ok) throw new Error('A consulta está indisponível agora. Tente novamente em instantes.');
+            const data = await response.json();
+            if (request !== activeRequest) return;
+            const name = data.razao_social || data.nome_fantasia;
+            if (!name) throw new Error('Não foi possível confirmar os dados da empresa. Tente novamente.');
+            company = {
+              cnpj,
+              razaoSocial: data.razao_social || name,
+              nomeFantasia: data.nome_fantasia || '',
+              municipio: data.municipio || '',
+              uf: data.uf || '',
+              situacao: data.descricao_situacao_cadastral || ''
+            };
+            $('company-status').textContent = 'Dados encontrados · confira abaixo';
+            $('company-name').textContent = company.nomeFantasia || company.razaoSocial;
+            $('company-detail').textContent = formatCnpj(cnpj) + (company.nomeFantasia && company.razaoSocial !== company.nomeFantasia ? ' · ' + company.razaoSocial : '') + (company.municipio && company.uf ? ' · ' + company.municipio + '/' + company.uf : '');
+            message(feedback, 'Empresa encontrada. Continue abaixo.', 'success');
+            showStage('contact', true);
+          } catch (error) {
+            if (request === activeRequest) {
+              openManualCompany(false);
+              message(feedback, 'Não foi possível consultar agora. Informe o nome da empresa abaixo para continuar.');
+            }
+          } finally {
+            if (request === activeRequest) { button.disabled = false; button.textContent = 'Identificar empresa'; }
+          }
+        });
+        function openManualCompany(focus = true) {
+          ++activeRequest;
+          button.disabled = false;
+          button.textContent = 'Identificar empresa';
+          $('manual-company-form').hidden = false;
+          $('manual-company-toggle').setAttribute('aria-expanded', 'true');
+          if (company) $('manual-company-name').value = company.nomeFantasia || company.razaoSocial;
+          if (focus) $('manual-company-name').focus();
+        }
+        $('manual-company-toggle').addEventListener('click', () => openManualCompany());
+        $('manual-company-form').addEventListener('submit', event => {
+          event.preventDefault();
+          const cnpj = normalizeCnpj(input.value);
+          if (!validCnpj(cnpj)) { message(feedback, 'Confira o CNPJ, incluindo os dois dígitos finais.'); input.setAttribute('aria-invalid','true'); input.focus(); return; }
+          const companyName = $('manual-company-name').value.trim();
+          if (companyName.length < 2) { message($('manual-company-error'), 'Informe o nome da empresa.'); $('manual-company-name').setAttribute('aria-invalid','true'); $('manual-company-name').focus(); return; }
+          $('manual-company-name').removeAttribute('aria-invalid');
+          input.removeAttribute('aria-invalid');
+          company = {cnpj, razaoSocial: companyName, nomeFantasia: '', municipio: '', uf: '', situacao: '', source: 'manual'};
+          $('company-status').textContent = 'Dados informados por você';
+          $('company-name').textContent = companyName;
+          $('company-detail').textContent = formatCnpj(cnpj);
+          message($('manual-company-error'), '');
+          showStage('contact', true);
+        });
+        $('change-company').addEventListener('click', () => {
+          company = null;
+          ++activeRequest;
+          showStage('company');
+          input.focus();
+          input.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+        });
+        const phone = $('contact-phone');
+        const validDdds = new Set('11 12 13 14 15 16 17 18 19 21 22 24 27 28 31 32 33 34 35 37 38 41 42 43 44 45 46 47 48 49 51 53 54 55 61 62 63 64 65 66 67 68 69 71 73 74 75 77 79 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99'.split(' '));
+        const commonEmailDomains = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'yahoo.com.br', 'icloud.com', 'live.com', 'uol.com.br', 'bol.com.br', 'terra.com.br', 'proton.me', 'protonmail.com'];
+        const commonEmailTypos = {
+          'gmayl.com': 'gmail.com', 'gmyal.com': 'gmail.com', 'gmaill.com': 'gmail.com',
+          'hotmial.com': 'hotmail.com', 'hotamil.com': 'hotmail.com',
+          'outllook.com': 'outlook.com',
+          'yahoi.com': 'yahoo.com', 'yaho.com': 'yahoo.com', 'yahooo.com': 'yahoo.com', 'yaoo.com': 'yahoo.com',
+          'yahoo.combr': 'yahoo.com.br', 'yahoo.con.br': 'yahoo.com.br',
+          'iclod.com': 'icloud.com', 'icluod.com': 'icloud.com',
+          'protton.me': 'proton.me', 'protonmai.com': 'protonmail.com'
+        };
+        let suggestedEmail = '';
+        let emailSuggestionAcknowledged = false;
+        const name = $('contact-name');
+        const email = $('contact-email');
+        const hideEmailSuggestion = () => { $('email-suggestion').hidden = true; suggestedEmail = ''; };
+        function editDistance(a, b) {
+          const rows = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+          for (let j = 0; j <= b.length; j++) rows[0][j] = j;
+          for (let i = 1; i <= a.length; i++) {
+            for (let j = 1; j <= b.length; j++) {
+              rows[i][j] = Math.min(rows[i - 1][j] + 1, rows[i][j - 1] + 1, rows[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+              if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) rows[i][j] = Math.min(rows[i][j], rows[i - 2][j - 2] + 1);
+            }
+          }
+          return rows[a.length][b.length];
+        }
+        function suggestedDomain(domain) {
+          const typed = domain.toLowerCase();
+          if (commonEmailDomains.includes(typed)) return '';
+          if (commonEmailTypos[typed]) return commonEmailTypos[typed];
+          return commonEmailDomains.find((known) => typed.slice(0, 2) === known.slice(0, 2) && editDistance(typed, known) === 1) || '';
+        }
+        function fieldError(field, value) {
+          $(field.id + '-error').textContent = value;
+          if (value) field.setAttribute('aria-invalid', 'true');
+          else field.removeAttribute('aria-invalid');
+          return !value;
+        }
+        function validateName() {
+          return fieldError(name, name.value.trim().length < 2 ? 'Informe seu nome.' : '');
+        }
+        function validatePhone() {
+          const number = digits(phone.value);
+          if (!number) return fieldError(phone, 'Informe seu WhatsApp com DDD.');
+          if (number.length !== 11 || !validDdds.has(number.slice(0, 2)) || number[2] !== '9' || /^(\d)\1{8}$/.test(number.slice(2))) {
+            return fieldError(phone, 'Confira o número: use um DDD válido e um celular começando com 9.');
+          }
+          return fieldError(phone, '');
+        }
+        function validateEmail() {
+          const value = email.value.trim();
+          hideEmailSuggestion();
+          if (!value) return fieldError(email, 'Informe seu e-mail.');
+          if (!email.checkValidity() || !/^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/.test(value)) {
+            return fieldError(email, 'Confira o e-mail. Exemplo: nome@empresa.com.br');
+          }
+          fieldError(email, '');
+          const [local, domain] = value.split('@');
+          const correction = suggestedDomain(domain);
+          if (correction && !emailSuggestionAcknowledged) {
+            suggestedEmail = local + '@' + correction;
+            $('email-suggestion-text').textContent = 'Esse domínio pode ter um erro de digitação. Você quis dizer ' + suggestedEmail + '?';
+            $('email-suggestion').hidden = false;
+            return false;
+          }
+          return true;
+        }
+        name.addEventListener('blur', validateName);
+        phone.addEventListener('blur', validatePhone);
+        email.addEventListener('blur', validateEmail);
+        name.addEventListener('input', () => fieldError(name, ''));
+        phone.addEventListener('input', () => { phone.value = formatPhone(phone.value); fieldError(phone, ''); });
+        email.addEventListener('input', () => { hideEmailSuggestion(); emailSuggestionAcknowledged = false; fieldError(email, ''); });
+        $('email-correct').addEventListener('click', () => {
+          if (!suggestedEmail) return;
+          email.value = suggestedEmail;
+          hideEmailSuggestion();
+          fieldError(email, '');
+          email.focus();
+        });
+        $('email-keep').addEventListener('click', () => {
+          emailSuggestionAcknowledged = true;
+          hideEmailSuggestion();
+          fieldError(email, '');
+          email.focus();
+        });
+        $('stage-contact').addEventListener('submit', (event) => {
+          event.preventDefault();
+          const validName = validateName();
+          const validPhone = validatePhone();
+          const validEmail = validateEmail();
+          if (!validName) { name.focus(); return; }
+          if (!validPhone) { phone.focus(); return; }
+          if (!validEmail) { (suggestedEmail ? $('email-correct') : email).focus(); return; }
+          showStage('operation', true);
+        });
+        $('back-contact').addEventListener('click', () => showStage('contact', true));
+        ['team-size', 'acquisition-channel'].forEach((id) => $(id).addEventListener('change', () => { $(id).removeAttribute('aria-invalid'); message($('operation-feedback'), ''); }));
+        $('stage-operation').addEventListener('submit', (event) => {
+          event.preventDefault();
+          const team = $('team-size');
+          const channel = $('acquisition-channel');
+          if (!team.value) { team.setAttribute('aria-invalid', 'true'); message($('operation-feedback'), 'Selecione o tamanho da operação comercial.'); team.focus(); return; }
+          if (!channel.value) { channel.setAttribute('aria-invalid', 'true'); message($('operation-feedback'), 'Selecione o principal canal de aquisição.'); channel.focus(); return; }
+          message($('operation-feedback'), '');
+          showStage('goal', true);
+        });
+        $('back-operation').addEventListener('click', () => showStage('operation', true));
+        document.querySelectorAll('input[name="goal"], #consent').forEach((item) => item.addEventListener('change', () => message($('goal-feedback'), '')));
+        function renderRequestSummary() {
+          if (!company) return;
+          const goals = [...document.querySelectorAll('input[name="goal"]:checked')].map((item) => item.value);
+          const selection = window.oryneoCommercialChoice;
+          const price = window.OryneoPricing.orderQuote(selection.plan, selection.cycle, selection.serviceKeys);
+          const money = window.OryneoPricing.brl;
+          const serviceRows = price.serviceLines.map((service) => [
+            service.label,
+            service.billing === 'monthly'
+              ? money(service.minimumCommitment) + ' · cobrança trimestral (' + money(service.amount) + '/mês) · mídia à parte'
+              : money(service.amount) + ' · pagamento único'
+          ]);
+          const rows = [
+            ['Empresa', company.nomeFantasia || company.razaoSocial],
+            ['CNPJ', formatCnpj(company.cnpj)],
+            ['Contato', $('contact-name').value.trim()],
+            ['WhatsApp', phone.value],
+            ['E-mail', $('contact-email').value.trim()],
+            ['Equipe comercial', $('team-size').value],
+            ['Canal principal', $('acquisition-channel').value],
+            ['Interesses', goals.join(' · ')],
+            ['Plano', selection.plan],
+            ['Ciclo', selection.cycle === 'annual' ? 'Anual · 10% de desconto na mensalidade, cobrança antecipada' : 'Mensal'],
+            [selection.cycle === 'annual' ? 'Plano anual' : 'Plano mensal', money(price.periodCharge)],
+            ['Implantação única', money(price.setup)],
+            ...serviceRows,
+            ['Primeira cobrança estimada', money(price.firstCharge)],
+            ['Capacidade', 'Até ' + price.users + ' usuários · ' + price.aiReplies.toLocaleString('pt-BR') + ' respostas IA/mês · ' + price.audioMinutes.toLocaleString('pt-BR') + ' min de áudio transcrito/mês'],
+            ['Complementos', selection.services.join(' · ') || 'Nenhum selecionado'],
+            ['Intenção', selection.intent === 'conversation' ? 'Quero conversar' : 'Quero contratar']
+          ];
+          requestText = rows.map(([label, value]) => label + ': ' + value).join('\n');
+          message($('request-feedback'), '');
+          const summary = $('request-summary');
+          summary.replaceChildren();
+          rows.forEach(([label, value]) => {
+            const row = document.createElement('div');
+            const dt = document.createElement('dt');
+            const dd = document.createElement('dd');
+            dt.textContent = label; dd.textContent = value;
+            row.append(dt, dd); summary.append(row);
+          });
+        }
+        $('stage-goal').addEventListener('submit', (event) => {
+          event.preventDefault();
+          if (!window.oryneoCommercialChoice.plan) {
+            message($('goal-feedback'), 'Escolha um plano para revisar a solicitação.');
+            $('planos').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+            return;
+          }
+          const goals = [...document.querySelectorAll('input[name="goal"]:checked')].map((item) => item.value);
+          if (!goals.length) { message($('goal-feedback'), 'Selecione ao menos um interesse.'); document.querySelector('input[name="goal"]').focus(); return; }
+          if (!$('consent').checked) { message($('goal-feedback'), 'Confirme que podemos entrar em contato sobre a solicitação.'); $('consent').focus(); return; }
+          message($('goal-feedback'), '');
+          renderRequestSummary();
+          showStage('summary', true);
+        });
+        window.addEventListener('oryneo-choice-changed', () => {
+          if ($('stage-summary').dataset.active === 'true') renderRequestSummary();
+        });
+        $('send-request').addEventListener('click', () => {
+          if (!requestText) return;
+          const subject = 'Solicitação ORYNEO · ' + window.oryneoCommercialChoice.plan;
+          const body = 'Olá, ORYNEO. Gostaria de conversar sobre a configuração abaixo.\n\n' + requestText + '\n\nAguardo o contato. Obrigado.';
+          message($('request-feedback'), 'Confira a mensagem no seu aplicativo de e-mail e confirme o envio.', 'success');
+          window.location.href = 'mailto:contato@oryneo.com.br?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        });
+        $('copy-request').addEventListener('click', async () => {
+          if (!requestText) return;
+          try {
+            await navigator.clipboard.writeText(requestText);
+            message($('request-feedback'), 'Solicitação copiada. Envie para contato@oryneo.com.br.', 'success');
+          } catch (_) {
+            message($('request-feedback'), 'Não foi possível copiar automaticamente. Selecione os dados acima para copiar.');
+          }
+        });
+        $('back-goal').addEventListener('click', () => showStage('goal', true));
+      })();
+    </script>
+    <script src="assets/quick-contact.js"></script>
+    <script src="assets/submission-confirmation.js"></script>
+  </body>
+</html>
