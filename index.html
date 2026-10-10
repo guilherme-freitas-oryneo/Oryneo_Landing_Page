@@ -1474,6 +1474,7 @@
           <details><summary>Quando a contratação é concluída?</summary><p>A escolha nesta página prepara sua solicitação. A contratação é formalizada após a apresentação do escopo, dos valores e das condições de pagamento, cancelamento e reembolso.</p></details>
         </div></div>
       </section>
+      <div aria-hidden="true" style="position:absolute;left:-9999px"><label>Website<input id="oryneo-website" tabindex="-1" autocomplete="off" /></label></div>
       <section class="consultation" id="solicitacao" aria-labelledby="consultation-title">
         <div class="consultation-grid">
           <div class="consultation-copy">
@@ -1493,7 +1494,7 @@
               <p class="form-feedback" id="quick-feedback" role="status" aria-live="polite"></p>
               <button class="primary-button" type="submit">Revisar minha solicitação ↗</button>
             </form>
-            <div id="quick-review" hidden><h3 tabindex="-1">Confira antes de enviar.</h3><dl class="summary" id="quick-summary"></dl><p class="preview-note">Abra a solicitação no seu aplicativo de e-mail e confirme o envio. Nenhuma cobrança é feita aqui.</p><div class="stage-actions"><button class="primary-button" type="button" id="quick-send">Abrir e-mail para enviar ↗</button><button class="text-button" type="button" id="quick-copy">Copiar solicitação</button></div><p class="form-feedback" id="quick-send-feedback" role="status" aria-live="polite"></p><button class="text-button" type="button" id="quick-edit">Editar informações</button></div>
+            <div id="quick-review" hidden><h3 tabindex="-1">Confira antes de enviar.</h3><dl class="summary" id="quick-summary"></dl><p class="preview-note">Envie sua solicitação diretamente à equipe ORYNEO. Nenhuma cobrança é feita aqui.</p><div class="stage-actions"><button class="primary-button" type="button" id="quick-send">Enviar solicitação ↗</button><button class="text-button" type="button" id="quick-copy">Copiar solicitação</button></div><p class="form-feedback" id="quick-send-feedback" role="status" aria-live="polite"></p><button class="text-button" type="button" id="quick-edit">Editar informações</button></div>
           </div>
           <div class="lead-panel" id="detailed-panel">
             <div class="form-progress" aria-live="polite" aria-atomic="true">
@@ -1596,15 +1597,15 @@
                 <button class="primary-button" type="submit">Conferir dados <span aria-hidden="true">↗</span></button>
                 <button class="text-button" id="back-operation" type="button">Voltar</button>
               </div>
-              <p class="preview-note">Na próxima etapa, você confere os dados e abre a solicitação em seu aplicativo de e-mail.</p>
+              <p class="preview-note">Na próxima etapa, confira os dados antes de enviar sua solicitação.</p>
             </form>
 
             <div class="stage" id="stage-summary">
               <h3 tabindex="-1">Revise sua escolha.</h3>
-              <p class="stage-intro">Confira os dados e envie a solicitação pelo seu aplicativo de e-mail. Ela só será recebida após você confirmar o envio.</p>
+              <p class="stage-intro">Confira os dados e envie sua solicitação. A confirmação aparecerá assim que a equipe receber seus dados.</p>
               <dl class="summary" id="request-summary"></dl>
               <p class="preview-note">O envio solicita uma conversa sobre esta configuração. Preços e condições serão confirmados antes da contratação; nenhum pagamento ocorre nesta página.</p>
-              <div class="stage-actions"><button class="primary-button" id="send-request" type="button">Abrir e-mail para enviar <span aria-hidden="true">↗</span></button><button class="text-button" id="copy-request" type="button">Copiar solicitação</button></div>
+              <div class="stage-actions"><button class="primary-button" id="send-request" type="button">Enviar solicitação <span aria-hidden="true">↗</span></button><button class="text-button" id="copy-request" type="button">Copiar solicitação</button></div>
               <p class="form-feedback" id="request-feedback" role="status" aria-live="polite"></p>
               <div class="stage-actions"><button class="text-button" id="back-goal" type="button">Editar informações</button><a class="text-button" href="#planos">Alterar plano</a></div>
             </div>
@@ -2094,11 +2095,8 @@
           if ($('stage-summary').dataset.active === 'true') renderRequestSummary();
         });
         $('send-request').addEventListener('click', () => {
-          if (!requestText) return;
-          const subject = 'Solicitação ORYNEO · ' + window.oryneoCommercialChoice.plan;
-          const body = 'Olá, ORYNEO. Gostaria de conversar sobre a configuração abaixo.\n\n' + requestText + '\n\nAguardo o contato. Obrigado.';
-          message($('request-feedback'), 'Confira a mensagem no seu aplicativo de e-mail e confirme o envio.', 'success');
-          window.location.href = 'mailto:contato@oryneo.com.br?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+          if (!requestText || !company) return;
+          window.OryneoLeadIntake.send({company:company.nomeFantasia || company.razaoSocial,contact:$('contact-name').value.trim(),phone:phone.value,email:$('contact-email').value.trim(),consent:$('consent').checked,summary:requestText},$('send-request'),$('request-feedback'));
         });
         $('copy-request').addEventListener('click', async () => {
           if (!requestText) return;
@@ -2112,6 +2110,7 @@
         $('back-goal').addEventListener('click', () => showStage('goal', true));
       })();
     </script>
+    <script src="assets/lead-intake.js"></script>
     <script src="assets/quick-contact.js"></script>
     <script src="assets/submission-confirmation.js"></script>
   </body>

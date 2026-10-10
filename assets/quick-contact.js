@@ -136,8 +136,7 @@
   $('quick-edit').addEventListener('click', () => { form.hidden = false; $('quick-review').hidden = true; $('quick-send-feedback').textContent = ''; $('quick-name').focus(); });
   $('quick-send').addEventListener('click', () => {
     if (!requestText) return;
-    $('quick-send-feedback').textContent = 'Confira a mensagem no seu aplicativo de e-mail. Ela só será recebida após você confirmar o envio.';
-    window.location.href = 'mailto:contato@oryneo.com.br?subject=' + encodeURIComponent('Quero conversar · ORYNEO') + '&body=' + encodeURIComponent('Olá, ORYNEO. Gostaria de conversar sobre minha operação.\n\n' + requestText);
+    window.OryneoLeadIntake.send({company:'',contact:$('quick-name').value.trim(),phone:$('quick-phone').value.trim(),email:$('quick-email').value.trim(),consent:$('quick-consent').checked,summary:requestText},$('quick-send'),$('quick-send-feedback'));
   });
   $('quick-copy').addEventListener('click', async () => {
     if (!requestText) return;

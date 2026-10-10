@@ -141,3 +141,9 @@
 - Seleção de plano/serviço e intenção encaminha ao CNPJ; plano, serviços e intenção aparecem no resumo do formulário. A prévia informa que a solicitação não é enviada e que ainda não há checkout online.
 - Navegação por toque e teclado; layout próprio para telas estreitas; sem execução automática de mensagens, CRM ou cobrança nesta prévia.
 - Formulário, consulta de CNPJ e validações existentes preservados.
+
+## Integração CRM — 2026-10-10
+- Solicitação completa e contato rápido enviam diretamente ao CRM ORYNEO via Supabase Edge Function.
+- Confirmação exibida somente após gravação; reenvios usam identificador estável e não duplicam oportunidades.
+- Falhas mantêm os dados preenchidos; envio tem estado de carregamento e limite de espera.
+- Layout, valores comerciais e audiência de hospedagem preservados.
