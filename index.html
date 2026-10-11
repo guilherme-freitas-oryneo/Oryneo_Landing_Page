@@ -2096,7 +2096,7 @@
         });
         $('send-request').addEventListener('click', () => {
           if (!requestText || !company) return;
-          window.OryneoLeadIntake.send({company:company.nomeFantasia || company.razaoSocial,contact:$('contact-name').value.trim(),phone:phone.value,email:$('contact-email').value.trim(),consent:$('consent').checked,summary:requestText},$('send-request'),$('request-feedback'));
+          window.OryneoLeadIntake.send({company:company.nomeFantasia || company.razaoSocial,cnpj:company.cnpj,contact:$('contact-name').value.trim(),phone:phone.value,email:$('contact-email').value.trim(),consent:$('consent').checked,summary:requestText,plan:window.oryneoCommercialChoice.plan,cycle:window.oryneoCommercialChoice.cycle,services:[...window.oryneoCommercialChoice.serviceKeys],intent:window.oryneoCommercialChoice.intent,team_size:$('team-size').value,acquisition_channel:$('acquisition-channel').value,goals:[...document.querySelectorAll('input[name="goal"]:checked')].map(el=>el.value)},$('send-request'),$('request-feedback'));
         });
         $('copy-request').addEventListener('click', async () => {
           if (!requestText) return;
