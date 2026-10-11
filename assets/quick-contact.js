@@ -74,6 +74,7 @@
     return true;
   }
   ['quick-name','quick-need'].forEach(id => $(id).addEventListener('input', () => error(id, '')));
+  $('quick-cnpj').addEventListener('input',()=>{const input=$('quick-cnpj');input.value=window.OryneoCompany.formatCnpj(input.value);error('quick-cnpj','')});
   $('quick-phone').addEventListener('input', () => {
     const input = $('quick-phone');
     input.value = formatPhone(input.value);
@@ -99,7 +100,7 @@
   });
   $('quick-consent').addEventListener('change', () => { $('quick-feedback').textContent = ''; $('quick-consent').removeAttribute('aria-invalid'); });
   function renderSummary() {
-    const rows = [['Nome', $('quick-name').value.trim()], ['WhatsApp', $('quick-phone').value.trim()]];
+    const rows = [['CNPJ', $('quick-cnpj').value.trim()], ['Nome', $('quick-name').value.trim()], ['WhatsApp', $('quick-phone').value.trim()]];
     const email = $('quick-email').value.trim();
     const need = $('quick-need').value.trim();
     if (email) rows.push(['E-mail', email]);
@@ -122,9 +123,11 @@
   }
   form.addEventListener('submit', event => {
     event.preventDefault();
+    const validCompany=error('quick-cnpj',window.OryneoCompany.validCnpj($('quick-cnpj').value)?'':'Informe um CNPJ válido.');
     const validName = error('quick-name', $('quick-name').value.trim().length < 2 ? 'Informe seu nome.' : '');
     const validPhoneNumber = error('quick-phone', validPhone($('quick-phone').value) ? '' : 'Informe um celular válido com DDD. Ex.: (21) 99999-9999.');
     const validEmailAddress = checkQuickEmail();
+    if (!validCompany) { $('quick-cnpj').focus(); return; }
     if (!validName) { $('quick-name').focus(); return; }
     if (!validPhoneNumber) { $('quick-phone').focus(); return; }
     if (!validEmailAddress) { (suggestedQuickEmail ? $('quick-email-correct') : $('quick-email')).focus(); return; }
@@ -136,7 +139,7 @@
   $('quick-edit').addEventListener('click', () => { form.hidden = false; $('quick-review').hidden = true; $('quick-send-feedback').textContent = ''; $('quick-name').focus(); });
   $('quick-send').addEventListener('click', () => {
     if (!requestText) return;
-    window.OryneoLeadIntake.send({company:'',contact:$('quick-name').value.trim(),phone:$('quick-phone').value.trim(),email:$('quick-email').value.trim(),consent:$('quick-consent').checked,summary:requestText,plan:window.oryneoCommercialChoice.plan,cycle:window.oryneoCommercialChoice.cycle,services:[...window.oryneoCommercialChoice.serviceKeys],intent:'conversation'},$('quick-send'),$('quick-send-feedback'));
+    window.OryneoLeadIntake.send({company:'',cnpj:window.OryneoCompany.normalizeCnpj($('quick-cnpj').value),contact:$('quick-name').value.trim(),phone:$('quick-phone').value.trim(),email:$('quick-email').value.trim(),consent:$('quick-consent').checked,summary:requestText,plan:window.oryneoCommercialChoice.plan,cycle:window.oryneoCommercialChoice.cycle,services:[...window.oryneoCommercialChoice.serviceKeys],intent:'conversation'},$('quick-send'),$('quick-send-feedback'));
   });
   $('quick-copy').addEventListener('click', async () => {
     if (!requestText) return;
