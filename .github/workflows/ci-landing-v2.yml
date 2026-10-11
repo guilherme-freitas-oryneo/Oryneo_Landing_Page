@@ -1,0 +1,37 @@
+name: Verificar formulario ORYNEO v2
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validar JavaScript da landing
+        run: |
+          node --check assets/lead-intake.js
+          node --check assets/quick-contact.js
+          node --check assets/commercial.js
+          node --check assets/company.js
+      - name: Validar scripts incorporados e campos comerciais
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import vm from 'node:vm';
+          const html=fs.readFileSync('index.html','utf8');
+          if(!html.includes('cnpj:company.cnpj')||!html.includes('serviceKeys')||!html.includes('goals:'))throw Error('Campos do fluxo estruturado ausentes');
+          const rx=/<script([^>]*)>([\s\S]*?)<\/script>/gi;
+          let found=0,match;
+          while((match=rx.exec(html))){
+            if(match[1].includes('src=')||match[1].includes('application/ld+json'))continue;
+            if(!match[2].trim())continue;
+            new vm.Script(match[2]);found++;
+          }
+          console.log('Scripts inline verificados: '+found);
+          JS
