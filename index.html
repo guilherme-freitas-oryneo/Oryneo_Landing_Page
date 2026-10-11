@@ -1486,6 +1486,7 @@
             <p class="selection-context" id="quick-context"></p>
             <form id="quick-form" novalidate>
               <h3 tabindex="-1">Vamos conversar.</h3>
+              <div class="form-row"><label class="field-label" for="quick-cnpj">CNPJ da empresa</label><input class="field-input" id="quick-cnpj" name="cnpj" inputmode="text" autocapitalize="characters" maxlength="18" placeholder="00.000.000/0000-00" required aria-describedby="quick-cnpj-error"/><p class="field-error" id="quick-cnpj-error"></p></div>
               <div class="form-row"><label class="field-label" for="quick-name">Seu nome</label><input class="field-input" id="quick-name" autocomplete="name" maxlength="90" required aria-describedby="quick-name-error" /><p class="field-error" id="quick-name-error"></p></div>
               <div class="form-row"><label class="field-label" for="quick-phone">WhatsApp com DDD</label><input class="field-input" id="quick-phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="15" placeholder="(21) 99999-9999" required aria-describedby="quick-phone-error" /><p class="field-error" id="quick-phone-error"></p></div>
               <div class="form-row"><label class="field-label" for="quick-email">E-mail <span class="field-optional">(opcional)</span></label><input class="field-input" id="quick-email" type="email" inputmode="email" autocomplete="email" maxlength="150" placeholder="voce@empresa.com.br" aria-describedby="quick-email-error quick-email-suggestion-text" /><p class="field-error" id="quick-email-error"></p><div class="email-suggestion" id="quick-email-suggestion" hidden><p id="quick-email-suggestion-text"></p><div class="email-suggestion-actions"><button class="text-button" id="quick-email-correct" type="button">Corrigir e-mail</button><button class="text-button" id="quick-email-keep" type="button">Manter como está</button></div></div></div>
@@ -2096,7 +2097,7 @@
         });
         $('send-request').addEventListener('click', () => {
           if (!requestText || !company) return;
-          window.OryneoLeadIntake.send({company:company.nomeFantasia || company.razaoSocial,contact:$('contact-name').value.trim(),phone:phone.value,email:$('contact-email').value.trim(),consent:$('consent').checked,summary:requestText},$('send-request'),$('request-feedback'));
+          window.OryneoLeadIntake.send({company:company.nomeFantasia || company.razaoSocial,cnpj:company.cnpj,contact:$('contact-name').value.trim(),phone:phone.value,email:$('contact-email').value.trim(),consent:$('consent').checked,summary:requestText,plan:window.oryneoCommercialChoice.plan,cycle:window.oryneoCommercialChoice.cycle,services:[...window.oryneoCommercialChoice.serviceKeys],intent:window.oryneoCommercialChoice.intent,team_size:$('team-size').value,acquisition_channel:$('acquisition-channel').value,goals:[...document.querySelectorAll('input[name="goal"]:checked')].map(el=>el.value)},$('send-request'),$('request-feedback'));
         });
         $('copy-request').addEventListener('click', async () => {
           if (!requestText) return;
