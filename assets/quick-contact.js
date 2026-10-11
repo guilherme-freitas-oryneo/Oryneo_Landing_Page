@@ -136,7 +136,7 @@
   $('quick-edit').addEventListener('click', () => { form.hidden = false; $('quick-review').hidden = true; $('quick-send-feedback').textContent = ''; $('quick-name').focus(); });
   $('quick-send').addEventListener('click', () => {
     if (!requestText) return;
-    window.OryneoLeadIntake.send({company:'',contact:$('quick-name').value.trim(),phone:$('quick-phone').value.trim(),email:$('quick-email').value.trim(),consent:$('quick-consent').checked,summary:requestText},$('quick-send'),$('quick-send-feedback'));
+    window.OryneoLeadIntake.send({company:'',contact:$('quick-name').value.trim(),phone:$('quick-phone').value.trim(),email:$('quick-email').value.trim(),consent:$('quick-consent').checked,summary:requestText,plan:window.oryneoCommercialChoice.plan,cycle:window.oryneoCommercialChoice.cycle,services:[...window.oryneoCommercialChoice.serviceKeys],intent:'conversation'},$('quick-send'),$('quick-send-feedback'));
   });
   $('quick-copy').addEventListener('click', async () => {
     if (!requestText) return;
