@@ -58,6 +58,6 @@ test('fluxo sempre inicializa pela primeira etapa declarada', async () => {
   const [html, script] = await Promise.all([load('../comecar/index.html'), load('../comecar/form.js')]);
   assert.match(script, /goTo\(STEPS\[0\]\);\s*$/);
   assert.doesNotMatch(script, /goTo\('contact'\);\s*$/);
-  assert.match(html, /src="form\.js\?v=20261013-2"/);
-  assert.match(script, /from '\.\/intake-model\.mjs\?v=20261013-2'/);
+  assert.match(html, /src="form\.js\?v=20261013-3"/);
+  assert.match(script, /from '\.\/intake-model\.mjs\?v=20261013-3'/);
 });

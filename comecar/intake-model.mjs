@@ -45,9 +45,16 @@ const validBrazilianDdds = new Set([
 ]);
 const domainCorrections = new Map([
   ['gmal.com', 'gmail.com'], ['gmial.com', 'gmail.com'], ['gmai.com', 'gmail.com'], ['gmayg.com', 'gmail.com'],
-  ['gemau.com', 'gmail.com'], ['gemau', 'gmail.com'],
-  ['hotmai.com', 'hotmail.com'], ['hotmal.com', 'hotmail.com'], ['outlok.com', 'outlook.com'],
+  ['gemau.com', 'gmail.com'], ['gemau', 'gmail.com'], ['gmail.com.br', 'gmail.com'],
+  ['hotmai.com', 'hotmail.com'], ['hotmal.com', 'hotmail.com'], ['hotmail.com.br', 'hotmail.com'],
+  ['outlok.com', 'outlook.com'], ['outlook.com.br', 'outlook.com'], ['icloud.com.br', 'icloud.com'],
 ]);
+const commonEmailDomains = [
+  'gmail.com', 'hotmail.com', 'outlook.com', 'live.com', 'msn.com', 'yahoo.com', 'yahoo.com.br',
+  'icloud.com', 'me.com', 'mac.com', 'proton.me', 'protonmail.com', 'uol.com.br', 'bol.com.br',
+  'terra.com.br', 'globo.com', 'globomail.com', 'ig.com.br', 'zipmail.com.br', 'aol.com',
+  'fastmail.com', 'zoho.com', 'mail.com', 'ymail.com',
+];
 
 function validName(value) {
   const normalized = String(value || '').trim();
@@ -58,15 +65,56 @@ function validName(value) {
 
 function emailSuggestion(value) {
   const domain = String(value || '').trim().toLowerCase().split('@')[1] || '';
-  return domainCorrections.get(domain) || '';
+  const direct = domainCorrections.get(domain);
+  if (direct) return direct;
+  if (!domain || commonEmailDomains.includes(domain)) return '';
+  const suffixCorrections = [
+    [/\.con$/, '.com'], [/\.cim$/, '.com'], [/\.vom$/, '.com'], [/\.comm$/, '.com'],
+    [/\.combr$/, '.com.br'], [/\.com\.b$/, '.com.br'], [/\.com\.r$/, '.com.br'],
+    [/\.cpm\.br$/, '.com.br'], [/\.con\.br$/, '.com.br'], [/\.co\.br$/, '.com.br'],
+  ];
+  for (const [pattern, replacement] of suffixCorrections) {
+    if (pattern.test(domain)) return domain.replace(pattern, replacement);
+  }
+  let best = '';
+  let bestDistance = 3;
+  for (const candidate of commonEmailDomains) {
+    const distance = damerauLevenshtein(domain, candidate);
+    if (distance < bestDistance) {
+      best = candidate;
+      bestDistance = distance;
+    }
+  }
+  return bestDistance <= 2 ? best : '';
+}
+
+function damerauLevenshtein(left, right) {
+  const matrix = Array.from({ length: left.length + 1 }, (_, row) => [row]);
+  for (let column = 0; column <= right.length; column += 1) matrix[0][column] = column;
+  for (let row = 1; row <= left.length; row += 1) {
+    for (let column = 1; column <= right.length; column += 1) {
+      const cost = left[row - 1] === right[column - 1] ? 0 : 1;
+      matrix[row][column] = Math.min(
+        matrix[row - 1][column] + 1,
+        matrix[row][column - 1] + 1,
+        matrix[row - 1][column - 1] + cost,
+      );
+      if (row > 1 && column > 1 && left[row - 1] === right[column - 2] && left[row - 2] === right[column - 1]) {
+        matrix[row][column] = Math.min(matrix[row][column], matrix[row - 2][column - 2] + cost);
+      }
+    }
+  }
+  return matrix[left.length][right.length];
 }
 
 function validBrazilianPhone(value) {
   const normalized = digits(value);
+  const subscriber = normalized.slice(3);
   return normalized.length === 11
     && validBrazilianDdds.has(normalized.slice(0, 2))
     && normalized[2] === '9'
-    && !/^(\d)\1+$/.test(normalized);
+    && !/^(\d)\1+$/.test(normalized)
+    && !/^(\d)\1{7}$/.test(subscriber);
 }
 
 export function formatBrazilianPhone(value) {

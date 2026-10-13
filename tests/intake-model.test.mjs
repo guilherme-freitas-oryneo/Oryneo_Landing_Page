@@ -36,8 +36,16 @@ test('valida nome, contato brasileiro e consentimento somente na revisão', () =
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gmayg.com' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gemau.com' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gemau' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gmaul.com' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gmail.con' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gmail.com.br' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@yahoo.com.br' } }).valid, true);
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'contato@oryneo.com.br' } }).valid, true);
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(00) 99999-9999' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(11) 88888-8888' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(21) 90000-0000' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(21) 91111-1111' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(21) 98765-4321' } }).valid, true);
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, consent: false } }).valid, true);
   assert.equal(validateStep('review', { ...state, contact: { ...state.contact, consent: false } }).errors.consent, 'Autorize o contato para enviar.');
 });
