@@ -1,0 +1,88 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {
+  STEPS,
+  buildIntakePayload,
+  captureAttribution,
+  nextVisibleStep,
+  parseEntryParams,
+  validateStep,
+} from '../comecar/intake-model.mjs';
+
+const state = {
+  contact: { name: 'Marina Costa', email: 'marina@exemplo.com', phone: '(11) 99999-0000', consent: true },
+  company: { name: 'Acme', cnpj: '' },
+  acquisition: { channels: ['Indicações e parcerias'], primary: 'Indicações e parcerias' },
+  priorities: { goals: ['Organizar contatos e negociações no CRM'], primary: 'Organizar contatos e negociações no CRM' },
+  commercial: { intent: 'conversation', plan: 'Growth', cycle: 'monthly', services: ['landing-page'] },
+  teamSize: '2 a 5 pessoas',
+};
+
+test('mantém seis etapas lógicas em ordem previsível', () => {
+  assert.deepEqual(STEPS, ['contact', 'company', 'acquisition', 'priorities', 'commercial', 'review']);
+  assert.equal(nextVisibleStep('contact', state), 'company');
+  assert.equal(nextVisibleStep('commercial', state), 'review');
+  assert.equal(nextVisibleStep('review', state), null);
+});
+
+test('valida contato e torna CNPJ obrigatório apenas na contratação', () => {
+  assert.equal(validateStep('contact', state).valid, true);
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: '' } }).errors.email, 'Informe um e-mail válido.');
+  assert.equal(validateStep('company', state).valid, true);
+  const contract = { ...state, commercial: { ...state.commercial, intent: 'contract' } };
+  assert.equal(validateStep('company', contract).errors.cnpj, 'Informe um CNPJ válido para contratar.');
+  assert.equal(validateStep('company', { ...contract, company: { name: 'Acme', cnpj: '12ABC34501DE35' } }).valid, true);
+});
+
+test('aplica exclusividade e prioridade aos canais', () => {
+  const exclusive = { ...state, acquisition: { channels: ['Ainda não temos um canal previsível', 'Google'], primary: 'Google' } };
+  assert.equal(validateStep('acquisition', exclusive).valid, false);
+  const multiple = { ...state, acquisition: { channels: ['Google', 'Indicações e parcerias'], primary: '' } };
+  assert.equal(validateStep('acquisition', multiple).errors.primary, 'Indique o canal principal.');
+  const single = { ...state, acquisition: { channels: ['Google'], primary: '' } };
+  assert.equal(validateStep('acquisition', single).valid, true);
+});
+
+test('exige objetivo principal somente quando há múltiplas prioridades', () => {
+  const multiple = { ...state, priorities: { goals: ['Organizar contatos e negociações no CRM', 'Acompanhar resultados e gestão'], primary: '' } };
+  assert.equal(validateStep('priorities', multiple).errors.primary, 'Indique a prioridade principal.');
+  const selected = { ...multiple, priorities: { ...multiple.priorities, primary: 'Acompanhar resultados e gestão' } };
+  assert.equal(validateStep('priorities', selected).valid, true);
+});
+
+test('aceita somente parâmetros comerciais permitidos e nunca lê preço', () => {
+  const valid = parseEntryParams(new URL('https://oryneo.com.br/comecar/?plan=Scale&cycle=annual&services=landing-page,traffic&intent=contract&utm_source=google&price=1&total=1'));
+  assert.deepEqual(valid.commercial, { plan: 'Scale', cycle: 'annual', services: ['landing-page', 'traffic'], intent: 'contract' });
+  assert.equal(valid.attribution.utm_source, 'google');
+  assert.equal('price' in valid.commercial, false);
+  const invalid = parseEntryParams(new URL('https://oryneo.com.br/comecar/?plan=Enterprise&cycle=weekly&services=root,traffic&intent=buy'));
+  assert.deepEqual(invalid.commercial, { plan: '', cycle: 'monthly', services: ['traffic'], intent: 'conversation' });
+});
+
+test('captura somente atribuição permitida e limita valores', () => {
+  const result = captureAttribution(
+    new URL(`https://oryneo.com.br/comecar/?utm_campaign=${'x'.repeat(200)}&utm_medium=cpc`),
+    'https://google.com/',
+  );
+  assert.equal(result.utm_campaign.length, 160);
+  assert.equal(result.utm_medium, 'cpc');
+  assert.equal(result.referrer, 'https://google.com/');
+  assert.equal(result.entry_url.startsWith('https://oryneo.com.br/comecar/'), true);
+});
+
+test('monta payload novo compatível com o campo legado', () => {
+  const payload = buildIntakePayload(
+    {
+      ...state,
+      acquisition: { channels: ['Indicações e parcerias', 'Instagram e Facebook', 'Indicações e parcerias'], primary: 'Indicações e parcerias' },
+      priorities: { goals: ['Organizar contatos e negociações no CRM', 'Acompanhar resultados e gestão'], primary: 'Acompanhar resultados e gestão' },
+    },
+    { utm_source: 'google', referrer: 'https://google.com/', entry_url: 'https://oryneo.com.br/comecar/' },
+    '11111111-1111-4111-8111-111111111111',
+  );
+  assert.deepEqual(payload.acquisition_channels, ['Indicações e parcerias', 'Instagram e Facebook']);
+  assert.equal(payload.acquisition_channel, 'Indicações e parcerias');
+  assert.equal(payload.primary_goal, 'Acompanhar resultados e gestão');
+  assert.equal(payload.request_id, '11111111-1111-4111-8111-111111111111');
+  assert.equal(payload.value_cents, undefined);
+});
