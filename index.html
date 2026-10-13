@@ -1234,7 +1234,7 @@
           <p class="intro-lead">
             A ORYNEO conecta aquisição, atendimento e CRM para sua equipe entender o contexto, assumir cada oportunidade e saber qual é o próximo passo.
           </p>
-          <div class="intro-actions"><button class="hero-contact-cta" type="button" data-open-talk>Converse com a ORYNEO</button><a class="intro-link quiet-link" href="#planos">Compare os planos</a></div>
+          <div class="intro-actions"><a class="hero-contact-cta" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Converse com a ORYNEO</a><a class="intro-link quiet-link" href="#planos">Compare os planos</a></div>
         </div>
         <figure class="hero-demo" aria-label="Exemplo de uma conversa no WhatsApp acompanhada no CRM da ORYNEO">
           <div class="hero-workspace">
@@ -1404,7 +1404,7 @@
           </div>
           <div class="operation-footer">
             <p>Demonstração com dados fictícios. Etapas e lembretes são ajustados à sua operação.</p>
-            <a class="operation-cta" href="#planos">Quero organizar minha operação</a>
+            <a class="operation-cta" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Quero organizar minha operação</a>
           </div>
         </div>
       </section>
@@ -1465,7 +1465,7 @@
         </div>
       </section>
       <section class="buying-guide" aria-labelledby="guide-title">
-        <div class="buying-guide-inner"><div><p class="plans-kicker">Antes de contratar</p><h2 id="guide-title">Da escolha à implantação.</h2><p>Entendemos sua necessidade, confirmamos a proposta e organizamos a configuração e a orientação da equipe.</p><button class="text-button" type="button" data-open-talk>Quero conversar antes de escolher ↗</button></div>
+        <div class="buying-guide-inner"><div><p class="plans-kicker">Antes de contratar</p><h2 id="guide-title">Da escolha à implantação.</h2><p>Entendemos sua necessidade, confirmamos a proposta e organizamos a configuração e a orientação da equipe.</p><a class="text-button" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Quero conversar antes de escolher ↗</a></div>
         <div class="buying-questions">
           <details><summary>O que a implantação inclui?</summary><p>Entendimento da operação, configuração do ambiente conforme o escopo contratado, testes e orientação da equipe para começar. O cronograma e os responsáveis são combinados na proposta.</p></details>
           <details><summary>Como funciona o plano anual?</summary><p>Você paga 12 meses antecipadamente com 10% de desconto sobre a assinatura. Implantação e complementos não recebem esse desconto.</p></details>
@@ -1660,12 +1660,10 @@
         const cards = [...document.querySelectorAll('.plan-option')];
         const serviceInputs = [...document.querySelectorAll('input[name="service"]')];
         const feedback = document.getElementById('plan-feedback');
-        const cnpj = document.getElementById('cnpj');
         const selectedContext = document.getElementById('selection-context');
         const byId = (id) => document.getElementById(id);
         const purchaseLayout = byId('purchase-layout');
-        const { quote, brl } = window.OryneoPricing;
-        const motion = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+        const { quote, brl, buildCommercialUrl } = window.OryneoPricing;
         function renderChoice() {
           cards.forEach((card) => {
             const selected = card.dataset.plan === choice.plan;
@@ -1722,16 +1720,7 @@
           if (selectedPlan) choice.plan = selectedPlan;
           choice.intent = selectedIntent;
           renderChoice();
-          window.dispatchEvent(new CustomEvent('oryneo-form-mode', {detail: selectedIntent}));
-          if (selectedIntent === 'contract') {
-            feedback.textContent = 'Plano ' + choice.plan + ' selecionado. Confira os valores no resumo antes de avançar.';
-            byId('purchase-layout').scrollIntoView({ behavior: motion(), block: 'start' });
-            byId('services-title').focus({ preventScroll: true });
-          } else {
-            feedback.textContent = 'Plano ' + choice.plan + ' incluído no assunto da conversa.';
-            byId('solicitacao').scrollIntoView({ behavior: motion(), block: 'start' });
-            (byId('quick-review').hidden ? byId('quick-name') : byId('quick-review').querySelector('h3')).focus({ preventScroll: true });
-          }
+          window.location.assign(buildCommercialUrl(choice, new URLSearchParams(window.location.search)));
         }
         document.querySelectorAll('[data-plan-action]').forEach((button) => button.addEventListener('click', () => {
           continueWith(button.dataset.planAction, button.dataset.intent);
@@ -1748,10 +1737,7 @@
         byId('purchase-continue').addEventListener('click', () => {
           choice.intent = 'contract';
           renderChoice();
-          window.dispatchEvent(new CustomEvent('oryneo-form-mode', {detail: 'contract'}));
-          byId('solicitacao').scrollIntoView({ behavior: motion(), block: 'start' });
-          const target = document.querySelector('#detailed-panel .stage[data-active="true"] h3');
-          (target || cnpj).focus({ preventScroll: true });
+          window.location.assign(buildCommercialUrl(choice, new URLSearchParams(window.location.search)));
         });
         renderChoice();
       })();

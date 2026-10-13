@@ -8,6 +8,13 @@
     'landing-page': { label: 'Landing page de conversão', amount: 88990, billing: 'one_time' },
     traffic: { label: 'Gestão de tráfego pago', amount: 98990, billing: 'monthly', minimumMonths: 3 }
   });
+  const commercialValues = Object.freeze({
+    plans: Object.freeze(['Start', 'Growth', 'Scale']),
+    cycles: Object.freeze(['monthly', 'annual']),
+    intents: Object.freeze(['conversation', 'contract']),
+    services: Object.freeze(['landing-page', 'traffic']),
+    attribution: Object.freeze(['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'])
+  });
 
   function quote(plan, cycle) {
     if (!Object.hasOwn(plans, plan)) throw new Error('Plano desconhecido');
@@ -49,7 +56,37 @@
     };
   }
 
-  const api = { quote, orderQuote, brl };
+  function safeQueryValue(value) {
+    return String(value || '').replace(/[\u0000-\u001f\u007f]+/g, ' ').trim().slice(0, 160);
+  }
+
+  function queryValue(source, key) {
+    if (!source) return '';
+    if (typeof source.get === 'function') return source.get(key) || '';
+    if (source.searchParams && typeof source.searchParams.get === 'function') return source.searchParams.get(key) || '';
+    return source[key] || '';
+  }
+
+  function buildCommercialUrl(choice = {}, attribution = {}) {
+    const params = new URLSearchParams();
+    if (commercialValues.plans.includes(choice.plan)) params.set('plan', choice.plan);
+    if (commercialValues.cycles.includes(choice.cycle)) params.set('cycle', choice.cycle);
+    const selectedServices = Array.isArray(choice.serviceKeys)
+      ? choice.serviceKeys
+      : (Array.isArray(choice.services) ? choice.services : []);
+    [...new Set(selectedServices)]
+      .filter((service) => commercialValues.services.includes(service))
+      .forEach((service) => params.append('services', service));
+    if (commercialValues.intents.includes(choice.intent)) params.set('intent', choice.intent);
+    commercialValues.attribution.forEach((key) => {
+      const value = safeQueryValue(queryValue(attribution, key));
+      if (value) params.set(key, value);
+    });
+    const query = params.toString();
+    return `./comecar/${query ? `?${query}` : ''}`;
+  }
+
+  const api = { quote, orderQuote, brl, buildCommercialUrl };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.OryneoPricing = api;
 })(typeof window !== 'undefined' ? window : globalThis);

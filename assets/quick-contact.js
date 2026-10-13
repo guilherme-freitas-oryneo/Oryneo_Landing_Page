@@ -18,11 +18,11 @@
   }
   window.addEventListener('oryneo-form-mode', event => mode(event.detail));
   window.addEventListener('oryneo-choice-changed', context);
-  document.querySelectorAll('[data-open-talk]').forEach(button => button.addEventListener('click', () => {
-    window.oryneoCommercialChoice.intent = 'conversation';
-    mode('conversation');
-    $('solicitacao').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start'});
-    ($('quick-review').hidden ? $('quick-name') : $('quick-review').querySelector('h3')).focus({preventScroll:true});
+  document.querySelectorAll('[data-open-talk]').forEach(button => button.addEventListener('click', (event) => {
+    event.preventDefault();
+    const choice = { ...window.oryneoCommercialChoice, intent: 'conversation' };
+    const attribution = new URLSearchParams(window.location.search);
+    window.location.assign(window.OryneoPricing.buildCommercialUrl(choice, attribution));
   }));
   function error(id, message) {
     $(id + '-error').textContent = message;
