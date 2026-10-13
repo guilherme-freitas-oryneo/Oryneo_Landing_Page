@@ -19,6 +19,10 @@ jobs:
           node --check assets/quick-contact.js
           node --check assets/commercial.js
           node --check assets/company.js
+          node --check comecar/form.js
+          node --check comecar/intake-model.mjs
+      - name: Testar formulário e transporte de leads
+        run: node --test tests/*.test.mjs
       - name: Validar scripts incorporados e campos comerciais
         run: |
           node --input-type=module <<'JS'
