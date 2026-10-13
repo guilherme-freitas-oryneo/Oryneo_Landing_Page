@@ -23,6 +23,15 @@ jobs:
           node --check comecar/intake-model.mjs
       - name: Testar formulário e transporte de leads
         run: node --test tests/*.test.mjs
+      - name: Validar página progressiva e ativos públicos
+        run: |
+          test -s comecar/index.html
+          test -s comecar/form.css
+          test -s comecar/form.js
+          test -s assets/oryneo-wordmark-mono-reverse.png
+          grep -q 'href="../privacidade.html"' comecar/index.html
+          grep -q 'opacity: .04' comecar/form.css
+          grep -q '/comecar/' sitemap.xml
       - name: Validar scripts incorporados e campos comerciais
         run: |
           node --input-type=module <<'JS'
