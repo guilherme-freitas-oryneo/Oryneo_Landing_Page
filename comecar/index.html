@@ -30,10 +30,10 @@
 
       <section class="form-panel" aria-label="Solicitação para a ORYNEO">
         <div class="progress-meta">
-          <span id="progress-label">Etapa 1 de 7</span>
+          <span id="progress-label">Etapa 1 de 6</span>
           <span id="progress-name">Você</span>
         </div>
-        <div class="progress-track" role="progressbar" aria-labelledby="progress-label" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1">
+        <div class="progress-track" role="progressbar" aria-labelledby="progress-label" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
           <span id="progress-fill"></span>
         </div>
 
@@ -160,51 +160,40 @@
             </div>
           </section>
 
-          <section class="form-step" data-step="commercial" hidden>
-            <p class="step-kicker">A configuração inicial.</p>
-            <h2 class="step-title" tabindex="-1">Como você quer avançar?</h2>
-            <p class="step-copy">A escolha prepara a conversa. Nenhuma cobrança acontece aqui.</p>
-
-            <fieldset class="segmented-group">
-              <legend>Intenção</legend>
-              <label><input type="radio" name="intent" value="conversation"><span>Quero conversar</span></label>
-              <label><input type="radio" name="intent" value="contract"><span>Quero contratar</span></label>
-              <span class="field-error" data-error="intent"></span>
-            </fieldset>
-
-            <fieldset class="plan-group">
-              <legend>Plano</legend>
-              <label class="plan-choice"><input type="radio" name="plan" value="Start"><span><strong>Start</strong><small>Para estruturar o processo essencial.</small></span></label>
-              <label class="plan-choice"><input type="radio" name="plan" value="Growth"><span><strong>Growth</strong><small>Para ganhar cadência e previsibilidade.</small></span></label>
-              <label class="plan-choice"><input type="radio" name="plan" value="Scale"><span><strong>Scale</strong><small>Para operações com mais volume e frentes.</small></span></label>
-              <span class="field-error" data-error="plan"></span>
-            </fieldset>
-
-            <fieldset class="segmented-group">
-              <legend>Ciclo</legend>
-              <label><input type="radio" name="cycle" value="monthly"><span>Mensal</span></label>
-              <label><input type="radio" name="cycle" value="annual"><span>Anual</span></label>
-              <span class="field-error" data-error="cycle"></span>
-            </fieldset>
-
-            <fieldset class="addon-group">
-              <legend>Complementos <small>opcionais</small></legend>
-              <label class="choice"><input type="checkbox" name="services" value="landing-page"><span>Landing page de conversão</span></label>
-              <label class="choice"><input type="checkbox" name="services" value="traffic"><span>Gestão de tráfego pago</span></label>
-              <span class="field-error" data-error="services"></span>
-            </fieldset>
-
-            <div class="step-actions">
-              <button class="secondary-action" type="button" data-back>Voltar</button>
-              <button class="primary-action" type="submit">Revisar solicitação <span aria-hidden="true">→</span></button>
-            </div>
-          </section>
-
           <section class="form-step" data-step="review" hidden>
             <p class="step-kicker">Tudo certo antes de enviar.</p>
             <h2 class="step-title" tabindex="-1">Revise sua solicitação.</h2>
             <p class="step-copy">Se algo mudou, edite a etapa. Seus dados só entram no CRM depois da confirmação.</p>
             <div class="review-list" data-review-list></div>
+            <div class="commercial-context" data-commercial-context aria-labelledby="commercial-context-title">
+              <div class="commercial-context-line">
+                <div>
+                  <small id="commercial-context-title">Próximo passo</small>
+                  <strong data-commercial-summary></strong>
+                </div>
+                <button type="button" data-commercial-toggle hidden aria-expanded="false">Alterar</button>
+              </div>
+              <p data-commercial-empty hidden>Configuração definida no diagnóstico.</p>
+              <div class="commercial-editor" data-commercial-editor hidden>
+                <fieldset class="plan-group compact-options">
+                  <legend>Plano</legend>
+                  <label class="plan-choice"><input type="radio" name="plan" value="Start"><span><strong>Start</strong></span></label>
+                  <label class="plan-choice"><input type="radio" name="plan" value="Growth"><span><strong>Growth</strong></span></label>
+                  <label class="plan-choice"><input type="radio" name="plan" value="Scale"><span><strong>Scale</strong></span></label>
+                </fieldset>
+                <fieldset class="segmented-group compact-options">
+                  <legend>Ciclo</legend>
+                  <label><input type="radio" name="cycle" value="monthly"><span>Mensal</span></label>
+                  <label><input type="radio" name="cycle" value="annual"><span>Anual</span></label>
+                </fieldset>
+                <fieldset class="addon-group compact-options">
+                  <legend>Complementos <small>opcionais</small></legend>
+                  <label class="choice"><input type="checkbox" name="services" value="landing-page"><span>Landing page</span></label>
+                  <label class="choice"><input type="checkbox" name="services" value="traffic"><span>Tráfego pago</span></label>
+                </fieldset>
+              </div>
+            </div>
+            <span class="field-error" data-error="commercial"></span>
             <p class="no-charge">Nenhuma cobrança acontece nesta página. Escopo e condições serão confirmados com você.</p>
             <label class="consent">
               <input name="consent" type="checkbox">
@@ -238,6 +227,6 @@
     </footer>
 
     <script src="../assets/lead-intake.js"></script>
-    <script type="module" src="form.js?v=20261013-4"></script>
+    <script type="module" src="form.js?v=20261013-5"></script>
   </body>
 </html>

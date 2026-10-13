@@ -6,9 +6,9 @@ import {
   nextVisibleStep,
   parseEntryParams,
   validateStep,
-} from './intake-model.mjs?v=20261013-4';
+} from './intake-model.mjs?v=20261013-5';
 
-const STORAGE_KEY = 'oryneo_progressive_intake_v2';
+const STORAGE_KEY = 'oryneo_progressive_intake_v3';
 const form = document.querySelector('#intake-form');
 const steps = [...document.querySelectorAll('[data-step]')];
 const status = document.querySelector('#form-status');
@@ -20,6 +20,11 @@ const reviewList = document.querySelector('[data-review-list]');
 const successPanel = document.querySelector('[data-success]');
 const entry = parseEntryParams(new URL(window.location.href));
 const attribution = captureAttribution(new URL(window.location.href), document.referrer);
+const entryKey = JSON.stringify(entry.commercial);
+const commercialSummary = document.querySelector('[data-commercial-summary]');
+const commercialEmpty = document.querySelector('[data-commercial-empty]');
+const commercialToggle = document.querySelector('[data-commercial-toggle]');
+const commercialEditor = document.querySelector('[data-commercial-editor]');
 
 const stepNames = {
   name: 'Você',
@@ -27,7 +32,6 @@ const stepNames = {
   company: 'Empresa',
   acquisition: 'Aquisição',
   priorities: 'Prioridades',
-  commercial: 'Configuração',
   review: 'Revisão',
 };
 
@@ -43,7 +47,7 @@ const initialState = {
 function restoredState() {
   try {
     const saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || 'null');
-    if (!saved || typeof saved !== 'object') return initialState;
+    if (!saved || typeof saved !== 'object' || saved.__entryKey !== entryKey) return initialState;
     return {
       ...initialState,
       ...saved,
@@ -62,7 +66,7 @@ let state = restoredState();
 let activeStep = STEPS[0];
 
 function persist() {
-  try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { /* sessão indisponível */ }
+  try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ ...state, __entryKey: entryKey })); } catch { /* sessão indisponível */ }
 }
 
 function values(name) {
@@ -91,7 +95,6 @@ function syncControls() {
   setValue('team_size', state.teamSize);
   setChecked('acquisition_channels', state.acquisition.channels);
   setChecked('goals', state.priorities.goals);
-  setChecked('intent', [state.commercial.intent]);
   setChecked('plan', [state.commercial.plan]);
   setChecked('cycle', [state.commercial.cycle]);
   setChecked('services', state.commercial.services);
@@ -121,9 +124,6 @@ function readStep(step) {
     case 'priorities':
       state.priorities = { goals: values('goals'), primary: checked('goal_primary') };
       if (state.priorities.goals.length === 1) state.priorities.primary = state.priorities.goals[0];
-      break;
-    case 'commercial':
-      state.commercial = { intent: checked('intent'), plan: checked('plan'), cycle: checked('cycle'), services: values('services') };
       break;
     case 'review':
       state.contact.consent = form.elements.namedItem('consent').checked;
@@ -195,26 +195,47 @@ function reviewRow(label, value, targetStep) {
   small.textContent = label;
   const strong = document.createElement('strong');
   strong.textContent = value || 'Não informado';
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.textContent = 'Editar';
-  button.addEventListener('click', () => goTo(targetStep));
-  row.append(small, strong, button);
+  row.append(small, strong);
+  if (targetStep) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = 'Editar';
+    button.addEventListener('click', () => goTo(targetStep));
+    row.append(button);
+  }
   return row;
 }
 
-function renderReview() {
-  const serviceLabels = { 'landing-page': 'Landing page de conversão', traffic: 'Gestão de tráfego pago' };
+function commercialLabel() {
+  if (!state.commercial.plan) return 'Configuração definida no diagnóstico.';
+  const serviceLabels = { 'landing-page': 'Landing page', traffic: 'Tráfego pago' };
   const cycle = state.commercial.cycle === 'annual' ? 'Anual' : 'Mensal';
-  const intent = state.commercial.intent === 'contract' ? 'Quero contratar' : 'Quero conversar';
+  const additions = state.commercial.services.map((key) => serviceLabels[key]).filter(Boolean);
+  return `${state.commercial.plan} · ${cycle}${additions.length ? ` · ${additions.join(' + ')}` : ''}`;
+}
+
+function renderCommercialContext() {
+  const hasPlan = Boolean(state.commercial.plan);
+  commercialSummary.textContent = hasPlan ? commercialLabel() : '';
+  commercialSummary.hidden = !hasPlan;
+  commercialEmpty.textContent = 'Configuração definida no diagnóstico.';
+  commercialEmpty.hidden = hasPlan;
+  commercialToggle.hidden = !hasPlan;
+  if (!hasPlan) {
+    commercialEditor.hidden = true;
+    commercialToggle.setAttribute('aria-expanded', 'false');
+  }
+}
+
+function renderReview() {
   reviewList.replaceChildren(
     reviewRow('Você', state.contact.name, 'name'),
     reviewRow('Contato', `${state.contact.email} · ${state.contact.phone}`, 'contact'),
     reviewRow('Empresa', `${state.company.name} · ${state.teamSize}`, 'company'),
     reviewRow('Aquisição', `${state.acquisition.primary} · ${state.acquisition.channels.join(', ')}`, 'acquisition'),
     reviewRow('Prioridade', `${state.priorities.primary} · ${state.priorities.goals.join(', ')}`, 'priorities'),
-    reviewRow('Configuração', `${intent} · ${state.commercial.plan} · ${cycle}${state.commercial.services.length ? ` · ${state.commercial.services.map((key) => serviceLabels[key]).join(' + ')}` : ''}`, 'commercial'),
   );
+  renderCommercialContext();
 }
 
 function goTo(step) {
@@ -299,7 +320,24 @@ form.addEventListener('change', (event) => {
   }
   if (event.target.name === 'acquisition_primary') state.acquisition.primary = event.target.value;
   if (event.target.name === 'goal_primary') state.priorities.primary = event.target.value;
+  if (['plan', 'cycle', 'services'].includes(event.target.name)) {
+    state.commercial = {
+      ...state.commercial,
+      plan: checked('plan'),
+      cycle: checked('cycle'),
+      services: values('services'),
+    };
+    renderCommercialContext();
+  }
   persist();
+});
+
+commercialToggle.addEventListener('click', () => {
+  const willOpen = commercialEditor.hidden;
+  commercialEditor.hidden = !willOpen;
+  commercialToggle.textContent = willOpen ? 'Concluir' : 'Alterar';
+  commercialToggle.setAttribute('aria-expanded', String(willOpen));
+  if (willOpen) commercialEditor.querySelector('input:checked')?.focus();
 });
 
 form.elements.namedItem('contact_phone').addEventListener('input', (event) => {

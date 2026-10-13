@@ -4,15 +4,31 @@ import { access, readFile } from 'node:fs/promises';
 
 const load = (path) => readFile(new URL(path, import.meta.url), 'utf8');
 
-test('página contém as sete etapas, progresso e regiões acessíveis', async () => {
+test('página contém seis etapas, progresso e regiões acessíveis', async () => {
   const html = await load('../comecar/index.html');
-  assert.equal((html.match(/data-step="(name|contact|company|acquisition|priorities|commercial|review)"/g) || []).length, 7);
+  assert.equal((html.match(/data-step="(name|contact|company|acquisition|priorities|review)"/g) || []).length, 6);
+  assert.doesNotMatch(html, /data-step="commercial"/);
   assert.match(html, /role="progressbar"/);
   assert.match(html, /aria-live="polite"/);
   assert.match(html, /id="form-status"[^>]*role="status"/);
-  assert.equal((html.match(/class="step-title" tabindex="-1"/g) || []).length, 7);
+  assert.equal((html.match(/class="step-title" tabindex="-1"/g) || []).length, 6);
   assert.match(html, /href="\.\.\/privacidade\.html"/);
   assert.doesNotMatch(html, /fonts\.(?:googleapis|gstatic)\.com/);
+});
+
+test('configuração comercial aparece apenas como contexto compacto na revisão', async () => {
+  const [html, css, script] = await Promise.all([
+    load('../comecar/index.html'),
+    load('../comecar/form.css'),
+    load('../comecar/form.js'),
+  ]);
+  assert.match(html, /data-commercial-context/);
+  assert.match(html, /data-commercial-editor[^>]*hidden/);
+  assert.match(html, /data-commercial-empty/);
+  assert.doesNotMatch(html, />Quero conversar</);
+  assert.doesNotMatch(html, />Quero contratar</);
+  assert.match(script, /Configuração definida no diagnóstico/);
+  assert.match(css, /\.commercial-context/);
 });
 
 test('identidade usa o wordmark no cabeçalho e o Y oficial na marca d’água', async () => {
@@ -42,7 +58,7 @@ test('layout prevê foco, movimento reduzido e telas estreitas', async () => {
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.match(css, /@media\s*\(max-width:\s*360px\)/);
   assert.match(script, /\.focus\(\{\s*preventScroll:\s*true\s*\}\)/);
-  assert.match(script, /oryneo_progressive_intake_v2/);
+  assert.match(script, /oryneo_progressive_intake_v3/);
   assert.match(script, /sessionStorage\.removeItem/);
 });
 
@@ -58,6 +74,6 @@ test('fluxo sempre inicializa pela primeira etapa declarada', async () => {
   const [html, script] = await Promise.all([load('../comecar/index.html'), load('../comecar/form.js')]);
   assert.match(script, /goTo\(STEPS\[0\]\);\s*$/);
   assert.doesNotMatch(script, /goTo\('contact'\);\s*$/);
-  assert.match(html, /src="form\.js\?v=20261013-4"/);
-  assert.match(script, /from '\.\/intake-model\.mjs\?v=20261013-4'/);
+  assert.match(html, /src="form\.js\?v=20261013-5"/);
+  assert.match(script, /from '\.\/intake-model\.mjs\?v=20261013-5'/);
 });

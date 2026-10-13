@@ -1,4 +1,4 @@
-export const STEPS = ['name', 'contact', 'company', 'acquisition', 'priorities', 'commercial', 'review'];
+export const STEPS = ['name', 'contact', 'company', 'acquisition', 'priorities', 'review'];
 
 export const ACQUISITION_CHANNELS = [
   'Indicações e parcerias',
@@ -23,7 +23,6 @@ export const TEAM_SIZES = ['Somente eu', '2 a 5 pessoas', '6 a 10 pessoas', '11 
 const PLANS = ['Start', 'Growth', 'Scale'];
 const CYCLES = ['monthly', 'annual'];
 const SERVICES = ['landing-page', 'traffic'];
-const INTENTS = ['conversation', 'contract'];
 const UNPREDICTABLE = 'Ainda não temos um canal previsível';
 
 const unique = (values) => [...new Set(values)];
@@ -167,12 +166,15 @@ export function parseEntryParams(url) {
   const cycleParam = url.searchParams.get('cycle') || '';
   const intentParam = url.searchParams.get('intent') || '';
   const rawServices = url.searchParams.getAll('services').flatMap((value) => value.split(','));
+  const plan = PLANS.includes(planParam) ? planParam : '';
+  const cycle = plan && CYCLES.includes(cycleParam) ? cycleParam : (plan ? 'monthly' : '');
+  const intent = plan && intentParam === 'contract' ? 'contract' : 'conversation';
   return {
     commercial: {
-      plan: PLANS.includes(planParam) ? planParam : '',
-      cycle: CYCLES.includes(cycleParam) ? cycleParam : 'monthly',
-      services: unique(rawServices.filter((value) => SERVICES.includes(value))),
-      intent: INTENTS.includes(intentParam) ? intentParam : 'conversation',
+      plan,
+      cycle,
+      services: plan ? unique(rawServices.filter((value) => SERVICES.includes(value))) : [],
+      intent,
     },
     attribution: captureAttribution(url),
   };
@@ -214,11 +216,8 @@ export function validateStep(step, state) {
     if (selected.length > 1 && !primary) errors.primary = 'Indique a prioridade principal.';
     else if (primary && !selected.includes(primary)) errors.primary = 'Escolha como principal uma prioridade selecionada.';
   }
-  if (step === 'commercial') {
-    if (!INTENTS.includes(state.commercial?.intent)) errors.intent = 'Selecione como deseja avançar.';
-    if (!PLANS.includes(state.commercial?.plan)) errors.plan = 'Selecione um plano.';
-    if (!CYCLES.includes(state.commercial?.cycle)) errors.cycle = 'Selecione um ciclo.';
-    if ((state.commercial?.services || []).some((value) => !SERVICES.includes(value))) errors.services = 'Confira os complementos selecionados.';
+  if (step === 'review' && state.commercial?.intent === 'contract' && !PLANS.includes(state.commercial?.plan)) {
+    errors.commercial = 'Confira a configuração escolhida.';
   }
   if (step === 'review' && state.contact?.consent !== true) errors.consent = 'Autorize o contato para enviar.';
   return { valid: Object.keys(errors).length === 0, errors };

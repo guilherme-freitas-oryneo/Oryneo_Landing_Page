@@ -19,11 +19,11 @@ const state = {
   teamSize: '2 a 5 pessoas',
 };
 
-test('mantém sete etapas lógicas em ordem previsível', () => {
-  assert.deepEqual(STEPS, ['name', 'contact', 'company', 'acquisition', 'priorities', 'commercial', 'review']);
+test('mantém seis etapas lógicas sem repetir a configuração comercial', () => {
+  assert.deepEqual(STEPS, ['name', 'contact', 'company', 'acquisition', 'priorities', 'review']);
   assert.equal(nextVisibleStep('name', state), 'contact');
   assert.equal(nextVisibleStep('contact', state), 'company');
-  assert.equal(nextVisibleStep('commercial', state), 'review');
+  assert.equal(nextVisibleStep('priorities', state), 'review');
   assert.equal(nextVisibleStep('review', state), null);
 });
 
@@ -89,7 +89,24 @@ test('aceita somente parâmetros comerciais permitidos e nunca lê preço', () =
   assert.equal(valid.attribution.utm_source, 'google');
   assert.equal('price' in valid.commercial, false);
   const invalid = parseEntryParams(new URL('https://oryneo.com.br/comecar/?plan=Enterprise&cycle=weekly&services=root,traffic&intent=buy'));
-  assert.deepEqual(invalid.commercial, { plan: '', cycle: 'monthly', services: ['traffic'], intent: 'conversation' });
+  assert.deepEqual(invalid.commercial, { plan: '', cycle: '', services: [], intent: 'conversation' });
+});
+
+test('entrada consultiva não inventa plano, ciclo ou complementos', () => {
+  const direct = parseEntryParams(new URL('https://oryneo.com.br/comecar/?intent=conversation'));
+  assert.deepEqual(direct.commercial, { plan: '', cycle: '', services: [], intent: 'conversation' });
+  const payload = buildIntakePayload({ ...state, commercial: direct.commercial }, {}, '11111111-1111-4111-8111-111111111111');
+  assert.equal(payload.intent, 'conversation');
+  assert.equal(payload.plan, '');
+  assert.equal(payload.cycle, '');
+  assert.deepEqual(payload.services, []);
+});
+
+test('intenção de contratar só é preservada quando existe plano válido', () => {
+  const withoutPlan = parseEntryParams(new URL('https://oryneo.com.br/comecar/?intent=contract&cycle=annual'));
+  assert.deepEqual(withoutPlan.commercial, { plan: '', cycle: '', services: [], intent: 'conversation' });
+  const withPlan = parseEntryParams(new URL('https://oryneo.com.br/comecar/?intent=contract&plan=Growth&cycle=annual&services=traffic'));
+  assert.deepEqual(withPlan.commercial, { plan: 'Growth', cycle: 'annual', services: ['traffic'], intent: 'contract' });
 });
 
 test('captura somente atribuição permitida e limita valores', () => {
