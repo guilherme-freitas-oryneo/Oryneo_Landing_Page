@@ -27,6 +27,25 @@ const UNPREDICTABLE = 'Ainda não temos um canal previsível';
 
 const unique = (values) => [...new Set(values)];
 const digits = (value) => String(value || '').replace(/\D/g, '');
+export function formatCnpj(value) {
+  const normalized = digits(value).slice(0, 14);
+  return normalized
+    .replace(/^(\d{2})(\d)/, '$1.$2')
+    .replace(/^(\d{2}\.\d{3})(\d)/, '$1.$2')
+    .replace(/\.(\d{3})(\d)/, '.$1/$2')
+    .replace(/(\d{4})(\d)/, '$1-$2');
+}
+export function validCnpj(value) {
+  const normalized = digits(value);
+  if (normalized.length !== 14 || /^(\d)\1{13}$/.test(normalized)) return false;
+  const digit = (length) => {
+    const weights = length === 12 ? [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2] : [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    const total = weights.reduce((sum, weight, index) => sum + Number(normalized[index]) * weight, 0);
+    const remainder = total % 11;
+    return remainder < 2 ? 0 : 11 - remainder;
+  };
+  return Number(normalized[12]) === digit(12) && Number(normalized[13]) === digit(13);
+}
 const validEmail = (value) => {
   const normalized = String(value || '').trim().toLowerCase();
   const [local, domain, ...extra] = normalized.split('@');
@@ -197,8 +216,7 @@ export function validateStep(step, state) {
     if (!validBrazilianPhone(state.contact?.phone)) errors.phone = 'Informe um WhatsApp brasileiro válido.';
   }
   if (step === 'company') {
-    const companyName = String(state.company?.name || '').trim();
-    if (companyName.length < 2 || !/[\p{L}\p{N}]/u.test(companyName)) errors.name = 'Informe o nome da empresa.';
+    if (!validCnpj(state.company?.cnpj)) errors.cnpj = 'Informe um CNPJ válido.';
     if (!TEAM_SIZES.includes(state.teamSize)) errors.teamSize = 'Selecione o tamanho da operação comercial.';
   }
   if (step === 'acquisition') {
@@ -235,7 +253,8 @@ export function buildIntakePayload(state, attribution, requestId) {
     email: state.contact.email.trim().toLowerCase(),
     phone: state.contact.phone.trim(),
     consent: state.contact.consent === true,
-    company: state.company.name.trim(),
+    company: '',
+    cnpj: formatCnpj(state.company.cnpj),
     intent: state.commercial.intent,
     plan: state.commercial.plan,
     cycle: state.commercial.cycle,
@@ -247,6 +266,6 @@ export function buildIntakePayload(state, attribution, requestId) {
     goals,
     primary_goal: primaryGoal,
     attribution,
-    summary: `Solicitação de ${state.contact.name.trim()} para ${state.company.name.trim()}.`,
+    summary: `Solicitação de ${state.contact.name.trim()} com CNPJ ${formatCnpj(state.company.cnpj)}.`,
   };
 }

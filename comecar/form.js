@@ -2,13 +2,14 @@ import {
   STEPS,
   buildIntakePayload,
   captureAttribution,
+  formatCnpj,
   formatBrazilianPhone,
   nextVisibleStep,
   parseEntryParams,
   validateStep,
-} from './intake-model.mjs?v=20261013-5';
+} from './intake-model.mjs?v=20261013-6';
 
-const STORAGE_KEY = 'oryneo_progressive_intake_v3';
+const STORAGE_KEY = 'oryneo_progressive_intake_v4';
 const form = document.querySelector('#intake-form');
 const steps = [...document.querySelectorAll('[data-step]')];
 const status = document.querySelector('#form-status');
@@ -37,7 +38,7 @@ const stepNames = {
 
 const initialState = {
   contact: { name: '', email: '', phone: '', consent: false },
-  company: { name: '' },
+  company: { cnpj: '' },
   acquisition: { channels: [], primary: '' },
   priorities: { goals: [], primary: '' },
   commercial: entry.commercial,
@@ -91,7 +92,7 @@ function syncControls() {
   setValue('contact_email', state.contact.email);
   setValue('contact_phone', state.contact.phone);
   form.elements.namedItem('consent').checked = state.contact.consent;
-  setValue('company_name', state.company.name);
+  setValue('company_cnpj', state.company.cnpj);
   setValue('team_size', state.teamSize);
   setChecked('acquisition_channels', state.acquisition.channels);
   setChecked('goals', state.priorities.goals);
@@ -113,7 +114,7 @@ function readStep(step) {
       break;
     case 'company':
       state.company = {
-        name: form.elements.namedItem('company_name').value.trim(),
+        cnpj: form.elements.namedItem('company_cnpj').value.trim(),
       };
       state.teamSize = form.elements.namedItem('team_size').value;
       break;
@@ -145,7 +146,7 @@ function showErrors(step, errors) {
     const target = section.querySelector(`[data-error="${key}"]`);
     if (target) target.textContent = message;
     const named = {
-      name: step === 'name' ? 'contact_name' : 'company_name',
+      name: step === 'name' ? 'contact_name' : 'company_cnpj',
       email: 'contact_email',
       phone: 'contact_phone',
       consent: 'consent',
@@ -231,7 +232,7 @@ function renderReview() {
   reviewList.replaceChildren(
     reviewRow('Você', state.contact.name, 'name'),
     reviewRow('Contato', `${state.contact.email} · ${state.contact.phone}`, 'contact'),
-    reviewRow('Empresa', `${state.company.name} · ${state.teamSize}`, 'company'),
+    reviewRow('Empresa', `${state.company.cnpj} · ${state.teamSize}`, 'company'),
     reviewRow('Aquisição', `${state.acquisition.primary} · ${state.acquisition.channels.join(', ')}`, 'acquisition'),
     reviewRow('Prioridade', `${state.priorities.primary} · ${state.priorities.goals.join(', ')}`, 'priorities'),
   );
@@ -342,6 +343,10 @@ commercialToggle.addEventListener('click', () => {
 
 form.elements.namedItem('contact_phone').addEventListener('input', (event) => {
   event.target.value = formatBrazilianPhone(event.target.value);
+});
+
+form.elements.namedItem('company_cnpj').addEventListener('input', (event) => {
+  event.target.value = formatCnpj(event.target.value);
 });
 
 window.addEventListener('oryneo:webhook-accepted', () => {

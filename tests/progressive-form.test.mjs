@@ -42,11 +42,12 @@ test('identidade usa o wordmark no cabeçalho e o Y oficial na marca d’água',
   await access(new URL('../assets/oryneo_y_mark.svg', import.meta.url));
 });
 
-test('nome fica isolado, CNPJ sai do início e consentimento fica na revisão', async () => {
+test('nome fica isolado, CNPJ substitui a empresa e consentimento fica na revisão', async () => {
   const html = await load('../comecar/index.html');
   const nameStep = html.match(/<section class="form-step" data-step="name">([\s\S]*?)<\/section>/)?.[1] || '';
   assert.equal((nameStep.match(/<input\b/g) || []).length, 1);
-  assert.doesNotMatch(html, /company_cnpj/);
+  assert.match(html, /name="company_cnpj"/);
+  assert.doesNotMatch(html, /name="company_name"/);
   const reviewStep = html.match(/<section class="form-step" data-step="review" hidden>([\s\S]*?)<\/section>/)?.[1] || '';
   assert.match(reviewStep, /name="consent"/);
 });
@@ -58,7 +59,7 @@ test('layout prevê foco, movimento reduzido e telas estreitas', async () => {
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.match(css, /@media\s*\(max-width:\s*360px\)/);
   assert.match(script, /\.focus\(\{\s*preventScroll:\s*true\s*\}\)/);
-  assert.match(script, /oryneo_progressive_intake_v3/);
+  assert.match(script, /oryneo_progressive_intake_v4/);
   assert.match(script, /sessionStorage\.removeItem/);
 });
 
@@ -74,6 +75,6 @@ test('fluxo sempre inicializa pela primeira etapa declarada', async () => {
   const [html, script] = await Promise.all([load('../comecar/index.html'), load('../comecar/form.js')]);
   assert.match(script, /goTo\(STEPS\[0\]\);\s*$/);
   assert.doesNotMatch(script, /goTo\('contact'\);\s*$/);
-  assert.match(html, /src="form\.js\?v=20261013-5"/);
-  assert.match(script, /from '\.\/intake-model\.mjs\?v=20261013-5'/);
+  assert.match(html, /src="form\.js\?v=20261013-6"/);
+  assert.match(script, /from '\.\/intake-model\.mjs\?v=20261013-6'/);
 });

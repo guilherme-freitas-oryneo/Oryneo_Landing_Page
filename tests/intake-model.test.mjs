@@ -4,6 +4,7 @@ import {
   STEPS,
   buildIntakePayload,
   captureAttribution,
+  formatCnpj,
   formatBrazilianPhone,
   nextVisibleStep,
   parseEntryParams,
@@ -12,7 +13,7 @@ import {
 
 const state = {
   contact: { name: 'Marina Costa', email: 'marina@exemplo.com', phone: '(11) 99999-0000', consent: true },
-  company: { name: 'Acme' },
+  company: { cnpj: '04.252.011/0001-10' },
   acquisition: { channels: ['Indicações e parcerias'], primary: 'Indicações e parcerias' },
   priorities: { goals: ['Organizar contatos e negociações no CRM'], primary: 'Organizar contatos e negociações no CRM' },
   commercial: { intent: 'conversation', plan: 'Growth', cycle: 'monthly', services: ['landing-page'] },
@@ -59,11 +60,10 @@ test('formata WhatsApp brasileiro sem aceitar dígitos excedentes', () => {
   assert.equal(formatBrazilianPhone('21'), '(21');
 });
 
-test('valida empresa e equipe sem solicitar CNPJ', () => {
+test('valida CNPJ e equipe antes de seguir', () => {
   assert.equal(validateStep('company', state).valid, true);
-  const contract = { ...state, commercial: { ...state.commercial, intent: 'contract' } };
-  assert.equal(validateStep('company', contract).valid, true);
-  assert.equal(validateStep('company', { ...state, company: { name: '--' } }).errors.name, 'Informe o nome da empresa.');
+  assert.equal(formatCnpj('04252011000110'), '04.252.011/0001-10');
+  assert.equal(validateStep('company', { ...state, company: { cnpj: '12.345.678/0001-99' } }).errors.cnpj, 'Informe um CNPJ válido.');
   assert.equal(validateStep('company', { ...state, teamSize: '' }).errors.teamSize, 'Selecione o tamanho da operação comercial.');
 });
 
@@ -135,5 +135,6 @@ test('monta payload novo compatível com o campo legado', () => {
   assert.equal(payload.primary_goal, 'Acompanhar resultados e gestão');
   assert.equal(payload.request_id, '11111111-1111-4111-8111-111111111111');
   assert.equal(payload.value_cents, undefined);
-  assert.equal(payload.cnpj, undefined);
+  assert.equal(payload.company, '');
+  assert.equal(payload.cnpj, '04.252.011/0001-10');
 });

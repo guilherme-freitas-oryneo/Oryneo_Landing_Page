@@ -81,9 +81,9 @@
             <p class="step-copy">Essas duas informações ajudam a dimensionar o contexto sem alongar o início.</p>
 
             <div class="field-grid">
-              <label class="field">Nome da empresa
-                <input name="company_name" autocomplete="organization" maxlength="160" required>
-                <span class="field-error" data-error="name"></span>
+              <label class="field">CNPJ
+                <input name="company_cnpj" inputmode="numeric" autocomplete="off" maxlength="18" placeholder="00.000.000/0000-00" required>
+                <span class="field-error" data-error="cnpj"></span>
               </label>
               <label class="field">Pessoas na operação comercial
                 <select name="team_size" required>
@@ -227,6 +227,6 @@
     </footer>
 
     <script src="../assets/lead-intake.js"></script>
-    <script type="module" src="form.js?v=20261013-5"></script>
+    <script type="module" src="form.js?v=20261013-6"></script>
   </body>
 </html>
