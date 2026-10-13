@@ -45,6 +45,7 @@ const validBrazilianDdds = new Set([
 ]);
 const domainCorrections = new Map([
   ['gmal.com', 'gmail.com'], ['gmial.com', 'gmail.com'], ['gmai.com', 'gmail.com'], ['gmayg.com', 'gmail.com'],
+  ['gemau.com', 'gmail.com'], ['gemau', 'gmail.com'],
   ['hotmai.com', 'hotmail.com'], ['hotmal.com', 'hotmail.com'], ['outlok.com', 'outlook.com'],
 ]);
 
@@ -122,11 +123,9 @@ export function validateStep(step, state) {
   const errors = {};
   if (step === 'name' && !validName(state.contact?.name)) errors.name = 'Informe um nome válido.';
   if (step === 'contact') {
-    if (!validEmail(state.contact?.email)) errors.email = 'Informe um e-mail válido.';
-    else {
-      const suggestion = emailSuggestion(state.contact.email);
-      if (suggestion) errors.email = `Confira o domínio do e-mail. Você quis dizer ${suggestion}?`;
-    }
+    const suggestion = emailSuggestion(state.contact?.email);
+    if (suggestion) errors.email = `Confira o domínio do e-mail. Você quis dizer ${suggestion}?`;
+    else if (!validEmail(state.contact?.email)) errors.email = 'Informe um e-mail válido.';
     if (!validBrazilianPhone(state.contact?.phone)) errors.phone = 'Informe um WhatsApp brasileiro válido.';
   }
   if (step === 'company') {

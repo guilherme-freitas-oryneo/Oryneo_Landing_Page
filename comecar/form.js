@@ -6,7 +6,7 @@ import {
   nextVisibleStep,
   parseEntryParams,
   validateStep,
-} from './intake-model.mjs';
+} from './intake-model.mjs?v=20261013-2';
 
 const STORAGE_KEY = 'oryneo_progressive_intake_v2';
 const form = document.querySelector('#intake-form');
@@ -59,7 +59,7 @@ function restoredState() {
 }
 
 let state = restoredState();
-let activeStep = 'contact';
+let activeStep = STEPS[0];
 
 function persist() {
   try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { /* sessão indisponível */ }
@@ -316,4 +316,4 @@ window.addEventListener('oryneo:webhook-accepted', () => {
 });
 
 syncControls();
-goTo('contact');
+goTo(STEPS[0]);

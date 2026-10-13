@@ -34,6 +34,8 @@ test('valida nome, contato brasileiro e consentimento somente na revisão', () =
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: '' } }).errors.email, 'Informe um e-mail válido.');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@empresa..com' } }).errors.email, 'Informe um e-mail válido.');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gmayg.com' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gemau.com' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gemau' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(00) 99999-9999' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(11) 88888-8888' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, consent: false } }).valid, true);
