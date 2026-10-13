@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0F1115">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="Conte à ORYNEO como sua operação comercial funciona e prepare o próximo passo.">
+    <title>Comece pela sua operação | ORYNEO</title>
+    <link rel="stylesheet" href="form.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#intake-form">Ir para o formulário</a>
+    <img class="brand-watermark" src="../assets/oryneo-wordmark-mono-reverse.png" alt="" aria-hidden="true">
+
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="ORYNEO, voltar ao início">
+        <img src="../assets/oryneo-wordmark-mono-reverse.png" width="800" height="149" alt="ORYNEO">
+      </a>
+      <span>Solicitação comercial</span>
+    </header>
+
+    <main class="flow-shell">
+      <section class="flow-intro" aria-labelledby="flow-title">
+        <p class="eyebrow">UM BOM PRÓXIMO PASSO COMEÇA PELO CONTEXTO</p>
+        <h1 id="flow-title">Vamos entender sua operação.</h1>
+        <p>São poucas perguntas para prepararmos uma conversa objetiva — sem cobrança e sem compromisso nesta página.</p>
+      </section>
+
+      <section class="form-panel" aria-label="Solicitação para a ORYNEO">
+        <div class="progress-meta">
+          <span id="progress-label">Etapa 1 de 6</span>
+          <span id="progress-name">Contato</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-labelledby="progress-label" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
+          <span id="progress-fill"></span>
+        </div>
+
+        <form id="intake-form" novalidate>
+          <section class="form-step" data-step="contact">
+            <p class="step-kicker">Primeiro, você.</p>
+            <h2 class="step-title" tabindex="-1">Como podemos falar com você?</h2>
+            <p class="step-copy">Usaremos estes dados somente para responder à sua solicitação.</p>
+
+            <div class="field-grid">
+              <label class="field field-wide">Seu nome
+                <input name="contact_name" autocomplete="name" maxlength="160" required>
+                <span class="field-error" data-error="name"></span>
+              </label>
+              <label class="field">E-mail
+                <input name="contact_email" type="email" inputmode="email" autocomplete="email" maxlength="254" required>
+                <span class="field-error" data-error="email"></span>
+              </label>
+              <label class="field">WhatsApp com DDD
+                <input name="contact_phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="(11) 99999-9999" required>
+                <span class="field-error" data-error="phone"></span>
+              </label>
+            </div>
+
+            <label class="consent">
+              <input name="consent" type="checkbox">
+              <span>Autorizo a ORYNEO a entrar em contato sobre esta solicitação. <a href="../privacidade.html" target="_blank" rel="noopener">Como usamos seus dados</a>.</span>
+            </label>
+            <span class="field-error consent-error" data-error="consent"></span>
+
+            <div class="step-actions"><button class="primary-action" type="submit">Continuar <span aria-hidden="true">→</span></button></div>
+          </section>
+
+          <section class="form-step" data-step="company" hidden>
+            <p class="step-kicker">Agora, a empresa.</p>
+            <h2 class="step-title" tabindex="-1">Qual operação estamos analisando?</h2>
+            <p class="step-copy">O CNPJ é opcional para conversar e necessário quando você escolhe contratar.</p>
+
+            <div class="field-grid">
+              <label class="field field-wide">Nome da empresa
+                <input name="company_name" autocomplete="organization" maxlength="160" required>
+                <span class="field-error" data-error="name"></span>
+              </label>
+              <label class="field">CNPJ
+                <input name="company_cnpj" inputmode="text" autocomplete="off" maxlength="18" placeholder="Opcional nesta etapa">
+                <span class="field-error" data-error="cnpj"></span>
+              </label>
+              <label class="field">Pessoas na operação comercial
+                <select name="team_size" required>
+                  <option value="">Selecione uma faixa</option>
+                  <option>Somente eu</option>
+                  <option>2 a 5 pessoas</option>
+                  <option>6 a 10 pessoas</option>
+                  <option>11 a 20 pessoas</option>
+                  <option>Mais de 20 pessoas</option>
+                </select>
+                <span class="field-error" data-error="teamSize"></span>
+              </label>
+            </div>
+
+            <div class="step-actions">
+              <button class="secondary-action" type="button" data-back>Voltar</button>
+              <button class="primary-action" type="submit">Continuar <span aria-hidden="true">→</span></button>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="acquisition" hidden>
+            <p class="step-kicker">Como as oportunidades chegam.</p>
+            <h2 class="step-title" tabindex="-1">Por quais canais chegam clientes hoje?</h2>
+            <p class="step-copy">Marque todos os que fazem parte da rotina atual.</p>
+
+            <fieldset class="choice-group" data-acquisition-options>
+              <legend class="sr-only">Canais de aquisição</legend>
+              <label class="choice"><input type="checkbox" name="acquisition_channels" value="Indicações e parcerias"><span>Indicações e parcerias</span></label>
+              <label class="choice"><input type="checkbox" name="acquisition_channels" value="Instagram e Facebook"><span>Instagram e Facebook</span></label>
+              <label class="choice"><input type="checkbox" name="acquisition_channels" value="Google"><span>Google</span></label>
+              <label class="choice"><input type="checkbox" name="acquisition_channels" value="Prospecção ativa"><span>Prospecção ativa</span></label>
+              <label class="choice"><input type="checkbox" name="acquisition_channels" value="Portais e marketplaces"><span>Portais e marketplaces</span></label>
+              <label class="choice"><input type="checkbox" name="acquisition_channels" value="Loja física e eventos"><span>Loja física e eventos</span></label>
+              <label class="choice"><input type="checkbox" name="acquisition_channels" value="Ainda não temos um canal previsível"><span>Ainda não temos um canal previsível</span></label>
+              <label class="choice"><input type="checkbox" name="acquisition_channels" value="Outro canal"><span>Outro canal</span></label>
+            </fieldset>
+            <span class="field-error" data-error="channels"></span>
+
+            <fieldset class="conditional-question" data-acquisition-primary hidden>
+              <legend>Qual deles gera mais oportunidades atualmente?</legend>
+              <div data-acquisition-primary-options></div>
+              <span class="field-error" data-error="primary"></span>
+            </fieldset>
+
+            <div class="step-actions">
+              <button class="secondary-action" type="button" data-back>Voltar</button>
+              <button class="primary-action" type="submit">Continuar <span aria-hidden="true">→</span></button>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="priorities" hidden>
+            <p class="step-kicker">O que precisa avançar.</p>
+            <h2 class="step-title" tabindex="-1">Onde a ORYNEO pode gerar mais impacto?</h2>
+            <p class="step-copy">Você pode marcar mais de uma prioridade.</p>
+
+            <fieldset class="choice-group" data-goal-options>
+              <legend class="sr-only">Prioridades</legend>
+              <label class="choice"><input type="checkbox" name="goals" value="Atrair contatos com páginas e anúncios"><span>Atrair contatos com páginas e anúncios</span></label>
+              <label class="choice"><input type="checkbox" name="goals" value="Organizar contatos e negociações no CRM"><span>Organizar contatos e negociações no CRM</span></label>
+              <label class="choice"><input type="checkbox" name="goals" value="Organizar retornos pelo WhatsApp"><span>Organizar retornos pelo WhatsApp</span></label>
+              <label class="choice"><input type="checkbox" name="goals" value="Acompanhar resultados e gestão"><span>Acompanhar resultados e gestão</span></label>
+            </fieldset>
+            <span class="field-error" data-error="goals"></span>
+
+            <fieldset class="conditional-question" data-goal-primary hidden>
+              <legend>Se precisarmos começar por uma, qual é a prioridade?</legend>
+              <div data-goal-primary-options></div>
+              <span class="field-error" data-error="primary"></span>
+            </fieldset>
+
+            <div class="step-actions">
+              <button class="secondary-action" type="button" data-back>Voltar</button>
+              <button class="primary-action" type="submit">Continuar <span aria-hidden="true">→</span></button>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="commercial" hidden>
+            <p class="step-kicker">A configuração inicial.</p>
+            <h2 class="step-title" tabindex="-1">Como você quer avançar?</h2>
+            <p class="step-copy">A escolha prepara a conversa. Nenhuma cobrança acontece aqui.</p>
+
+            <fieldset class="segmented-group">
+              <legend>Intenção</legend>
+              <label><input type="radio" name="intent" value="conversation"><span>Quero conversar</span></label>
+              <label><input type="radio" name="intent" value="contract"><span>Quero contratar</span></label>
+              <span class="field-error" data-error="intent"></span>
+            </fieldset>
+
+            <fieldset class="plan-group">
+              <legend>Plano</legend>
+              <label class="plan-choice"><input type="radio" name="plan" value="Start"><span><strong>Start</strong><small>Para estruturar o processo essencial.</small></span></label>
+              <label class="plan-choice"><input type="radio" name="plan" value="Growth"><span><strong>Growth</strong><small>Para ganhar cadência e previsibilidade.</small></span></label>
+              <label class="plan-choice"><input type="radio" name="plan" value="Scale"><span><strong>Scale</strong><small>Para operações com mais volume e frentes.</small></span></label>
+              <span class="field-error" data-error="plan"></span>
+            </fieldset>
+
+            <fieldset class="segmented-group">
+              <legend>Ciclo</legend>
+              <label><input type="radio" name="cycle" value="monthly"><span>Mensal</span></label>
+              <label><input type="radio" name="cycle" value="annual"><span>Anual</span></label>
+              <span class="field-error" data-error="cycle"></span>
+            </fieldset>
+
+            <fieldset class="addon-group">
+              <legend>Complementos <small>opcionais</small></legend>
+              <label class="choice"><input type="checkbox" name="services" value="landing-page"><span>Landing page de conversão</span></label>
+              <label class="choice"><input type="checkbox" name="services" value="traffic"><span>Gestão de tráfego pago</span></label>
+              <span class="field-error" data-error="services"></span>
+            </fieldset>
+
+            <div class="step-actions">
+              <button class="secondary-action" type="button" data-back>Voltar</button>
+              <button class="primary-action" type="submit">Revisar solicitação <span aria-hidden="true">→</span></button>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="review" hidden>
+            <p class="step-kicker">Tudo certo antes de enviar.</p>
+            <h2 class="step-title" tabindex="-1">Revise sua solicitação.</h2>
+            <p class="step-copy">Se algo mudou, edite a etapa. Seus dados só entram no CRM depois da confirmação.</p>
+            <div class="review-list" data-review-list></div>
+            <p class="no-charge">Nenhuma cobrança acontece nesta página. Escopo e condições serão confirmados com você.</p>
+            <label class="honeypot" aria-hidden="true">Não preencha<input id="oryneo-website" name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="step-actions">
+              <button class="secondary-action" type="button" data-back>Voltar</button>
+              <button class="primary-action" id="send-request" type="submit">Enviar solicitação <span aria-hidden="true">→</span></button>
+            </div>
+            <p id="request-feedback" class="request-feedback" aria-live="polite"></p>
+          </section>
+        </form>
+
+        <section class="success-panel" data-success hidden tabindex="-1" aria-labelledby="success-title">
+          <span class="success-mark" aria-hidden="true">✓</span>
+          <p class="step-kicker">Solicitação recebida</p>
+          <h2 id="success-title">Obrigado. Já temos um bom ponto de partida.</h2>
+          <p>Vamos revisar o contexto que você compartilhou e responder pelos dados informados.</p>
+          <a class="secondary-action" href="../">Voltar ao site</a>
+        </section>
+
+        <p id="form-status" role="status" aria-live="polite" class="sr-only"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>ORYNEO · Crescimento em sistema.</span>
+      <a href="mailto:contato@oryneo.com.br">contato@oryneo.com.br</a>
+    </footer>
+
+    <script src="../assets/lead-intake.js"></script>
+    <script type="module" src="form.js"></script>
+  </body>
+</html>

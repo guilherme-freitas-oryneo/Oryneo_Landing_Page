@@ -86,6 +86,7 @@ export function validateStep(step, state) {
     if (String(state.company?.name || '').trim().length < 2) errors.name = 'Informe o nome da empresa.';
     if (state.commercial?.intent === 'contract' && cnpj(state.company?.cnpj).length !== 14) errors.cnpj = 'Informe um CNPJ válido para contratar.';
     if (state.company?.cnpj && cnpj(state.company.cnpj).length !== 14) errors.cnpj = 'Confira o CNPJ informado.';
+    if (!TEAM_SIZES.includes(state.teamSize)) errors.teamSize = 'Selecione o tamanho da operação comercial.';
   }
   if (step === 'acquisition') {
     const channels = unique((state.acquisition?.channels || []).filter((value) => ACQUISITION_CHANNELS.includes(value)));
@@ -94,7 +95,6 @@ export function validateStep(step, state) {
     const primary = channels.length === 1 ? channels[0] : state.acquisition?.primary;
     if (channels.length > 1 && !primary) errors.primary = 'Indique o canal principal.';
     else if (primary && !channels.includes(primary)) errors.primary = 'Escolha como principal um canal selecionado.';
-    if (!TEAM_SIZES.includes(state.teamSize)) errors.teamSize = 'Selecione o tamanho da operação comercial.';
   }
   if (step === 'priorities') {
     const selected = unique((state.priorities?.goals || []).filter((value) => GOALS.includes(value)));

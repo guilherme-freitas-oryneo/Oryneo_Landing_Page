@@ -32,6 +32,7 @@ test('valida contato e torna CNPJ obrigatório apenas na contratação', () => {
   const contract = { ...state, commercial: { ...state.commercial, intent: 'contract' } };
   assert.equal(validateStep('company', contract).errors.cnpj, 'Informe um CNPJ válido para contratar.');
   assert.equal(validateStep('company', { ...contract, company: { name: 'Acme', cnpj: '12ABC34501DE35' } }).valid, true);
+  assert.equal(validateStep('company', { ...state, teamSize: '' }).errors.teamSize, 'Selecione o tamanho da operação comercial.');
 });
 
 test('aplica exclusividade e prioridade aos canais', () => {
