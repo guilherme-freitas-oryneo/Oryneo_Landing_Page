@@ -55,6 +55,7 @@
 
   function classifyResponse(status) {
     if (status === 400) return new LeadIntakeError('invalid', 'Revise os dados informados e tente novamente.', status);
+    if (status === 422) return new LeadIntakeError('cnpj_not_found', 'Não encontramos esse CNPJ. Confira os números e tente novamente.', status);
     if (status === 429) return new LeadIntakeError('rate_limited', 'Recebemos muitas tentativas em sequência. Aguarde um instante.', status);
     if (status >= 500) return new LeadIntakeError('unavailable', 'Nosso canal de envio está temporariamente indisponível.', status);
     return new LeadIntakeError('rejected', 'Não foi possível confirmar o envio agora.', status);

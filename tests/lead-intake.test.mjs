@@ -58,7 +58,7 @@ test('envia uma vez com cabeçalhos públicos e retorna sucesso', async () => {
   assert.equal(JSON.parse(requests[0].options.body).request_id, REQUEST_A);
 });
 
-for (const [status, code] of [[400, 'invalid'], [429, 'rate_limited'], [503, 'unavailable']]) {
+for (const [status, code] of [[400, 'invalid'], [422, 'cnpj_not_found'], [429, 'rate_limited'], [503, 'unavailable']]) {
   test(`classifica ${status}, mantém o payload e permite nova tentativa`, async () => {
     const original = payload();
     const snapshot = structuredClone(original);
