@@ -4,6 +4,7 @@ import {
   STEPS,
   buildIntakePayload,
   captureAttribution,
+  formatBrazilianPhone,
   nextVisibleStep,
   parseEntryParams,
   validateStep,
@@ -11,27 +12,45 @@ import {
 
 const state = {
   contact: { name: 'Marina Costa', email: 'marina@exemplo.com', phone: '(11) 99999-0000', consent: true },
-  company: { name: 'Acme', cnpj: '' },
+  company: { name: 'Acme' },
   acquisition: { channels: ['Indicações e parcerias'], primary: 'Indicações e parcerias' },
   priorities: { goals: ['Organizar contatos e negociações no CRM'], primary: 'Organizar contatos e negociações no CRM' },
   commercial: { intent: 'conversation', plan: 'Growth', cycle: 'monthly', services: ['landing-page'] },
   teamSize: '2 a 5 pessoas',
 };
 
-test('mantém seis etapas lógicas em ordem previsível', () => {
-  assert.deepEqual(STEPS, ['contact', 'company', 'acquisition', 'priorities', 'commercial', 'review']);
+test('mantém sete etapas lógicas em ordem previsível', () => {
+  assert.deepEqual(STEPS, ['name', 'contact', 'company', 'acquisition', 'priorities', 'commercial', 'review']);
+  assert.equal(nextVisibleStep('name', state), 'contact');
   assert.equal(nextVisibleStep('contact', state), 'company');
   assert.equal(nextVisibleStep('commercial', state), 'review');
   assert.equal(nextVisibleStep('review', state), null);
 });
 
-test('valida contato e torna CNPJ obrigatório apenas na contratação', () => {
+test('valida nome, contato brasileiro e consentimento somente na revisão', () => {
+  assert.equal(validateStep('name', state).valid, true);
+  assert.equal(validateStep('name', { ...state, contact: { ...state.contact, name: '1' } }).errors.name, 'Informe um nome válido.');
   assert.equal(validateStep('contact', state).valid, true);
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: '' } }).errors.email, 'Informe um e-mail válido.');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@empresa..com' } }).errors.email, 'Informe um e-mail válido.');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gmayg.com' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(00) 99999-9999' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(11) 88888-8888' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, consent: false } }).valid, true);
+  assert.equal(validateStep('review', { ...state, contact: { ...state.contact, consent: false } }).errors.consent, 'Autorize o contato para enviar.');
+});
+
+test('formata WhatsApp brasileiro sem aceitar dígitos excedentes', () => {
+  assert.equal(formatBrazilianPhone('21999999999'), '(21) 99999-9999');
+  assert.equal(formatBrazilianPhone('21999999999123'), '(21) 99999-9999');
+  assert.equal(formatBrazilianPhone('21'), '(21');
+});
+
+test('valida empresa e equipe sem solicitar CNPJ', () => {
   assert.equal(validateStep('company', state).valid, true);
   const contract = { ...state, commercial: { ...state.commercial, intent: 'contract' } };
-  assert.equal(validateStep('company', contract).errors.cnpj, 'Informe um CNPJ válido para contratar.');
-  assert.equal(validateStep('company', { ...contract, company: { name: 'Acme', cnpj: '12ABC34501DE35' } }).valid, true);
+  assert.equal(validateStep('company', contract).valid, true);
+  assert.equal(validateStep('company', { ...state, company: { name: '--' } }).errors.name, 'Informe o nome da empresa.');
   assert.equal(validateStep('company', { ...state, teamSize: '' }).errors.teamSize, 'Selecione o tamanho da operação comercial.');
 });
 
@@ -86,4 +105,5 @@ test('monta payload novo compatível com o campo legado', () => {
   assert.equal(payload.primary_goal, 'Acompanhar resultados e gestão');
   assert.equal(payload.request_id, '11111111-1111-4111-8111-111111111111');
   assert.equal(payload.value_cents, undefined);
+  assert.equal(payload.cnpj, undefined);
 });

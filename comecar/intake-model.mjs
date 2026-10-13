@@ -1,4 +1,4 @@
-export const STEPS = ['contact', 'company', 'acquisition', 'priorities', 'commercial', 'review'];
+export const STEPS = ['name', 'contact', 'company', 'acquisition', 'priorities', 'commercial', 'review'];
 
 export const ACQUISITION_CHANNELS = [
   'Indicações e parcerias',
@@ -28,8 +28,53 @@ const UNPREDICTABLE = 'Ainda não temos um canal previsível';
 
 const unique = (values) => [...new Set(values)];
 const digits = (value) => String(value || '').replace(/\D/g, '');
-const cnpj = (value) => String(value || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
-const validEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
+const validEmail = (value) => {
+  const normalized = String(value || '').trim().toLowerCase();
+  const [local, domain, ...extra] = normalized.split('@');
+  if (!local || !domain || extra.length || normalized.length > 254 || local.length > 64 || local.includes('..')) return false;
+  if (!/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+$/i.test(local)) return false;
+  const labels = domain.split('.');
+  return labels.length >= 2 && labels.every((label) => /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/i.test(label));
+};
+const validBrazilianDdds = new Set([
+  '11', '12', '13', '14', '15', '16', '17', '18', '19', '21', '22', '24', '27', '28',
+  '31', '32', '33', '34', '35', '37', '38', '41', '42', '43', '44', '45', '46', '47',
+  '48', '49', '51', '53', '54', '55', '61', '62', '63', '64', '65', '66', '67', '68',
+  '69', '71', '73', '74', '75', '77', '79', '81', '82', '83', '84', '85', '86', '87',
+  '88', '89', '91', '92', '93', '94', '95', '96', '97', '98', '99',
+]);
+const domainCorrections = new Map([
+  ['gmal.com', 'gmail.com'], ['gmial.com', 'gmail.com'], ['gmai.com', 'gmail.com'], ['gmayg.com', 'gmail.com'],
+  ['hotmai.com', 'hotmail.com'], ['hotmal.com', 'hotmail.com'], ['outlok.com', 'outlook.com'],
+]);
+
+function validName(value) {
+  const normalized = String(value || '').trim();
+  return normalized.length >= 2
+    && /^\p{L}[\p{L}\p{M}'’ -]*$/u.test(normalized)
+    && (normalized.match(/\p{L}/gu) || []).length >= 2;
+}
+
+function emailSuggestion(value) {
+  const domain = String(value || '').trim().toLowerCase().split('@')[1] || '';
+  return domainCorrections.get(domain) || '';
+}
+
+function validBrazilianPhone(value) {
+  const normalized = digits(value);
+  return normalized.length === 11
+    && validBrazilianDdds.has(normalized.slice(0, 2))
+    && normalized[2] === '9'
+    && !/^(\d)\1+$/.test(normalized);
+}
+
+export function formatBrazilianPhone(value) {
+  const normalized = digits(value).slice(0, 11);
+  if (!normalized) return '';
+  if (normalized.length < 3) return `(${normalized}`;
+  if (normalized.length < 8) return `(${normalized.slice(0, 2)}) ${normalized.slice(2)}`;
+  return `(${normalized.slice(0, 2)}) ${normalized.slice(2, 7)}${normalized.length > 7 ? `-${normalized.slice(7)}` : ''}`;
+}
 
 /** @param {string} value @param {number} max */
 function safeValue(value, max) {
@@ -75,17 +120,18 @@ export function nextVisibleStep(current, _state) {
 /** @param {string} step @param {Record<string, any>} state */
 export function validateStep(step, state) {
   const errors = {};
+  if (step === 'name' && !validName(state.contact?.name)) errors.name = 'Informe um nome válido.';
   if (step === 'contact') {
-    if (String(state.contact?.name || '').trim().length < 2) errors.name = 'Informe seu nome.';
     if (!validEmail(state.contact?.email)) errors.email = 'Informe um e-mail válido.';
-    const phoneLength = digits(state.contact?.phone).length;
-    if (phoneLength < 10 || phoneLength > 13) errors.phone = 'Informe um WhatsApp com DDD.';
-    if (state.contact?.consent !== true) errors.consent = 'Autorize o contato para continuar.';
+    else {
+      const suggestion = emailSuggestion(state.contact.email);
+      if (suggestion) errors.email = `Confira o domínio do e-mail. Você quis dizer ${suggestion}?`;
+    }
+    if (!validBrazilianPhone(state.contact?.phone)) errors.phone = 'Informe um WhatsApp brasileiro válido.';
   }
   if (step === 'company') {
-    if (String(state.company?.name || '').trim().length < 2) errors.name = 'Informe o nome da empresa.';
-    if (state.commercial?.intent === 'contract' && cnpj(state.company?.cnpj).length !== 14) errors.cnpj = 'Informe um CNPJ válido para contratar.';
-    if (state.company?.cnpj && cnpj(state.company.cnpj).length !== 14) errors.cnpj = 'Confira o CNPJ informado.';
+    const companyName = String(state.company?.name || '').trim();
+    if (companyName.length < 2 || !/[\p{L}\p{N}]/u.test(companyName)) errors.name = 'Informe o nome da empresa.';
     if (!TEAM_SIZES.includes(state.teamSize)) errors.teamSize = 'Selecione o tamanho da operação comercial.';
   }
   if (step === 'acquisition') {
@@ -109,6 +155,7 @@ export function validateStep(step, state) {
     if (!CYCLES.includes(state.commercial?.cycle)) errors.cycle = 'Selecione um ciclo.';
     if ((state.commercial?.services || []).some((value) => !SERVICES.includes(value))) errors.services = 'Confira os complementos selecionados.';
   }
+  if (step === 'review' && state.contact?.consent !== true) errors.consent = 'Autorize o contato para enviar.';
   return { valid: Object.keys(errors).length === 0, errors };
 }
 
@@ -125,7 +172,6 @@ export function buildIntakePayload(state, attribution, requestId) {
     phone: state.contact.phone.trim(),
     consent: state.contact.consent === true,
     company: state.company.name.trim(),
-    cnpj: cnpj(state.company.cnpj),
     intent: state.commercial.intent,
     plan: state.commercial.plan,
     cycle: state.commercial.cycle,

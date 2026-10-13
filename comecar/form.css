@@ -44,11 +44,11 @@ button { color: inherit; }
 .brand-watermark {
   position: fixed;
   z-index: 0;
-  top: 45%;
-  left: 55%;
-  width: min(92vw, 1180px);
+  top: 53%;
+  left: 20%;
+  width: min(56vw, 660px);
   max-width: none;
-  transform: translate(-50%, -50%) rotate(-8deg);
+  transform: translate(-50%, -50%) rotate(-7deg);
   opacity: .04;
   pointer-events: none;
   user-select: none;
@@ -163,6 +163,7 @@ button { color: inherit; }
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+.field-grid-single { grid-template-columns: minmax(0, 1fr); }
 .field-wide { grid-column: 1 / -1; }
 .field,
 .conditional-question,

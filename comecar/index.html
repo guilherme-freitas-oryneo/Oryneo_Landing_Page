@@ -12,7 +12,7 @@
   </head>
   <body>
     <a class="skip-link" href="#intake-form">Ir para o formulário</a>
-    <img class="brand-watermark" src="../assets/oryneo-wordmark-mono-reverse.png" alt="" aria-hidden="true">
+    <img class="brand-watermark" src="../assets/oryneo_y_mark.svg" alt="" aria-hidden="true">
 
     <header class="site-header">
       <a class="brand" href="../" aria-label="ORYNEO, voltar ao início">
@@ -30,56 +30,60 @@
 
       <section class="form-panel" aria-label="Solicitação para a ORYNEO">
         <div class="progress-meta">
-          <span id="progress-label">Etapa 1 de 6</span>
-          <span id="progress-name">Contato</span>
+          <span id="progress-label">Etapa 1 de 7</span>
+          <span id="progress-name">Você</span>
         </div>
-        <div class="progress-track" role="progressbar" aria-labelledby="progress-label" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
+        <div class="progress-track" role="progressbar" aria-labelledby="progress-label" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1">
           <span id="progress-fill"></span>
         </div>
 
         <form id="intake-form" novalidate>
-          <section class="form-step" data-step="contact">
+          <section class="form-step" data-step="name">
             <p class="step-kicker">Primeiro, você.</p>
-            <h2 class="step-title" tabindex="-1">Como podemos falar com você?</h2>
-            <p class="step-copy">Usaremos estes dados somente para responder à sua solicitação.</p>
+            <h2 class="step-title" tabindex="-1">Como podemos chamar você?</h2>
+            <p class="step-copy">Assim a conversa já começa do jeito certo.</p>
 
-            <div class="field-grid">
+            <div class="field-grid field-grid-single">
               <label class="field field-wide">Seu nome
                 <input name="contact_name" autocomplete="name" maxlength="160" required>
                 <span class="field-error" data-error="name"></span>
               </label>
+            </div>
+
+            <div class="step-actions"><button class="primary-action" type="submit">Continuar <span aria-hidden="true">→</span></button></div>
+          </section>
+
+          <section class="form-step" data-step="contact" hidden>
+            <p class="step-kicker">Seus canais de contato.</p>
+            <h2 class="step-title" tabindex="-1">Onde podemos responder?</h2>
+            <p class="step-copy">Usaremos estes dados somente para falar sobre esta solicitação.</p>
+
+            <div class="field-grid">
               <label class="field">E-mail
                 <input name="contact_email" type="email" inputmode="email" autocomplete="email" maxlength="254" required>
                 <span class="field-error" data-error="email"></span>
               </label>
               <label class="field">WhatsApp com DDD
-                <input name="contact_phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="(11) 99999-9999" required>
+                <input name="contact_phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="15" placeholder="(11) 99999-9999" required>
                 <span class="field-error" data-error="phone"></span>
               </label>
             </div>
 
-            <label class="consent">
-              <input name="consent" type="checkbox">
-              <span>Autorizo a ORYNEO a entrar em contato sobre esta solicitação. <a href="../privacidade.html" target="_blank" rel="noopener">Como usamos seus dados</a>.</span>
-            </label>
-            <span class="field-error consent-error" data-error="consent"></span>
-
-            <div class="step-actions"><button class="primary-action" type="submit">Continuar <span aria-hidden="true">→</span></button></div>
+            <div class="step-actions">
+              <button class="secondary-action" type="button" data-back>Voltar</button>
+              <button class="primary-action" type="submit">Continuar <span aria-hidden="true">→</span></button>
+            </div>
           </section>
 
           <section class="form-step" data-step="company" hidden>
             <p class="step-kicker">Agora, a empresa.</p>
             <h2 class="step-title" tabindex="-1">Qual operação estamos analisando?</h2>
-            <p class="step-copy">O CNPJ é opcional para conversar e necessário quando você escolhe contratar.</p>
+            <p class="step-copy">Essas duas informações ajudam a dimensionar o contexto sem alongar o início.</p>
 
             <div class="field-grid">
-              <label class="field field-wide">Nome da empresa
+              <label class="field">Nome da empresa
                 <input name="company_name" autocomplete="organization" maxlength="160" required>
                 <span class="field-error" data-error="name"></span>
-              </label>
-              <label class="field">CNPJ
-                <input name="company_cnpj" inputmode="text" autocomplete="off" maxlength="18" placeholder="Opcional nesta etapa">
-                <span class="field-error" data-error="cnpj"></span>
               </label>
               <label class="field">Pessoas na operação comercial
                 <select name="team_size" required>
@@ -202,6 +206,11 @@
             <p class="step-copy">Se algo mudou, edite a etapa. Seus dados só entram no CRM depois da confirmação.</p>
             <div class="review-list" data-review-list></div>
             <p class="no-charge">Nenhuma cobrança acontece nesta página. Escopo e condições serão confirmados com você.</p>
+            <label class="consent">
+              <input name="consent" type="checkbox">
+              <span>Autorizo a ORYNEO a entrar em contato sobre esta solicitação. <a href="../privacidade.html" target="_blank" rel="noopener">Como usamos seus dados</a>.</span>
+            </label>
+            <span class="field-error consent-error" data-error="consent"></span>
             <label class="honeypot" aria-hidden="true">Não preencha<input id="oryneo-website" name="website" tabindex="-1" autocomplete="off"></label>
             <div class="step-actions">
               <button class="secondary-action" type="button" data-back>Voltar</button>
