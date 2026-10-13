@@ -37,9 +37,12 @@ test('valida nome, contato brasileiro e consentimento somente na revisão', () =
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gemau.com' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gemau' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gmaul.com' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gamul.com.br' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gamul.con.by' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gmail.con' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@gmail.com.br' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer gmail.com?');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@yahoo.com.br' } }).valid, true);
+  assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'teste@yaho.com.br' } }).errors.email, 'Confira o domínio do e-mail. Você quis dizer yahoo.com.br?');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, email: 'contato@oryneo.com.br' } }).valid, true);
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(00) 99999-9999' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');
   assert.equal(validateStep('contact', { ...state, contact: { ...state.contact, phone: '(11) 88888-8888' } }).errors.phone, 'Informe um WhatsApp brasileiro válido.');

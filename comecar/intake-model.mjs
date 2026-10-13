@@ -55,6 +55,18 @@ const commonEmailDomains = [
   'terra.com.br', 'globo.com', 'globomail.com', 'ig.com.br', 'zipmail.com.br', 'aol.com',
   'fastmail.com', 'zoho.com', 'mail.com', 'ymail.com',
 ];
+const providerFamilies = [
+  { brand: 'gmail', canonical: 'gmail.com' },
+  { brand: 'hotmail', canonical: 'hotmail.com' },
+  { brand: 'outlook', canonical: 'outlook.com' },
+  { brand: 'icloud', canonical: 'icloud.com' },
+  { brand: 'protonmail', canonical: 'protonmail.com' },
+  { brand: 'yahoo', canonical: 'yahoo.com', brazil: 'yahoo.com.br' },
+  { brand: 'uol', canonical: 'uol.com.br' },
+  { brand: 'bol', canonical: 'bol.com.br' },
+  { brand: 'terra', canonical: 'terra.com.br' },
+  { brand: 'globo', canonical: 'globo.com' },
+];
 
 function validName(value) {
   const normalized = String(value || '').trim();
@@ -68,6 +80,12 @@ function emailSuggestion(value) {
   const direct = domainCorrections.get(domain);
   if (direct) return direct;
   if (!domain || commonEmailDomains.includes(domain)) return '';
+  const providerLabel = domain.split('.')[0];
+  for (const provider of providerFamilies) {
+    if (damerauLevenshtein(providerLabel, provider.brand) <= 2) {
+      return provider.brazil && domain.endsWith('.br') ? provider.brazil : provider.canonical;
+    }
+  }
   const suffixCorrections = [
     [/\.con$/, '.com'], [/\.cim$/, '.com'], [/\.vom$/, '.com'], [/\.comm$/, '.com'],
     [/\.combr$/, '.com.br'], [/\.com\.b$/, '.com.br'], [/\.com\.r$/, '.com.br'],
