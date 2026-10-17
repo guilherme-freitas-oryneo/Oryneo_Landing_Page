@@ -146,4 +146,7 @@
     try { await navigator.clipboard.writeText(requestText); $('quick-send-feedback').textContent = 'Solicitação copiada. Envie para contato@oryneo.com.br.'; }
     catch (_) { $('quick-send-feedback').textContent = 'Não foi possível copiar automaticamente. Selecione os dados acima para copiar.'; }
   });
+  // Default the homepage form to a non-binding conversation when no plan was selected.
+  mode(window.oryneoCommercialChoice?.intent || 'conversation');
+  context();
 })();
