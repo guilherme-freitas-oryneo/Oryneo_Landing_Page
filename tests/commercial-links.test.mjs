@@ -78,3 +78,11 @@ test('todos os CTAs comerciais públicos saem do formulário legado', () => {
   assert.match(html, /buildCommercialUrl/);
   assert.match(quickContact, /buildCommercialUrl/);
 });
+
+
+test('formulário da página inicial abre a conversa quando ainda não há plano', () => {
+  const quickContact = fs.readFileSync(new URL('../assets/quick-contact.js', import.meta.url), 'utf8');
+  assert.match(quickContact, /mode\(window\.oryneoCommercialChoice\?\.intent \|\| 'conversation'\)/);
+  const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  assert.match(html, /assets\/quick-contact\.js\?v=20261017-1/);
+});
