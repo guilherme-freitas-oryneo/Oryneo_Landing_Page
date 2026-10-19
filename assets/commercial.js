@@ -86,7 +86,14 @@
     return `./comecar/${query ? `?${query}` : ''}`;
   }
 
-  const api = { quote, orderQuote, brl, buildCommercialUrl };
+  // A contratação direta usa exclusivamente a rota pública conhecida do checkout.
+  // Valores não são transferidos pela URL: o backend calcula preços a partir do catálogo Stripe.
+  function buildDirectCheckoutUrl(choice = {}, attribution = {}) {
+    const formUrl = new URL(buildCommercialUrl({ ...choice, intent: 'contract' }, attribution), 'https://oryneo.com.br/');
+    return `https://guilherme-freitas-oryneo.github.io/Oryneo_CRM/contratar/${formUrl.search}`;
+  }
+
+  const api = { quote, orderQuote, brl, buildCommercialUrl, buildDirectCheckoutUrl };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.OryneoPricing = api;
 })(typeof window !== 'undefined' ? window : globalThis);

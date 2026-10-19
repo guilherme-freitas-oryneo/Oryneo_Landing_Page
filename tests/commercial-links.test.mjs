@@ -4,7 +4,7 @@ import test from 'node:test';
 
 import commercial from '../assets/commercial.js';
 
-const { buildCommercialUrl } = commercial;
+const { buildCommercialUrl, buildDirectCheckoutUrl } = commercial;
 
 test('gera combinações de plano, intenção e ciclo para a rota progressiva', () => {
   for (const plan of ['Start', 'Growth', 'Scale']) {
@@ -85,4 +85,32 @@ test('formulário da página inicial abre a conversa quando ainda não há plano
   assert.match(quickContact, /mode\(window\.oryneoCommercialChoice\?\.intent \|\| 'conversation'\)/);
   const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
   assert.match(html, /assets\/quick-contact\.js\?v=20261017-1/);
+});
+
+test('botões de compra levam ao checkout seguro preservando somente seleção e UTMs', () => {
+  for (const plan of ['Start', 'Growth', 'Scale']) {
+    for (const cycle of ['monthly', 'annual']) {
+      const result = new URL(buildDirectCheckoutUrl(
+        {plan, cycle, intent:'contract', serviceKeys:['traffic','landing-page','traffic'],price:'0'},
+        new URLSearchParams('utm_source=ads&utm_campaign=launch&coupon=INVALID')
+      ));
+      assert.equal(result.origin, 'https://guilherme-freitas-oryneo.github.io');
+      assert.equal(result.pathname, '/Oryneo_CRM/contratar/');
+      assert.equal(result.searchParams.get('plan'), plan);
+      assert.equal(result.searchParams.get('cycle'), cycle);
+      assert.equal(result.searchParams.get('intent'), 'contract');
+      assert.deepEqual(result.searchParams.getAll('services'), ['traffic','landing-page']);
+      assert.equal(result.searchParams.get('utm_source'),'ads');
+      assert.equal(result.searchParams.get('utm_campaign'),'launch');
+      assert.equal(result.searchParams.has('coupon'), false);
+      assert.equal(result.searchParams.has('price'), false);
+    }
+  }
+});
+
+test('CTA contratar usa rota direta e CTA conversar mantém formulário progressivo', () => {
+  const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  assert.match(html, /choice\.intent === 'contract' \? buildDirectCheckoutUrl : buildCommercialUrl/);
+  assert.equal((html.match(/choice\.intent === 'contract' \? buildDirectCheckoutUrl : buildCommercialUrl/g) || []).length, 2);
+  assert.match(html,/data-intent="conversation"/);
 });
