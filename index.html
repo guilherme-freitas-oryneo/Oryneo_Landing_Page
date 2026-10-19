@@ -1663,7 +1663,7 @@
         const selectedContext = document.getElementById('selection-context');
         const byId = (id) => document.getElementById(id);
         const purchaseLayout = byId('purchase-layout');
-        const { quote, brl, buildCommercialUrl } = window.OryneoPricing;
+        const { quote, brl, buildCommercialUrl, buildDirectCheckoutUrl } = window.OryneoPricing;
         function renderChoice() {
           cards.forEach((card) => {
             const selected = card.dataset.plan === choice.plan;
@@ -1720,7 +1720,7 @@
           if (selectedPlan) choice.plan = selectedPlan;
           choice.intent = selectedIntent;
           renderChoice();
-          window.location.assign(buildCommercialUrl(choice, new URLSearchParams(window.location.search)));
+          window.location.assign((choice.intent === 'contract' ? buildDirectCheckoutUrl : buildCommercialUrl)(choice, new URLSearchParams(window.location.search)));
         }
         document.querySelectorAll('[data-plan-action]').forEach((button) => button.addEventListener('click', () => {
           continueWith(button.dataset.planAction, button.dataset.intent);
@@ -1737,7 +1737,7 @@
         byId('purchase-continue').addEventListener('click', () => {
           choice.intent = 'contract';
           renderChoice();
-          window.location.assign(buildCommercialUrl(choice, new URLSearchParams(window.location.search)));
+          window.location.assign((choice.intent === 'contract' ? buildDirectCheckoutUrl : buildCommercialUrl)(choice, new URLSearchParams(window.location.search)));
         });
         renderChoice();
       })();
