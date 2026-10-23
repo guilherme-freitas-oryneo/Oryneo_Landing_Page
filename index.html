@@ -1249,11 +1249,11 @@
         .intro h1 { font-size: 2.2rem; }
       }
 
-      /* Editorial landing: one argument per section, no illustrative product UI. */
+      /* Editorial landing with a product-led opening. */
       [hidden] { display: none !important; }
       .nav { width: min(1180px, calc(100% - 64px)); }
       .nav-descriptor { letter-spacing: .04em; font-size: .74rem; text-transform: none; }
-      .intro { width: min(1180px, calc(100% - 64px)); min-height: 610px; padding: clamp(76px, 8vw, 112px) 0; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .75fr); gap: clamp(50px, 8vw, 130px); }
+      .intro { width: min(1380px, calc(100% - 64px)); min-height: 690px; padding: clamp(70px, 7vw, 105px) 0 85px; grid-template-columns: minmax(340px, .78fr) minmax(0, 1.22fr); gap: clamp(30px, 4vw, 65px); align-items: center; }
       .intro-copy { max-width: 730px; }
       .section-index { margin: 0 0 24px; color: var(--indigo-ink); font-size: .8rem; font-weight: 650; letter-spacing: .02em; text-transform: none; }
       .intro h1 { max-width: 780px; font-size: clamp(3.4rem, 5.4vw, 5.4rem); letter-spacing: -.065em; line-height: 1.04; }
@@ -1262,13 +1262,52 @@
       .intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 30px; margin-top: 32px; }
       .intro-link { margin: 0; gap: 0; }
       .hero-contact-cta { min-height: 52px; padding-inline: 22px; border-radius: 3px; }
-      .intro-aside { align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(28px, 3vw, 44px); background: var(--graphite); color: #fff; }
-      .intro-aside > span { color: #b8c1d0; font-size: .8rem; }
-      .intro-aside > p { max-width: 330px; margin: 22px 0; font-size: clamp(1.5rem, 2.25vw, 2.2rem); font-weight: 600; letter-spacing: -.045em; line-height: 1.2; }
-      .intro-aside ol { margin: 0; padding: 0; list-style: none; counter-reset: step; }
-      .intro-aside li { display: flex; gap: 18px; padding: 12px 0; border-top: 1px solid #555b65; font-size: .9rem; }
-      .intro-aside li::before { counter-increment: step; content: '0' counter(step); color: #b8c1ff; font-variant-numeric: tabular-nums; }
-      .intro-mobile-flow { display: none; }
+      .product-scene { position: relative; min-width: 0; margin: 0; padding: 5px 0 25px; }
+      .product-scene * { box-sizing: border-box; }
+      .device-laptop { position: relative; width: 100%; padding: 10px 10px 0; border: 1px solid #393c42; border-radius: 13px 13px 4px 4px; background: #22262c; box-shadow: 0 24px 55px #20273324; }
+      .device-laptop::before { position: absolute; top: 4px; left: 50%; width: 3px; height: 3px; border-radius: 50%; background: #747c85; content: ''; }
+      .device-base { width: calc(100% + 42px); height: 13px; margin-left: -21px; border: 1px solid #aeb3b9; border-radius: 2px 2px 16px 16px; background: linear-gradient(#e5e7e9, #a8adb3); box-shadow: 0 5px 9px #17203022; }
+      .crm-screen { display: grid; grid-template-columns: 118px minmax(0,1fr); height: 382px; overflow: hidden; background: #f6f8fb; color: #28313d; font-family: Inter, Arial, sans-serif; }
+      .crm-nav { padding: 16px 8px; background: #131b29; color: #aeb9cb; }
+      .crm-nav img { display: block; width: 82px; height: auto; margin: 0 0 24px 8px; filter: brightness(0) invert(1); }
+      .crm-nav small { display: block; margin: 0 8px 9px; color: #6f829e; font-size: 8px; font-weight: 700; letter-spacing: .08em; }
+      .crm-nav span { display: block; padding: 8px 9px; border-radius: 3px; font-size: 10px; }
+      .crm-nav .current { background: #283b60; color: #fff; }
+      .crm-nav .future { color: #d6e2f2; }
+      .crm-main { min-width: 0; padding: 14px 16px; }
+      .crm-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; color: #8a96a6; font-size: 9px; }
+      .crm-top b { color: #60718b; font-weight: 600; }
+      .crm-top i { width: 19px; height: 19px; border-radius: 50%; background: #dce5f1; }
+      .crm-title { display: flex; justify-content: space-between; align-items: end; gap: 8px; margin: 20px 0 15px; }
+      .crm-title strong { display: block; font-size: 21px; letter-spacing: -.045em; }
+      .crm-title small { display: block; margin-top: 4px; color: #8090a2; font-size: 9px; }
+      .crm-title em { padding: 8px 10px; border-radius: 3px; background: #4365e8; color: white; font-size: 9px; font-style: normal; font-weight: 600; white-space: nowrap; }
+      .crm-toolbar { display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #dce2e9; color: #63748c; font-size: 9px; }
+      .crm-toolbar b { color: #334256; }
+      .crm-board { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 9px; padding-top: 12px; }
+      .crm-stage { min-width: 0; }
+      .crm-stage-head { display: flex; justify-content: space-between; align-items: center; min-height: 28px; padding: 0 2px 7px; border-top: 2px solid #788bb4; font-size: 9px; }
+      .crm-stage:nth-child(2) .crm-stage-head { border-color: #5672dd; }
+      .crm-stage:nth-child(3) .crm-stage-head { border-color: #4b9a7b; }
+      .crm-stage-head b { color: #344156; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .crm-stage-head span { color: #96a1b0; }
+      .crm-deal { min-height: 91px; margin-bottom: 7px; padding: 10px; border: 1px solid #e2e7ee; border-radius: 4px; background: #fff; box-shadow: 0 2px 5px #21334b0a; }
+      .crm-deal small { display: block; color: #8794a4; font-size: 8px; }
+      .crm-deal strong { display: block; margin-top: 6px; font-size: 10px; line-height: 1.3; }
+      .crm-deal span { display: block; margin-top: 8px; color: #3f526c; font-size: 9px; font-weight: 650; }
+      .crm-deal em { display: block; margin-top: 7px; color: #5572ac; font-size: 8px; font-style: normal; }
+      .device-phone { position: absolute; right: 10px; bottom: 32px; width: 188px; padding: 7px; border: 2px solid #39414a; border-radius: 24px; background: #1c232b; box-shadow: 0 18px 36px #19253535; }
+      .phone-screen { height: 312px; overflow: hidden; border-radius: 17px; background: #f8fafc; color: #263342; }
+      .phone-status { padding: 10px 13px 7px; background: #fff; font-size: 8px; font-weight: 700; }
+      .phone-head { padding: 12px 13px; border-bottom: 1px solid #e7ebef; background: #fff; }
+      .phone-head small { display: block; color: #617184; font-size: 8px; }
+      .phone-head strong { display: block; margin-top: 4px; font-size: 16px; letter-spacing: -.04em; }
+      .phone-context { padding: 14px 12px 9px; color: #718094; font-size: 8px; }
+      .phone-lead { margin: 0 12px; padding: 11px 0; border-bottom: 1px solid #e3e8ee; }
+      .phone-lead b { display: block; font-size: 9px; }
+      .phone-lead span { display: block; margin-top: 5px; color: #6e7b89; font-size: 8px; }
+      .phone-lead em { display: block; margin-top: 7px; color: #4365b8; font-size: 8px; font-style: normal; }
+      .product-scene figcaption { max-width: calc(100% - 215px); margin: 12px 0 0; color: #666c75; font-size: .71rem; line-height: 1.4; }
       .value { padding: clamp(76px, 7vw, 100px) max(32px, calc((100vw - 1180px)/2)); background: #fff; scroll-margin-top: 74px; }
       .value-head { display: flex; align-items: end; justify-content: space-between; gap: 48px; margin-bottom: 46px; }
       .value-head .section-index { margin-bottom: 7px; white-space: nowrap; }
@@ -1315,8 +1354,14 @@
       .closing-cta:hover { background: #e5e7eb; }
       .closing-cta span { color: var(--indigo-ink); }
       @media (max-width: 900px) {
-        .intro { min-height: 0; grid-template-columns: minmax(0, 1fr) minmax(240px, .7fr); gap: 35px; }
-        .intro-aside { padding: 25px; }
+        .intro { min-height: 0; grid-template-columns: 1fr; gap: 44px; }
+        .intro-copy { max-width: 670px; }
+        .product-scene { max-width: 700px; }
+        .crm-screen { grid-template-columns: 93px minmax(0,1fr); }
+        .crm-nav img { width: 70px; margin-left: 3px; }
+        .crm-nav span { font-size: 8px; }
+        .device-phone { width: 155px; right: 8px; }
+        .phone-screen { height: 260px; }
         .value-head { display: block; }
         .value-head .section-index { margin-bottom: 20px; }
         .value-grid article { padding-right: 20px; }
@@ -1326,10 +1371,18 @@
       @media (max-width: 700px) {
         .nav { width: calc(100% - 40px); }
         .nav-descriptor { display: none; }
-        .intro { width: calc(100% - 40px); display: block; padding: 68px 0 64px; }
+        .intro { width: calc(100% - 40px); display: block; padding: 46px 0 64px; }
         .intro h1 { font-size: clamp(2.7rem, 8vw, 4rem); }
-        .intro-aside { display: none; }
-        .intro-mobile-flow { display: block; margin: 28px 0 0; padding-top: 17px; border-top: 1px solid var(--rule); color: #525861; font-size: .86rem; line-height: 1.5; }
+        .product-scene { margin-top: 30px; padding-bottom: 0; }
+        .device-laptop, .device-base { display: none; }
+        .device-phone { position: relative; right: auto; bottom: auto; width: min(255px, 75vw); margin: 0 auto; padding: 9px; border-radius: 31px; }
+        .phone-screen { height: 380px; border-radius: 23px; }
+        .phone-head { padding: 16px; }
+        .phone-head strong { font-size: 21px; }
+        .phone-lead { margin: 0 15px; padding: 14px 0; }
+        .phone-lead b { font-size: 12px; }
+        .phone-lead span, .phone-lead em { font-size: 10px; }
+        .product-scene figcaption { max-width: 300px; margin: 17px auto 0; text-align: center; }
         .value { padding: 58px 20px 64px; }
         .value-head { margin-bottom: 28px; }
         .value-grid { grid-template-columns: 1fr; }
@@ -1379,17 +1432,63 @@
     <main id="conteudo">
       <section class="intro" aria-labelledby="hero-title">
         <div class="intro-copy">
-          <p class="section-index">CRM ORYNEO · WhatsApp integrado</p>
-          <h1 id="hero-title">CRM com WhatsApp. <span>Cada conversa com um próximo passo.</span></h1>
-          <p class="intro-lead">Contatos, conversas e negociações no mesmo lugar. Sua equipe sabe quem atende, o que aconteceu e quando retomar.</p>
+          <p class="section-index">CRM ORYNEO · Sua operação em movimento</p>
+          <h1 id="hero-title">Seu CRM. <span>Sua operação em movimento.</span></h1>
+          <p class="intro-lead">Oportunidades, conversas e automações em um só lugar. Cada contato tem um responsável e um próximo passo.</p>
           <div class="intro-actions"><a class="hero-contact-cta" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Converse com a ORYNEO <span aria-hidden="true">↗</span></a><a class="intro-link quiet-link" href="#planos">Ver planos</a></div>
-          <p class="intro-mobile-flow">Contato recebido · Responsável definido · Retorno acompanhado</p>
         </div>
-        <div class="intro-aside" aria-label="Da entrada ao acompanhamento">
-          <span>Do primeiro contato ao fechamento</span>
-          <p>Uma operação que não depende da memória de ninguém.</p>
-          <ol><li>Contato recebido</li><li>Responsável definido</li><li>Retorno acompanhado</li></ol>
-        </div>
+        <figure class="product-scene" aria-label="Visão ilustrativa do CRM ORYNEO em um notebook e um celular">
+          <div class="device-laptop" aria-hidden="true">
+            <div class="crm-screen">
+              <aside class="crm-nav">
+                <img src="assets/oryneo-wordmark-official.png" alt="" />
+                <small>COMERCIAL</small>
+                <span class="current">▥ &nbsp; Pipeline</span>
+                <span>✉ &nbsp; E-mail</span>
+                <span>◷ &nbsp; Atividades</span>
+                <small>EM EVOLUÇÃO</small>
+                <span class="future">◎ &nbsp; WhatsApp</span>
+                <span>◫ &nbsp; Contatos</span>
+                <span>↝ &nbsp; Automações</span>
+                <span>▤ &nbsp; Relatórios</span>
+              </aside>
+              <div class="crm-main">
+                <div class="crm-top"><span>Comercial &nbsp;/&nbsp; Pipeline</span><b>Visão do dia</b><i></i></div>
+                <div class="crm-title"><div><strong>Pipeline comercial</strong><small>Do primeiro contato à próxima conquista.</small></div><em>+ Nova oportunidade</em></div>
+                <div class="crm-toolbar"><span><b>Quadro</b> &nbsp;·&nbsp; 14 oportunidades</span><span>R$ 186.400 em negociação</span></div>
+                <div class="crm-board">
+                  <div class="crm-stage">
+                    <div class="crm-stage-head"><b>Nova oportunidade</b><span>04</span></div>
+                    <div class="crm-deal"><small>Indicação · há 12 min</small><strong>Expansão comercial</strong><span>R$ 18.000</span><em>Definir responsável →</em></div>
+                    <div class="crm-deal"><small>Site · há 1 h</small><strong>Projeto de aquisição</strong><span>R$ 12.500</span><em>Primeiro contato hoje →</em></div>
+                  </div>
+                  <div class="crm-stage">
+                    <div class="crm-stage-head"><b>Contato realizado</b><span>06</span></div>
+                    <div class="crm-deal"><small>WhatsApp · ontem</small><strong>Operação de vendas</strong><span>R$ 24.000</span><em>Retorno às 15h →</em></div>
+                    <div class="crm-deal"><small>E-mail · terça</small><strong>Estruturação do funil</strong><span>R$ 16.800</span><em>Enviar diagnóstico →</em></div>
+                  </div>
+                  <div class="crm-stage">
+                    <div class="crm-stage-head"><b>Proposta enviada</b><span>04</span></div>
+                    <div class="crm-deal"><small>Reunião · ontem</small><strong>Equipe e automação</strong><span>R$ 32.000</span><em>Acompanhar proposta →</em></div>
+                    <div class="crm-deal"><small>WhatsApp · segunda</small><strong>Gestão de oportunidades</strong><span>R$ 21.600</span><em>Confirmar decisão →</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="device-base" aria-hidden="true"></div>
+          <div class="device-phone" aria-hidden="true">
+            <div class="phone-screen">
+              <div class="phone-status">9:41 &nbsp; ▴ ▪ ▪</div>
+              <div class="phone-head"><small>ORYNEO &nbsp;/&nbsp; COMERCIAL</small><strong>Conversas</strong></div>
+              <div class="phone-context">WHATSAPP · VISÃO FUTURA</div>
+              <div class="phone-lead"><b>Marina · Novo contato</b><span>Interessada em organizar o comercial</span><em>Responder hoje · 14h</em></div>
+              <div class="phone-lead"><b>Rafael · Em conversa</b><span>Enviou informações da equipe</span><em>Revisar oportunidade →</em></div>
+              <div class="phone-lead"><b>Juliana · Proposta</b><span>Aguardando retorno da proposta</span><em>Próximo passo amanhã →</em></div>
+            </div>
+          </div>
+          <figcaption>Interface ilustrativa com dados fictícios. WhatsApp e novos módulos representam a evolução planejada do CRM.</figcaption>
+        </figure>
       </section>
 
       <section class="value" id="solucoes" aria-labelledby="value-title">
