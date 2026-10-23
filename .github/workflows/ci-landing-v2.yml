@@ -29,8 +29,10 @@ jobs:
           test -s comecar/form.css
           test -s comecar/form.js
           test -s assets/oryneo-wordmark-mono-reverse.png
+          test -s assets/oryneo-wordmark-official.png
+          test -s assets/oryneo-symbol-official.svg
           grep -q 'href="../privacidade.html"' comecar/index.html
-          grep -q 'opacity: .04' comecar/form.css
+          grep -q 'oryneo-symbol-official.svg' comecar/index.html
           grep -q '/comecar/' sitemap.xml
       - name: Validar scripts incorporados e campos comerciais
         run: |
