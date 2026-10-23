@@ -63,6 +63,7 @@ button { color: inherit; }
   letter-spacing: .12em;
   text-transform: uppercase;
 }
+.header-plans { display: none; }
 
 .flow-shell {
   width: min(720px, calc(100% - 48px));
@@ -386,6 +387,7 @@ fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
   .flow-shell { width: min(100% - 28px, 1120px); }
   .site-header { padding: 20px 0; }
   .site-header > span { display: none; }
+  .header-plans { display: inline-flex; min-height: 44px; align-items: center; font-size: .875rem; font-weight: 600; text-underline-offset: 4px; }
   .brand img { width: 112px; }
   .flow-shell { padding: 32px 0 48px; }
   .flow-intro { margin-bottom: 24px; }

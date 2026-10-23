@@ -22,6 +22,7 @@ test('os três botões contratar continuam ligados à seleção de plano', () =>
 test('a jornada de conversa usa a marca oficial e explicita que não cobra', () => {
   assert.match(lead, /oryneo-wordmark-mono-reverse\.png/);
   assert.match(lead, /oryneo-symbol-official\.svg/);
+  assert.match(lead, /class="header-plans" href="\.\.\/#planos"/);
   assert.match(lead, /sem cobrança/i);
   assert.match(lead, /Nenhuma cobrança acontece nesta página/);
 });
