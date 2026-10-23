@@ -11,7 +11,7 @@
 
 ## Fluxo comercial
 
-Os CTAs da página principal levam a `./comecar/` com apenas plano, ciclo, intenção, complementos e UTMs permitidos. Valores exibidos na página nunca são enviados como fonte de preço.
+Os CTAs de conversa levam a `./comecar/`; os botões “Quero contratar este plano” abrem a revisão em `Oryneo_CRM/contratar/`. Somente plano, ciclo, intenção, complementos e UTMs permitidos seguem entre as páginas. Valores exibidos na landing nunca são enviados como fonte de preço.
 
 O preenchimento é mantido temporariamente na sessão do navegador. O lead só é criado depois da revisão final e da confirmação positiva da Edge Function `lead-intake` no Supabase. Tentativas da mesma submissão reutilizam um `request_id` para evitar duplicidade.
 
