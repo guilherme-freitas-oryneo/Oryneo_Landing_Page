@@ -34,13 +34,15 @@ jobs:
           grep -q 'href="../privacidade.html"' comecar/index.html
           grep -q 'oryneo-symbol-official.svg' comecar/index.html
           grep -q '/comecar/' sitemap.xml
-      - name: Validar scripts incorporados e campos comerciais
+      - name: Validar scripts incorporados e rotas comerciais
         run: |
           node --input-type=module <<'JS'
           import fs from 'node:fs';
           import vm from 'node:vm';
           const html=fs.readFileSync('index.html','utf8');
-          if(!html.includes('cnpj:company.cnpj')||!html.includes('serviceKeys')||!html.includes('goals:'))throw Error('Campos do fluxo estruturado ausentes');
+          if(!html.includes('buildDirectCheckoutUrl')||!html.includes('buildCommercialUrl'))throw Error('Rotas comerciais ausentes');
+          if((html.match(/data-plan-action=/g)||[]).length!==6)throw Error('CTAs dos três planos incompletos');
+          if(html.includes('id="cnpj-form"')||html.includes('id="quick-form"'))throw Error('Formulário legado voltou à landing');
           const rx=/<script([^>]*)>([\s\S]*?)<\/script>/gi;
           let found=0,match;
           while((match=rx.exec(html))){

@@ -15,6 +15,9 @@
     <meta property="og:locale" content="pt_BR" />
     <title>CRM com WhatsApp e automação comercial | ORYNEO</title>
     <link rel="icon" type="image/svg+xml" href="assets/oryneo-symbol-official.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
     <style>
       :root {
         --graphite: #0f1115;
@@ -1265,6 +1268,7 @@
       .intro-aside ol { margin: 0; padding: 0; list-style: none; counter-reset: step; }
       .intro-aside li { display: flex; gap: 18px; padding: 12px 0; border-top: 1px solid #555b65; font-size: .9rem; }
       .intro-aside li::before { counter-increment: step; content: '0' counter(step); color: #b8c1ff; font-variant-numeric: tabular-nums; }
+      .intro-mobile-flow { display: none; }
       .value { padding: clamp(76px, 7vw, 100px) max(32px, calc((100vw - 1180px)/2)); background: #fff; scroll-margin-top: 74px; }
       .value-head { display: flex; align-items: end; justify-content: space-between; gap: 48px; margin-bottom: 46px; }
       .value-head .section-index { margin-bottom: 7px; white-space: nowrap; }
@@ -1283,6 +1287,23 @@
       .plan-option, .plan-option:first-child, .plan-option:last-child { padding: 28px 24px 26px; }
       .plan-purpose { min-height: 3em; }
       .plan-features li { padding-block: 9px; }
+      .add-ons { margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--rule); }
+      .add-ons-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+      .add-ons h3 { margin: 0; font-size: 1.3rem; letter-spacing: -.03em; }
+      .add-ons-head p, .add-ons-note { margin: 0; color: #525861; font-size: .86rem; line-height: 1.5; }
+      .add-ons-head p { max-width: 390px; }
+      .add-ons-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+      .add-on-item { min-width: 0; padding: 19px 20px 18px 0; }
+      .add-on-item + .add-on-item { padding-left: 24px; border-left: 1px solid var(--rule); }
+      .add-on { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 13px; min-width: 0; cursor: pointer; }
+      .add-on input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--indigo-ink); }
+      .add-on strong { display: block; font-size: .95rem; font-weight: 650; }
+      .add-on small { display: block; margin-top: 4px; color: #525861; font-size: .82rem; line-height: 1.5; }
+      .add-on-price { text-align: right; white-space: nowrap; font-size: .91rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+      .add-on-scope { margin: 8px 0 0 31px; font-size: .83rem; line-height: 1.5; }
+      .add-on-scope summary { width: fit-content; min-height: 32px; cursor: pointer; font-weight: 600; }
+      .add-on-scope p { max-width: 450px; margin: 7px 0 0; color: #525861; }
+      .add-ons-note { padding-top: 12px; border-top: 1px solid var(--rule); }
       .buying-guide { padding: clamp(72px, 7vw, 100px) 0; }
       .buying-guide h2 { font-size: clamp(2.25rem, 3.4vw, 3.4rem); }
       .buying-guide-inner { max-width: 1180px; gap: 70px; }
@@ -1308,12 +1329,20 @@
         .intro { width: calc(100% - 40px); display: block; padding: 68px 0 64px; }
         .intro h1 { font-size: clamp(2.7rem, 8vw, 4rem); }
         .intro-aside { display: none; }
+        .intro-mobile-flow { display: block; margin: 28px 0 0; padding-top: 17px; border-top: 1px solid var(--rule); color: #525861; font-size: .86rem; line-height: 1.5; }
         .value { padding: 58px 20px 64px; }
         .value-head { margin-bottom: 28px; }
         .value-grid { grid-template-columns: 1fr; }
         .value-grid article, .value-grid article + article { padding: 18px 0 20px; border-left: 0; border-bottom: 1px solid var(--rule); }
         .value-grid h3 { margin: 8px 0 5px; }
         .value-grid p { max-width: none; }
+        .add-ons-head { display: block; }
+        .add-ons-head p { margin-top: 8px; }
+        .add-ons-list { grid-template-columns: 1fr; }
+        .add-on-item, .add-on-item + .add-on-item { padding: 17px 0; border-left: 0; }
+        .add-on-item + .add-on-item { border-top: 1px solid var(--rule); }
+        .add-on { grid-template-columns: 18px minmax(0, 1fr); }
+        .add-on-price { grid-column: 2; text-align: left; }
         .closing { grid-template-columns: 1fr; align-items: start; gap: 26px; padding: 62px 20px 68px; }
         .closing-cta { width: fit-content; }
       }
@@ -1354,6 +1383,7 @@
           <h1 id="hero-title">CRM com WhatsApp. <span>Cada conversa com um próximo passo.</span></h1>
           <p class="intro-lead">Contatos, conversas e negociações no mesmo lugar. Sua equipe sabe quem atende, o que aconteceu e quando retomar.</p>
           <div class="intro-actions"><a class="hero-contact-cta" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Converse com a ORYNEO <span aria-hidden="true">↗</span></a><a class="intro-link quiet-link" href="#planos">Ver planos</a></div>
+          <p class="intro-mobile-flow">Contato recebido · Responsável definido · Retorno acompanhado</p>
         </div>
         <div class="intro-aside" aria-label="Da entrada ao acompanhamento">
           <span>Do primeiro contato ao fechamento</span>
@@ -1386,7 +1416,7 @@
               <p class="plan-setup">Implantação única: R$ 989,90</p>
               <ul class="plan-features"><li>Até <strong>5 usuários</strong></li><li><strong>1.500</strong> respostas de IA/mês</li><li><strong>300 min</strong> de áudio transcrito/mês</li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>3 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Automações essenciais de atendimento e retorno, configuradas na implantação</li><li>Respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
               <div class="plan-actions">
-                <button class="plan-cta" type="button" data-plan-action="Start" data-intent="contract">Quero contratar este plano <span aria-hidden="true">↗</span></button>
+                <button class="plan-cta" type="button" data-plan-action="Start" data-intent="contract">Contratar Start <span aria-hidden="true">↗</span></button>
                 <button class="plan-talk" type="button" data-plan-action="Start" data-intent="conversation" aria-label="Quero conversar sobre o Start">Quero conversar</button>
               </div>
             </article>
@@ -1398,7 +1428,7 @@
               <p class="plan-setup">Implantação única: R$ 1.389,90</p>
               <ul class="plan-features"><li>Até <strong>10 usuários</strong></li><li><strong>5.000</strong> respostas de IA/mês</li><li><strong>700 min</strong> de áudio transcrito/mês</li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>7 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Desenho de cadência comercial ajustada às etapas do funil</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
               <div class="plan-actions">
-                <button class="plan-cta" type="button" data-plan-action="Growth" data-intent="contract">Quero contratar este plano <span aria-hidden="true">↗</span></button>
+                <button class="plan-cta" type="button" data-plan-action="Growth" data-intent="contract">Contratar Growth <span aria-hidden="true">↗</span></button>
                 <button class="plan-talk" type="button" data-plan-action="Growth" data-intent="conversation" aria-label="Quero conversar sobre o Growth">Quero conversar</button>
               </div>
             </article>
@@ -1410,12 +1440,20 @@
               <p class="plan-setup">Implantação única: R$ 1.849,90</p>
               <ul class="plan-features"><li>Até <strong>20 usuários</strong></li><li><strong>10.000</strong> respostas de IA/mês</li><li><strong>1.200 min</strong> de áudio transcrito/mês</li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>10 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Desenho de fluxos entre equipes, etapas e funis na implantação</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
               <div class="plan-actions">
-                <button class="plan-cta" type="button" data-plan-action="Scale" data-intent="contract">Quero contratar este plano <span aria-hidden="true">↗</span></button>
+                <button class="plan-cta" type="button" data-plan-action="Scale" data-intent="contract">Contratar Scale <span aria-hidden="true">↗</span></button>
                 <button class="plan-talk" type="button" data-plan-action="Scale" data-intent="conversation" aria-label="Quero conversar sobre o Scale">Quero conversar</button>
               </div>
             </article>
           </div>
-          <p class="plan-preview-note">Ao escolher “Quero contratar”, você segue para revisar a configuração no checkout. Se preferir orientação antes, escolha “Quero conversar”.</p>
+          <div class="add-ons" aria-labelledby="add-ons-title">
+            <div class="add-ons-head"><h3 id="add-ons-title">Complementos opcionais</h3><p>Selecione se quiser incluir na configuração do plano escolhido.</p></div>
+            <div class="add-ons-list">
+              <div class="add-on-item"><label class="add-on"><input type="checkbox" data-service="landing-page" /><span><strong>Landing page</strong><small>Criação, formulário conectado ao CRM e publicação.</small></span><span class="add-on-price">R$ 889,90 · único</span></label><details class="add-on-scope"><summary>O que está incluído</summary><p>Entendimento do negócio, textos, layout responsivo, desenvolvimento, formulário conectado ao CRM, registro da origem, preparação para buscas, revisão de acessibilidade e velocidade. Publicação após aprovação.</p></details></div>
+              <div class="add-on-item"><label class="add-on"><input type="checkbox" data-service="traffic" /><span><strong>Gestão de tráfego</strong><small>Planejamento, acompanhamento e ajustes de anúncios.</small></span><span class="add-on-price">R$ 2.969,70 / trimestre</span></label><details class="add-on-scope"><summary>O que está incluído</summary><p>Planejamento e configuração dos canais acordados, textos e variações de anúncios, registro de origem e contatos, acompanhamento, ajustes e relatório. Contratação trimestral, cobrada em um único valor. Verba de mídia separada.</p></details></div>
+            </div>
+            <p class="add-ons-note">A verba de mídia é paga à parte. Os complementos não recebem o desconto do plano anual.</p>
+          </div>
+          <p class="plan-preview-note">Ao contratar, você segue para revisar a configuração no checkout. Se preferir orientação antes, escolha “Quero conversar”.</p>
         </div>
       </section>
       <section class="buying-guide" aria-labelledby="guide-title">
@@ -1466,7 +1504,7 @@
 
         document.querySelectorAll('[data-plan-action]').forEach((button) => {
           button.addEventListener('click', () => {
-            const choice = { plan: button.dataset.planAction, cycle, intent: button.dataset.intent, serviceKeys: [] };
+            const choice = { plan: button.dataset.planAction, cycle, intent: button.dataset.intent, serviceKeys: [...document.querySelectorAll('[data-service]:checked')].map((input) => input.dataset.service) };
             const buildUrl = choice.intent === 'contract' ? buildDirectCheckoutUrl : buildCommercialUrl;
             window.location.assign(buildUrl(choice, attribution));
           });

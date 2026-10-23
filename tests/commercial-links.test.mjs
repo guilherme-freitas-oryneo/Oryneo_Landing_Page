@@ -113,3 +113,11 @@ test('CTA contratar usa rota direta e CTA conversar mantém formulário progress
   assert.equal((html.match(/choice\.intent === 'contract' \? buildDirectCheckoutUrl : buildCommercialUrl/g) || []).length, 1);
   assert.match(html,/data-intent="conversation"/);
 });
+
+test('complementos opcionais seguem com qualquer plano para checkout ou conversa', () => {
+  const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  assert.match(html, /data-service="landing-page"/);
+  assert.match(html, /data-service="traffic"/);
+  assert.match(html, /serviceKeys: \[\.\.\.document\.querySelectorAll\('\[data-service\]:checked'\)\]\.map\(\(input\) => input\.dataset\.service\)/);
+  assert.doesNotMatch(html, /serviceKeys: \[\]/);
+});
