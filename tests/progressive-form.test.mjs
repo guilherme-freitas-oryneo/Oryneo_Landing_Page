@@ -31,15 +31,13 @@ test('configuração comercial aparece apenas como contexto compacto na revisão
   assert.match(css, /\.commercial-context/);
 });
 
-test('identidade usa o wordmark no cabeçalho e o Y oficial na marca d’água', async () => {
-  const [html, css] = await Promise.all([load('../comecar/index.html'), load('../comecar/form.css')]);
+test('identidade usa wordmark e símbolo oficiais sem marca d’água decorativa', async () => {
+  const html = await load('../comecar/index.html');
   assert.match(html, /oryneo-wordmark-mono-reverse\.png/);
-  assert.match(html, /class="brand-watermark"[^>]*aria-hidden="true"/);
-  assert.match(html, /class="brand-watermark" src="\.\.\/assets\/oryneo_y_mark\.svg"/);
-  assert.match(css, /\.brand-watermark[\s\S]*opacity:\s*\.04/);
-  assert.match(css, /\.brand-watermark[\s\S]*pointer-events:\s*none/);
+  assert.match(html, /oryneo-symbol-official\.svg/);
+  assert.doesNotMatch(html, /brand-watermark/);
   await access(new URL('../assets/oryneo-wordmark-mono-reverse.png', import.meta.url));
-  await access(new URL('../assets/oryneo_y_mark.svg', import.meta.url));
+  await access(new URL('../assets/oryneo-symbol-official.svg', import.meta.url));
 });
 
 test('nome fica isolado, CNPJ substitui a empresa e consentimento fica na revisão', async () => {
