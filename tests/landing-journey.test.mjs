@@ -13,9 +13,30 @@ test('primeira dobra identifica o CRM e mantém conversa como ação principal',
   assert.match(home, /class="nav-talk"[^>]*href="\.\/comecar\/\?cycle=monthly&amp;intent=conversation"/);
 });
 
+test('landing apresenta oferta curta sem conversa ou navegador simulados', () => {
+  const visibleSections = [...home.matchAll(/<section class="(intro|value|plans|buying-guide|closing)"/g)].map((match) => match[1]);
+  assert.deepEqual(visibleSections, ['intro', 'value', 'plans', 'buying-guide', 'closing']);
+  assert.doesNotMatch(home, /class="hero-demo"|class="browser-figure"|class="laptop-scene"/);
+  assert.doesNotMatch(home, /class="acquisition-tab"|class="operation-tab"/);
+  assert.doesNotMatch(home, /class="consultation"|id="quick-form"|id="cnpj-form"/);
+  assert.match(home, /id="solucoes"/);
+  assert.match(home, /class="closing-cta"[^>]*href="\.\/comecar\/\?cycle=monthly&amp;intent=conversation"/);
+});
+
 test('os três botões contratar continuam ligados à seleção de plano', () => {
   for (const plan of ['Start', 'Growth', 'Scale']) {
     assert.match(home, new RegExp(`<button class="plan-cta"[^>]*data-plan-action="${plan}"[^>]*data-intent="contract"`));
+  }
+});
+
+test('comparação rápida mostra capacidade sem perder o detalhamento', () => {
+  const visibleCapacity = { Start: ['5 usuários', '1.500', '300 min'], Growth: ['10 usuários', '5.000', '700 min'], Scale: ['20 usuários', '10.000', '1.200 min'] };
+  for (const [plan, values] of Object.entries(visibleCapacity)) {
+    const card = home.match(new RegExp(`<article class="plan-option" data-plan="${plan}"[\\s\\S]*?<\\/article>`))?.[0] || '';
+    const quickList = card.match(/<ul class="plan-features">([\s\S]*?)<\/ul>/)?.[1] || '';
+    assert.equal((quickList.match(/<li>/g) || []).length, 3, `${plan}: três dados decisivos`);
+    values.forEach((value) => assert.ok(quickList.includes(value), `${plan}: ${value}`));
+    assert.match(card, /<details class="plan-inclusions">/);
   }
 });
 

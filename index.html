@@ -1245,6 +1245,88 @@
         .nav-talk { min-height: 40px; padding-inline: 9px; }
         .intro h1 { font-size: 2.2rem; }
       }
+
+      /* Editorial landing: one argument per section, no illustrative product UI. */
+      [hidden] { display: none !important; }
+      .nav { width: min(1180px, calc(100% - 64px)); }
+      .nav-descriptor { letter-spacing: .04em; font-size: .74rem; text-transform: none; }
+      .intro { width: min(1180px, calc(100% - 64px)); min-height: 610px; padding: clamp(76px, 8vw, 112px) 0; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .75fr); gap: clamp(50px, 8vw, 130px); }
+      .intro-copy { max-width: 730px; }
+      .section-index { margin: 0 0 24px; color: var(--indigo-ink); font-size: .8rem; font-weight: 650; letter-spacing: .02em; text-transform: none; }
+      .intro h1 { max-width: 780px; font-size: clamp(3.4rem, 5.4vw, 5.4rem); letter-spacing: -.065em; line-height: 1.04; }
+      .intro h1 span { color: var(--indigo-ink); }
+      .intro-lead { max-width: 560px; margin-top: 26px; font-size: clamp(1.07rem, 1.5vw, 1.26rem); line-height: 1.56; }
+      .intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 30px; margin-top: 32px; }
+      .intro-link { margin: 0; gap: 0; }
+      .hero-contact-cta { min-height: 52px; padding-inline: 22px; border-radius: 3px; }
+      .intro-aside { align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(28px, 3vw, 44px); background: var(--graphite); color: #fff; }
+      .intro-aside > span { color: #b8c1d0; font-size: .8rem; }
+      .intro-aside > p { max-width: 330px; margin: 22px 0; font-size: clamp(1.5rem, 2.25vw, 2.2rem); font-weight: 600; letter-spacing: -.045em; line-height: 1.2; }
+      .intro-aside ol { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+      .intro-aside li { display: flex; gap: 18px; padding: 12px 0; border-top: 1px solid #555b65; font-size: .9rem; }
+      .intro-aside li::before { counter-increment: step; content: '0' counter(step); color: #b8c1ff; font-variant-numeric: tabular-nums; }
+      .value { padding: clamp(76px, 7vw, 100px) max(32px, calc((100vw - 1180px)/2)); background: #fff; scroll-margin-top: 74px; }
+      .value-head { display: flex; align-items: end; justify-content: space-between; gap: 48px; margin-bottom: 46px; }
+      .value-head .section-index { margin-bottom: 7px; white-space: nowrap; }
+      .value h2 { max-width: 750px; margin: 0; font-size: clamp(2.3rem, 4vw, 4rem); letter-spacing: -.055em; line-height: 1.08; }
+      .value-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+      .value-grid article { min-width: 0; padding: 27px 36px 0 0; }
+      .value-grid article + article { padding-left: 36px; border-left: 1px solid var(--rule); }
+      .value-grid span { color: var(--indigo-ink); font-size: .83rem; font-variant-numeric: tabular-nums; }
+      .value-grid h3 { margin: 27px 0 9px; font-size: clamp(1.23rem, 1.7vw, 1.55rem); letter-spacing: -.035em; }
+      .value-grid p { max-width: 280px; margin: 0; color: #525861; font-size: .98rem; line-height: 1.6; }
+      .plans { padding: clamp(76px, 7vw, 100px) 0; }
+      .plans-inner { max-width: 1180px; }
+      .plans-header { margin-bottom: 30px; }
+      .plans h2 { max-width: 720px; font-size: clamp(2.35rem, 3.7vw, 3.6rem); }
+      .plans-intro { max-width: 340px; line-height: 1.55; }
+      .plan-option, .plan-option:first-child, .plan-option:last-child { padding: 28px 24px 26px; }
+      .plan-purpose { min-height: 3em; }
+      .plan-features li { padding-block: 9px; }
+      .buying-guide { padding: clamp(72px, 7vw, 100px) 0; }
+      .buying-guide h2 { font-size: clamp(2.25rem, 3.4vw, 3.4rem); }
+      .buying-guide-inner { max-width: 1180px; gap: 70px; }
+      .buying-questions details:first-child { border-top: 1px solid var(--rule); }
+      .closing { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 40px; padding: clamp(70px, 7vw, 100px) max(32px, calc((100vw - 1180px)/2)); background: var(--graphite); color: #fff; }
+      .closing .section-index { color: #b8c1ff; }
+      .closing h2 { max-width: 670px; margin: 0; font-size: clamp(2.45rem, 4vw, 4rem); line-height: 1.08; letter-spacing: -.055em; }
+      .closing-cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-width: 225px; min-height: 54px; padding: 0 19px; border-radius: 3px; background: #fff; color: var(--graphite); font-size: .92rem; font-weight: 650; }
+      .closing-cta:hover { background: #e5e7eb; }
+      .closing-cta span { color: var(--indigo-ink); }
+      @media (max-width: 900px) {
+        .intro { min-height: 0; grid-template-columns: minmax(0, 1fr) minmax(240px, .7fr); gap: 35px; }
+        .intro-aside { padding: 25px; }
+        .value-head { display: block; }
+        .value-head .section-index { margin-bottom: 20px; }
+        .value-grid article { padding-right: 20px; }
+        .value-grid article + article { padding-left: 20px; }
+        .buying-guide-inner { gap: 32px; }
+      }
+      @media (max-width: 700px) {
+        .nav { width: calc(100% - 40px); }
+        .nav-descriptor { display: none; }
+        .intro { width: calc(100% - 40px); display: block; padding: 68px 0 64px; }
+        .intro h1 { font-size: clamp(2.7rem, 8vw, 4rem); }
+        .intro-aside { display: none; }
+        .value { padding: 58px 20px 64px; }
+        .value-head { margin-bottom: 28px; }
+        .value-grid { grid-template-columns: 1fr; }
+        .value-grid article, .value-grid article + article { padding: 18px 0 20px; border-left: 0; border-bottom: 1px solid var(--rule); }
+        .value-grid h3 { margin: 8px 0 5px; }
+        .value-grid p { max-width: none; }
+        .closing { grid-template-columns: 1fr; align-items: start; gap: 26px; padding: 62px 20px 68px; }
+        .closing-cta { width: fit-content; }
+      }
+      @media (max-width: 560px) {
+        .intro { padding: 54px 0 58px; }
+        .intro h1 { font-size: clamp(2.55rem, 10vw, 3.3rem); }
+        .intro-actions { display: grid; gap: 6px; margin-top: 27px; }
+        .intro-actions .quiet-link { justify-content: center; }
+        .plans, .buying-guide { padding-block: 60px; }
+        .plans-header { margin-bottom: 24px; }
+        .plan-purpose { min-height: 0; }
+        .closing-cta { width: 100%; }
+      }
     </style>
   </head>
   <body>
@@ -1255,7 +1337,7 @@
           <img src="assets/oryneo-wordmark-official.png" width="800" height="149" alt="ORYNEO" />
         </a>
         <span class="nav-descriptor">Marketing / Vendas / Tecnologia</span>
-        <a class="nav-link nav-link-method" href="#aquisicao"><span class="nav-link-long">Página e anúncios</span><span class="nav-link-short">Soluções</span></a>
+        <a class="nav-link nav-link-method" href="#solucoes"><span class="nav-link-long">O que resolve</span><span class="nav-link-short">Soluções</span></a>
         <a class="nav-link" href="#planos">
           <span class="nav-link-long">Ver planos</span>
           <span class="nav-link-short">Planos</span>
@@ -1268,200 +1350,41 @@
     <main id="conteudo">
       <section class="intro" aria-labelledby="hero-title">
         <div class="intro-copy">
-          <p class="section-index"><span>ORYNEO / 01</span><span>Crescimento em sistema</span></p>
-          <h1 id="hero-title">CRM e WhatsApp.<br><span>Do contato ao retorno.</span></h1>
-          <p class="intro-lead">
-            A ORYNEO reúne origem do lead, conversa no WhatsApp, responsável e automações em uma operação que sua equipe consegue acompanhar.
-          </p>
-          <div class="intro-actions"><a class="hero-contact-cta" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Converse com a ORYNEO <span aria-hidden="true">↗</span></a><a class="intro-link quiet-link" href="#planos">Compare os planos</a></div>
+          <p class="section-index">CRM ORYNEO · WhatsApp integrado</p>
+          <h1 id="hero-title">CRM com WhatsApp. <span>Cada conversa com um próximo passo.</span></h1>
+          <p class="intro-lead">Contatos, conversas e negociações no mesmo lugar. Sua equipe sabe quem atende, o que aconteceu e quando retomar.</p>
+          <div class="intro-actions"><a class="hero-contact-cta" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Converse com a ORYNEO <span aria-hidden="true">↗</span></a><a class="intro-link quiet-link" href="#planos">Ver planos</a></div>
         </div>
-        <figure class="hero-demo" aria-label="Exemplo de uma conversa no WhatsApp acompanhada no CRM da ORYNEO">
-          <div class="hero-workspace">
-            <div class="hero-workspace-head">
-              <span class="hero-workspace-brand"><img src="assets/oryneo-symbol-official.svg" alt="" />CRM ORYNEO</span>
-              <span class="hero-channel">Conversa no WhatsApp</span>
-            </div>
-            <div class="hero-contact">
-              <div><strong>Marina Costa</strong><small>Estúdio Forma</small></div>
-              <span class="hero-status">Em atendimento</span>
-            </div>
-            <div class="hero-messages">
-              <div class="hero-message hero-message-out">
-                <p>Olá, Marina! Recebemos seu contato. Podemos conversar sobre a rotina da equipe?</p>
-                <footer><span>Mensagem programada</span><time>09:05</time></footer>
-              </div>
-              <div class="hero-message hero-message-in">
-                <span class="hero-transcription">Áudio recebido · transcrição automática</span>
-                <p>Somos quatro pessoas e alguns retornos se perdem.</p>
-                <footer><span>Marina</span><time>09:08</time></footer>
-              </div>
-            </div>
-            <div class="hero-assignment">
-              <span class="hero-person" aria-hidden="true">A</span>
-              <p><strong>Ana</strong> é responsável pelo atendimento.<small>Conversa e histórico no mesmo lugar.</small></p>
-            </div>
-            <div class="hero-next">
-              <small>Próxima ação · Ana</small>
-              <strong>Entender a rotina da equipe</strong>
-              <p>Resposta recebida · Conversa em andamento</p>
-            </div>
-          </div>
-          <figcaption>Exemplo ilustrativo · dados fictícios.</figcaption>
-        </figure>
+        <div class="intro-aside" aria-label="Da entrada ao acompanhamento">
+          <span>Do primeiro contato ao fechamento</span>
+          <p>Uma operação que não depende da memória de ninguém.</p>
+          <ol><li>Contato recebido</li><li>Responsável definido</li><li>Retorno acompanhado</li></ol>
+        </div>
       </section>
 
-      <section class="route" id="percurso" aria-labelledby="route-title">
-          <h2 id="route-title">Da chegada do contato ao próximo passo.</h2>
-          <ol class="route-list">
-            <li><span class="step-number" aria-hidden="true">01</span><div><h3>Atrair</h3><p>Página e anúncios com uma proposta clara.</p></div></li>
-            <li><span class="step-number" aria-hidden="true">02</span><div><h3>Atender</h3><p>WhatsApp, histórico e responsável no CRM.</p></div></li>
-            <li><span class="step-number" aria-hidden="true">03</span><div><h3>Acompanhar</h3><p>Próxima ação definida até o desfecho.</p></div></li>
-          </ol>
-      </section>
-      <section class="acquisition" id="aquisicao" aria-labelledby="acquisition-title">
-        <div class="acquisition-inner">
-          <header class="acquisition-header">
-            <div><p class="acquisition-kicker">ORYNEO / 02 — Landing pages e tráfego pago</p><h2 id="acquisition-title">A campanha não termina no clique.</h2></div>
-            <p>Criação de landing pages e gestão de tráfego pago com o mesmo objetivo: transformar interesse em uma conversa que sua equipe consiga acompanhar.</p>
-          </header>
-          <p class="channel-context"><span>Canais de aquisição</span><span class="channel-brand"><img src="assets/google-ads-mark.svg" width="24" height="24" alt="" /> Google Ads</span><span class="channel-brand"><img src="assets/meta-mark.svg" width="31" height="23.25" alt="" /> Meta Ads</span><small>Plataformas definidas conforme a estratégia e a proposta.</small></p>
-          <div class="acquisition-grid">
-            <div class="acquisition-explainer">
-              <div class="acquisition-tabs" role="tablist" aria-label="Como a ORYNEO estrutura uma landing page">
-                <button class="acquisition-tab" id="acq-tab-copy" role="tab" aria-selected="true" aria-controls="acq-panel-copy" tabindex="0" data-focus="copy" type="button">Texto</button>
-                <button class="acquisition-tab" id="acq-tab-conversion" role="tab" aria-selected="false" aria-controls="acq-panel-conversion" tabindex="-1" data-focus="conversion" type="button">Conversão</button>
-                <button class="acquisition-tab" id="acq-tab-search" role="tab" aria-selected="false" aria-controls="acq-panel-search" tabindex="-1" data-focus="search" type="button">Busca</button>
-                <button class="acquisition-tab" id="acq-tab-measure" role="tab" aria-selected="false" aria-controls="acq-panel-measure" tabindex="-1" data-focus="measure" type="button">Medição</button>
-              </div>
-              <div class="acquisition-panel" id="acq-panel-copy" role="tabpanel" aria-labelledby="acq-tab-copy" tabindex="0">
-                <p class="acquisition-panel-label">01 / A promessa continua</p><h3>O anúncio faz uma promessa. A página explica.</h3><p>Título, argumento e próximo passo respondem ao que a pessoa veio buscar.</p>
-                <ul><li>Oferta explicada sem rodeio</li><li>Benefício ligado ao problema do público</li><li>Próxima ação visível</li></ul>
-              </div>
-              <div class="acquisition-panel" id="acq-panel-conversion" role="tabpanel" aria-labelledby="acq-tab-conversion" tabindex="0" hidden>
-                <p class="acquisition-panel-label">02 / A ação fica clara</p><h3>Uma hierarquia que ajuda a decidir.</h3><p>Conteúdo, prova e formulário aparecem na ordem da decisão, com leitura e toque ajustados para celular.</p>
-                <ul><li>Uma ação principal por página</li><li>Formulário com campos proporcionais à oferta</li><li>Botões e leitura conferidos no celular</li></ul>
-              </div>
-              <div class="acquisition-panel" id="acq-panel-search" role="tabpanel" aria-labelledby="acq-tab-search" tabindex="0" hidden>
-                <p class="acquisition-panel-label">03 / Busca e desempenho</p><h3>Preparada para buscas no Google.</h3><p>Conteúdo útil, página rápida e informações bem organizadas ajudam as pessoas a encontrar sua empresa. Nenhuma configuração garante posição ou tráfego.</p>
-                <ul><li>Título e descrição claros para pessoas e buscadores</li><li>Endereço e prévia de compartilhamento revisados</li><li>Velocidade e leitura no celular conferidas antes de publicar</li></ul>
-              </div>
-              <div class="acquisition-panel" id="acq-panel-measure" role="tabpanel" aria-labelledby="acq-tab-measure" tabindex="0" hidden>
-                <p class="acquisition-panel-label">04 / A origem acompanha o contato</p><h3>A campanha continua ligada ao atendimento.</h3><p>Os dados de origem e o envio do formulário podem conectar anúncio, página e oportunidade no CRM.</p>
-                <ul><li>Origem e campanha registradas quando disponíveis</li><li>Envio do formulário medido como evento</li><li>Contato encaminhado para a equipe responsável</li></ul>
-              </div>
-              <p class="acquisition-truth">Landing page e tráfego são serviços opcionais em todos os planos. A verba dos anúncios é paga à parte.</p>
-            </div>
-            <figure class="browser-figure" data-preview-focus="copy">
-              <div class="browser-frame">
-                <div class="browser-chrome"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser-address">oryneo.com.br/operacao-comercial</span><span class="browser-lock" aria-hidden="true">●</span></div>
-                <div class="demo-page">
-                  <div class="demo-nav"><img src="assets/oryneo-wordmark-official.png" width="800" height="149" alt="ORYNEO"/><span>Produto</span><span>Planos</span><a href="#planos">Conversar</a></div>
-                  <div class="demo-hero">
-                    <div class="demo-copy"><p class="demo-eyebrow">CRM · WHATSAPP · AUTOMAÇÃO</p><h3>Do primeiro contato ao próximo passo.</h3><p>Conversa, histórico e retorno organizados para a equipe comercial acompanhar cada oportunidade.</p><a class="demo-cta" href="#planos">Conheça a operação</a><small>Exemplo de estrutura de página</small></div>
-                    <div class="demo-flow" aria-label="Exemplo ilustrativo de novo contato no CRM"><span>ORIGEM <b>Campanha</b></span><span>CONTATO <b>Novo pedido</b></span><span>PRÓXIMA AÇÃO <b>Retorno organizado</b></span></div>
-                  </div>
-                  <div class="demo-proof"><span><b>01</b> Promessa clara</span><span><b>02</b> Próxima ação</span><span><b>03</b> Origem preservada</span></div>
-                  <div class="demo-meta" aria-label="Exemplo de informações da página"><span>Título: Do primeiro contato ao próximo passo</span><span>Formulário: envio acompanhado</span><span>Origem: campanha registrada</span></div>
-                </div>
-              </div>
-              <figcaption>Exemplo de página e pontos de medição. Conteúdo e comportamento são definidos para cada projeto.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-      <section class="operation" id="operacao" aria-labelledby="operation-title">
-        <div class="operation-inner">
-          <div class="operation-header">
-            <div>
-              <p class="operation-kicker">ORYNEO / 03 — A operação por dentro</p>
-              <h2 id="operation-title">Da primeira mensagem à proposta, com contexto.</h2>
-            </div>
-            <p class="operation-deck">O WhatsApp mantém a conversa. O CRM guarda o contexto. As automações organizam responsáveis, tarefas e retornos ao longo da negociação.</p>
-          </div>
-          <div class="operation-tabs" role="tablist" aria-label="Acompanhe uma oportunidade">
-            <button class="operation-tab" id="op-tab-receber" role="tab" aria-selected="true" aria-controls="op-receber" tabindex="0" type="button"><span aria-hidden="true">01</span> Receber</button>
-            <button class="operation-tab" id="op-tab-acompanhar" role="tab" aria-selected="false" aria-controls="op-acompanhar" tabindex="-1" type="button"><span aria-hidden="true">02</span> Acompanhar</button>
-            <button class="operation-tab" id="op-tab-negociar" role="tab" aria-selected="false" aria-controls="op-negociar" tabindex="-1" type="button"><span aria-hidden="true">03</span> Negociar</button>
-          </div>
-          <div class="operation-layout">
-            <div class="operation-copy">
-              <div class="operation-panel" id="op-receber" role="tabpanel" aria-labelledby="op-tab-receber" tabindex="0">
-                <h3>Chegou um contato.<br>A equipe já sabe o que fazer.</h3>
-                <p>A entrada pela página leva a origem e os dados do contato ao CRM. A automação encaminha a oportunidade e cria a primeira tarefa.</p>
-                <p class="operation-principle">Responsável definido. Primeiro contato organizado.</p>
-              </div>
-              <div class="operation-panel" id="op-acompanhar" role="tabpanel" aria-labelledby="op-tab-acompanhar" tabindex="0" hidden>
-                <h3>A conversa começa.<br>O contexto acompanha.</h3>
-                <p>O WhatsApp integrado conecta a conversa à oportunidade. Respostas com IA apoiam o atendimento, enquanto lembretes organizam os retornos e mantêm a equipe no controle.</p>
-                <p class="operation-principle">Áudios recebidos são transcritos automaticamente, sem interromper a conversa.</p>
-              </div>
-              <div class="operation-panel" id="op-negociar" role="tabpanel" aria-labelledby="op-tab-negociar" tabindex="0" hidden>
-                <h3>A proposta saiu.<br>O retorno já está na agenda.</h3>
-                <p>A mudança de etapa aciona a próxima tarefa. A equipe sabe quando retomar a conversa, e a gestão acompanha o andamento até o desfecho.</p>
-                <p class="operation-principle">Lembretes ajustados ao processo de cada empresa.</p>
-              </div>
-            </div>
-            <figure class="laptop-scene" aria-label="Exemplo de uma oportunidade acompanhada no CRM da ORYNEO">
-              <div class="laptop-screen">
-                <div class="crm-topbar"><img src="assets/oryneo-symbol-official.svg" alt="" /><span>CRM · Oportunidades</span><span>Equipe ORYNEO</span></div>
-                <div class="operation-screen">
-                  <div class="operation-record" data-operation-record="receber" aria-label="Exemplo de novo contato recebido">
-                    <div class="record-heading"><div><strong>Marina Costa</strong><small>Estúdio Forma · Solicitação comercial</small></div><span class="record-stage">Novo contato</span></div>
-                    <div class="record-meta"><span>Origem <b>Página da empresa</b></span><span>Responsável <b>Ana</b></span></div>
-                    <ol class="record-events">
-                      <li><time>09:00</time><div><strong>Contato recebido</strong><p>Empresa, interesse e telefone reunidos no CRM.</p></div></li>
-                      <li><time>09:00</time><div><strong>Responsável definido</strong><p>Ana recebeu a oportunidade.</p></div></li>
-                      <li><time>09:00</time><div><strong>Primeira tarefa criada</strong><p>A equipe já sabe quem fará o primeiro contato.</p></div></li>
-                    </ol>
-                    <div class="record-next"><small>Próxima ação · Ana</small><strong>Falar com Marina</strong><p>Hoje, 09:15 · Lembrete programado</p></div>
-                  </div>
-                  <div class="operation-record" data-operation-record="acompanhar" aria-label="Exemplo de conversa no WhatsApp ligada ao CRM" hidden>
-                    <div class="record-heading"><div><strong>Marina Costa</strong><small>Estúdio Forma · Solicitação comercial</small></div><span class="record-stage">Em atendimento</span></div>
-                    <div class="record-meta"><span>Canal <b>WhatsApp</b></span><span>Responsável <b>Ana</b></span></div>
-                    <div class="conversation">
-                      <p class="conversation-label">Conversa ligada ao CRM</p>
-                      <blockquote class="sent">Olá, Marina! Recebemos seu contato. Podemos conversar sobre a rotina da equipe?<small>09:05 · Mensagem programada</small></blockquote>
-                      <blockquote>Somos quatro pessoas e alguns retornos se perdem.<small>09:08 · Áudio recebido · transcrição automática</small></blockquote>
-                      <p class="conversation-context">Exemplo de conversa com os dados fictícios de Marina.</p>
-                    </div>
-                    <div class="record-next"><small>Próxima ação · Ana</small><strong>Entender a rotina da equipe</strong><p>Resposta recebida · Conversa em andamento</p></div>
-                  </div>
-                  <div class="operation-record" data-operation-record="negociar" aria-label="Exemplo de proposta com retorno programado" hidden>
-                    <div class="record-heading"><div><strong>Marina Costa</strong><small>Estúdio Forma · Solicitação comercial</small></div><span class="record-stage">Em negociação</span></div>
-                    <div class="record-meta"><span>Origem <b>Página da empresa</b></span><span>Responsável <b>Ana</b></span></div>
-                    <ol class="record-events">
-                      <li><time>14:20</time><div><strong>Proposta enviada</strong><p>Ana registrou o envio e os pontos da conversa.</p></div></li>
-                      <li><time>14:21</time><div><strong>Etapa atualizada</strong><p>A oportunidade passou para Em negociação.</p></div></li>
-                      <li><time>14:21</time><div><strong>Retorno organizado</strong><p>Um lembrete foi criado para a próxima conversa.</p></div></li>
-                    </ol>
-                    <div class="record-next"><small>Próxima ação · Ana</small><strong>Retomar a proposta com Marina</strong><p>Amanhã, 10:00 · Tarefa na agenda comercial</p></div>
-                  </div>
-                </div>
-              </div>
-              <figcaption class="operation-visual-caption">A mesma oportunidade, do primeiro contato à próxima conversa.</figcaption>
-            </figure>
-          </div>
-          <div class="operation-footer">
-            <p>Demonstração com dados fictícios. Etapas e lembretes são ajustados à sua operação.</p>
-            <a class="operation-cta" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Quero organizar minha operação</a>
-          </div>
+      <section class="value" id="solucoes" aria-labelledby="value-title">
+        <div class="value-head"><p class="section-index">O que muda na prática</p><h2 id="value-title">Menos trabalho para lembrar.<br>Mais clareza para agir.</h2></div>
+        <div class="value-grid">
+          <article><span>01</span><h3>Conversa com contexto</h3><p>WhatsApp e histórico ligados ao contato no CRM.</p></article>
+          <article><span>02</span><h3>Próxima ação definida</h3><p>Responsáveis, tarefas e lembretes organizam o retorno.</p></article>
+          <article><span>03</span><h3>Visão da operação</h3><p>Funis e painel de vendas mostram o andamento à equipe.</p></article>
         </div>
       </section>
       <section class="plans" id="planos" aria-labelledby="plans-title">
         <div class="plans-inner">
           <div class="plans-header">
-            <div><p class="plans-kicker">ORYNEO / 04 — Planos</p><h2 id="plans-title">Escolha a capacidade.<br>O essencial já está incluído.</h2></div>
-            <p class="plans-intro">Todos conectam CRM, WhatsApp e retornos. O que muda é a capacidade e a profundidade do desenho da operação na implantação.</p>
+            <div><p class="plans-kicker">Planos</p><h2 id="plans-title">Escolha o plano para o tamanho da sua equipe.</h2></div>
+            <p class="plans-intro">CRM, WhatsApp e automações em todos os planos. A capacidade cresce com sua operação. Página e anúncios são opcionais.</p>
           </div>
           <fieldset class="billing-choice"><legend>Como prefere contratar?</legend><label><input type="radio" name="billing" value="monthly" checked /><span>Mensal</span></label><label><input type="radio" name="billing" value="annual" /><span>Anual <em>10% de desconto</em></span></label></fieldset>
           <div class="plans-grid" role="group" aria-label="Planos ORYNEO">
             <article class="plan-option" data-plan="Start" aria-current="false">
               <div class="plan-top"><h3>Start</h3><span class="plan-selected-label">Selecionado</span></div>
-              <p class="plan-purpose">Para organizar o atendimento e manter os retornos em dia.</p>
+              <p class="plan-purpose">Para dar ritmo ao atendimento.</p>
               <p class="plan-price"><span data-price="Start">R$ 749,90</span><small>/ mês</small></p>
               <p class="plan-billing" data-billing="Start">Cobrança mensal.</p>
               <p class="plan-setup">Implantação única: R$ 989,90</p>
-              <ul class="plan-features"><li>Até <strong>5 usuários</strong></li><li>Automações essenciais de atendimento e retorno, configuradas na implantação</li><li>Até <strong>1.500 respostas automáticas geradas por IA por mês</strong></li><li>Até <strong>300 minutos de áudios recebidos transcritos por mês</strong></li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>3 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
+              <ul class="plan-features"><li>Até <strong>5 usuários</strong></li><li><strong>1.500</strong> respostas de IA/mês</li><li><strong>300 min</strong> de áudio transcrito/mês</li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>3 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Automações essenciais de atendimento e retorno, configuradas na implantação</li><li>Respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
               <div class="plan-actions">
                 <button class="plan-cta" type="button" data-plan-action="Start" data-intent="contract">Quero contratar este plano <span aria-hidden="true">↗</span></button>
                 <button class="plan-talk" type="button" data-plan-action="Start" data-intent="conversation" aria-label="Quero conversar sobre o Start">Quero conversar</button>
@@ -1469,11 +1392,11 @@
             </article>
             <article class="plan-option" data-plan="Growth" data-recommended="true" aria-current="false">
               <div class="plan-top"><h3>Growth</h3><span class="plan-selected-label">Selecionado</span></div>
-              <p class="plan-purpose">Para transformar o follow-up em um processo comercial consistente.</p>
+              <p class="plan-purpose">Para estruturar o follow-up comercial.</p>
               <p class="plan-price"><span data-price="Growth">R$ 1.099,90</span><small>/ mês</small></p>
               <p class="plan-billing" data-billing="Growth">Cobrança mensal.</p>
               <p class="plan-setup">Implantação única: R$ 1.389,90</p>
-              <ul class="plan-features"><li>Até <strong>10 usuários</strong></li><li>Desenho de cadência comercial ajustada às etapas do funil</li><li>Até <strong>5.000 respostas automáticas geradas por IA por mês</strong></li><li>Até <strong>700 minutos de áudios recebidos transcritos por mês</strong></li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>7 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
+              <ul class="plan-features"><li>Até <strong>10 usuários</strong></li><li><strong>5.000</strong> respostas de IA/mês</li><li><strong>700 min</strong> de áudio transcrito/mês</li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>7 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Desenho de cadência comercial ajustada às etapas do funil</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
               <div class="plan-actions">
                 <button class="plan-cta" type="button" data-plan-action="Growth" data-intent="contract">Quero contratar este plano <span aria-hidden="true">↗</span></button>
                 <button class="plan-talk" type="button" data-plan-action="Growth" data-intent="conversation" aria-label="Quero conversar sobre o Growth">Quero conversar</button>
@@ -1481,11 +1404,11 @@
             </article>
             <article class="plan-option" data-plan="Scale" aria-current="false">
               <div class="plan-top"><h3>Scale</h3><span class="plan-selected-label">Selecionado</span></div>
-              <p class="plan-purpose">Para coordenar fluxos em uma operação com mais equipes e etapas.</p>
+              <p class="plan-purpose">Para coordenar equipes e funis.</p>
               <p class="plan-price"><span data-price="Scale">R$ 1.479,90</span><small>/ mês</small></p>
               <p class="plan-billing" data-billing="Scale">Cobrança mensal.</p>
               <p class="plan-setup">Implantação única: R$ 1.849,90</p>
-              <ul class="plan-features"><li>Até <strong>20 usuários</strong></li><li>Desenho de fluxos entre equipes, etapas e funis na implantação</li><li>Até <strong>10.000 respostas automáticas geradas por IA por mês</strong></li><li>Até <strong>1.200 minutos de áudios recebidos transcritos por mês</strong></li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>10 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
+              <ul class="plan-features"><li>Até <strong>20 usuários</strong></li><li><strong>10.000</strong> respostas de IA/mês</li><li><strong>1.200 min</strong> de áudio transcrito/mês</li></ul><details class="plan-inclusions"><summary>Ver todos os recursos incluídos</summary><ul class="plan-features"><li>CRM para contatos, empresas e negociações</li><li>Até <strong>10 funis de vendas</strong> ajustáveis à operação</li><li>WhatsApp no CRM, com histórico e transcrição de áudios recebidos</li><li>Desenho de fluxos entre equipes, etapas e funis na implantação</li><li>Automações de atendimento, respostas de IA e lembretes de retorno</li><li>Tarefas, agenda compartilhada e painel de vendas</li><li>Biblioteca de arquivos vinculados e exportação de dados</li></ul></details>
               <div class="plan-actions">
                 <button class="plan-cta" type="button" data-plan-action="Scale" data-intent="contract">Quero contratar este plano <span aria-hidden="true">↗</span></button>
                 <button class="plan-talk" type="button" data-plan-action="Scale" data-intent="conversation" aria-label="Quero conversar sobre o Scale">Quero conversar</button>
@@ -1493,172 +1416,19 @@
             </article>
           </div>
           <p class="plan-preview-note">Ao escolher “Quero contratar”, você segue para revisar a configuração no checkout. Se preferir orientação antes, escolha “Quero conversar”.</p>
-          <div class="purchase-layout" id="purchase-layout" hidden><div class="services" aria-labelledby="services-title">
-            <div class="services-heading"><div><p class="services-step">PASSO 02 · OPCIONAL</p><h3 id="services-title" tabindex="-1">Quer ampliar a aquisição?</h3></div><p>Os dois serviços estão disponíveis em qualquer plano. Marque só o que deseja receber em proposta.</p></div>
-            <div class="service-line"><label class="service-choice"><input type="checkbox" name="service" value="Landing page de conversão" data-service="landing-page" /><span class="service-name">Landing page de conversão</span></label><span class="service-price">R$ 889,90 · único</span><details class="service-scope"><summary>Ver escopo</summary><p>Entendimento do negócio e organização do conteúdo; textos; layout para computador e celular; desenvolvimento; formulário conectado ao CRM; registro da origem e do envio; preparação para buscas no Google; revisão de acessibilidade e velocidade; publicação após aprovação.</p></details></div>
-            <div class="service-line"><label class="service-choice"><input type="checkbox" name="service" value="Gestão de tráfego pago" data-service="traffic" /><span class="service-name">Gestão de tráfego pago</span></label><span class="service-price">R$ 989,90/mês<small>R$ 2.969,70 por trimestre</small></span><details class="service-scope"><summary>Ver escopo</summary><p>Planejamento e configuração das plataformas acordadas; textos e variações de anúncios; registro da origem e dos contatos; acompanhamento e ajustes; relatório ligado a contatos e oportunidades. Contratação trimestral, cobrada em um único valor de R$ 2.969,70. Verba de mídia paga separadamente.</p></details></div>
-            <p class="service-footnote">Os complementos são opcionais e entram no total ao selecionar. Tráfego: R$ 2.969,70 por trimestre. Verba de mídia à parte.</p>
-          </div>
-          <aside class="purchase-summary" id="resumo-plano" aria-labelledby="purchase-title"><p class="purchase-kicker">PASSO 03 · REVISÃO</p><h3 id="purchase-title"><span id="purchase-plan">Selecione um plano</span> <small id="purchase-cycle"></small></h3><dl><div><dt>Plano <span id="purchase-period-label">—</span></dt><dd id="purchase-period">—</dd></div><div><dt>Implantação única</dt><dd id="purchase-setup">—</dd></div></dl><p class="purchase-saving" id="purchase-saving" hidden></p><p class="purchase-capacity" id="purchase-capacity"></p><div class="purchase-services" id="purchase-services" aria-live="polite"><div class="purchase-services-head"><strong>Complementos</strong><span class="purchase-services-count" id="purchase-services-count">Nenhum</span></div><ul class="purchase-services-list" id="purchase-services-list"></ul><p class="purchase-services-note" id="purchase-services-note">Selecione landing page ou gestão de tráfego para incluir.</p></div><div class="purchase-grand-total"><span>Primeira cobrança estimada</span><strong id="purchase-first">—</strong></div><button class="primary-button purchase-continue" id="purchase-continue" type="button">Continuar com esta configuração</button><p class="purchase-disclaimer">Total do período escolhido, implantação e complementos selecionados. Verba de mídia à parte. Você revisa a solicitação antes de enviá-la por e-mail. Nenhuma cobrança é feita aqui.</p></aside></div>
-          <p class="plan-selection-feedback" id="plan-feedback" role="status" aria-live="polite"></p>
         </div>
       </section>
       <section class="buying-guide" aria-labelledby="guide-title">
-        <div class="buying-guide-inner"><div><p class="plans-kicker">Antes de contratar</p><h2 id="guide-title">Da escolha à implantação.</h2><p>Você pode revisar um plano no checkout ou conversar com a equipe antes de decidir. A implantação organiza a configuração e a orientação da sua equipe.</p><a class="text-button" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Quero conversar antes de escolher ↗</a></div>
+        <div class="buying-guide-inner"><div><p class="plans-kicker">Em poucas palavras</p><h2 id="guide-title">Antes de decidir.</h2><p>Valores e condições aparecem antes da confirmação no checkout. Se preferir, converse com a equipe primeiro.</p></div>
         <div class="buying-questions">
           <details><summary>O que a implantação inclui?</summary><p>Entendimento da operação, configuração do ambiente conforme o escopo contratado, testes e orientação da equipe para começar. O cronograma e os responsáveis são combinados na proposta.</p></details>
           <details><summary>Como funciona o plano anual?</summary><p>Você paga 12 meses antecipadamente com 10% de desconto sobre a assinatura. Implantação e complementos não recebem esse desconto.</p></details>
           <details><summary>Preciso contratar página e anúncios?</summary><p>Não. Os dois serviços são opcionais. A landing page custa R$ 889,90, uma única vez. A gestão de tráfego custa R$ 2.969,70 por trimestre, equivalente a R$ 989,90/mês. A verba dos anúncios é paga separadamente.</p></details>
-          <details><summary>E se eu precisar de mais capacidade?</summary><p>Conte para a equipe o que sua operação precisa. A ORYNEO apresenta o escopo e as condições antes de você decidir.</p></details>
-          <details><summary>Quando a contratação é concluída?</summary><p>Escolher um plano nesta página abre a próxima etapa no checkout, onde você revisa os dados e as condições antes de confirmar. Se iniciar uma conversa, a equipe apresenta o escopo e as condições para sua avaliação.</p></details>
         </div></div>
       </section>
-      <div aria-hidden="true" style="position:absolute;left:-9999px"><label>Website<input id="oryneo-website" tabindex="-1" autocomplete="off" /></label></div>
-      <section class="consultation" id="solicitacao" aria-labelledby="consultation-title">
-        <div class="consultation-grid">
-          <div class="consultation-copy">
-            <p class="consultation-index">ORYNEO / 05 &nbsp;—&nbsp; Sua solicitação</p>
-            <h2 id="consultation-title">Conte um pouco sobre a sua operação.</h2>
-            <p id="consultation-description">Identifique sua empresa e confira os dados antes de enviar a solicitação.</p>
-          </div>
-          <div class="quick-panel" id="quick-panel" hidden>
-            <p class="selection-context" id="quick-context"></p>
-            <form id="quick-form" novalidate>
-              <h3 tabindex="-1">Vamos conversar.</h3>
-              <div class="form-row"><label class="field-label" for="quick-cnpj">CNPJ da empresa</label><input class="field-input" id="quick-cnpj" name="cnpj" inputmode="text" autocapitalize="characters" maxlength="18" placeholder="00.000.000/0000-00" required aria-describedby="quick-cnpj-error"/><p class="field-error" id="quick-cnpj-error"></p></div>
-              <div class="form-row"><label class="field-label" for="quick-name">Seu nome</label><input class="field-input" id="quick-name" autocomplete="name" maxlength="90" required aria-describedby="quick-name-error" /><p class="field-error" id="quick-name-error"></p></div>
-              <div class="form-row"><label class="field-label" for="quick-phone">WhatsApp com DDD</label><input class="field-input" id="quick-phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="15" placeholder="(21) 99999-9999" required aria-describedby="quick-phone-error" /><p class="field-error" id="quick-phone-error"></p></div>
-              <div class="form-row"><label class="field-label" for="quick-email">E-mail <span class="field-optional">(opcional)</span></label><input class="field-input" id="quick-email" type="email" inputmode="email" autocomplete="email" maxlength="150" placeholder="voce@empresa.com.br" aria-describedby="quick-email-error quick-email-suggestion-text" /><p class="field-error" id="quick-email-error"></p><div class="email-suggestion" id="quick-email-suggestion" hidden><p id="quick-email-suggestion-text"></p><div class="email-suggestion-actions"><button class="text-button" id="quick-email-correct" type="button">Corrigir e-mail</button><button class="text-button" id="quick-email-keep" type="button">Manter como está</button></div></div></div>
-              <div class="form-row"><label class="field-label" for="quick-need">O que você quer organizar? <span class="field-optional">(opcional)</span></label><textarea class="field-input" id="quick-need" rows="2" maxlength="600" placeholder="Ex.: organizar os retornos dos leads." aria-describedby="quick-need-error"></textarea><p class="field-error" id="quick-need-error"></p></div>
-              <label class="consent"><input id="quick-consent" type="checkbox" /><span>Autorizo o contato sobre esta solicitação. <a href="privacidade.html" target="_blank" rel="noopener">Como usamos seus dados</a>.</span></label>
-              <p class="form-feedback" id="quick-feedback" role="status" aria-live="polite"></p>
-              <button class="primary-button" type="submit">Revisar minha solicitação ↗</button>
-            </form>
-            <div id="quick-review" hidden><h3 tabindex="-1">Confira antes de enviar.</h3><dl class="summary" id="quick-summary"></dl><p class="preview-note">Envie sua solicitação diretamente à equipe ORYNEO. Nenhuma cobrança é feita aqui.</p><div class="stage-actions"><button class="primary-button" type="button" id="quick-send">Enviar solicitação ↗</button><button class="text-button" type="button" id="quick-copy">Copiar solicitação</button></div><p class="form-feedback" id="quick-send-feedback" role="status" aria-live="polite"></p><button class="text-button" type="button" id="quick-edit">Editar informações</button></div>
-          </div>
-          <div class="lead-panel" id="detailed-panel">
-            <div class="form-progress" aria-live="polite" aria-atomic="true">
-              <div class="progress-caption"><span id="progress-count">Etapa 1 de 4</span><span id="progress-label">Empresa</span></div>
-              <div class="progress-track" id="progress-track" role="progressbar" aria-label="Progresso do formulário" aria-valuemin="0" aria-valuemax="4" aria-valuenow="1"><span id="progress-fill"></span></div>
-            </div>
-
-            <div class="stage" id="stage-company" data-active="true">
-              <h3 tabindex="-1">Qual é a sua empresa?</h3>
-              <p class="stage-intro">Consulte o CNPJ para preencher os dados ou informe a empresa manualmente.</p>
-              <form class="entry" id="cnpj-form" novalidate>
-                <p class="selection-context" id="selection-context" role="status" aria-live="polite" hidden></p>
-                <label class="entry-label" for="cnpj">CNPJ da empresa</label>
-                <div class="entry-row">
-                  <input class="entry-input" id="cnpj" name="cnpj" type="text" inputmode="text" autocapitalize="characters" spellcheck="false" autocomplete="off" maxlength="18" placeholder="00.000.000/0000-00" aria-describedby="cnpj-caption cnpj-feedback" required />
-                  <button class="primary-button" id="cnpj-button" type="submit">Identificar empresa</button>
-                </div>
-                <p class="entry-caption" id="cnpj-caption">Aceitamos CNPJ com números ou letras. A consulta usa o serviço público BrasilAPI; você pode optar pelo preenchimento manual.</p>
-                <p class="form-feedback" id="cnpj-feedback" role="status" aria-live="polite"></p>
-                <button class="text-button" id="manual-company-toggle" type="button" aria-expanded="false" aria-controls="manual-company-form">Preencher dados da empresa</button>
-              </form>
-              <form id="manual-company-form" class="manual-company" hidden novalidate>
-                <label class="field-label" for="manual-company-name">Nome da empresa</label>
-                <input class="field-input" id="manual-company-name" autocomplete="organization" maxlength="150" required aria-describedby="manual-company-error" />
-                <p class="field-error" id="manual-company-error" role="status"></p>
-                <button class="primary-button" type="submit">Continuar com estes dados</button>
-              </form>
-            </div>
-
-            <form class="stage" id="stage-contact" novalidate>
-              <h3 tabindex="-1">Quem vai falar com a ORYNEO?</h3>
-              <p class="stage-intro">Confirme a empresa e deixe seus dados de contato.</p>
-              <div class="company-result" aria-live="polite">
-                <small id="company-status">Empresa identificada</small>
-                <strong id="company-name"></strong>
-                <span id="company-detail"></span>
-              </div>
-              <button class="text-button company-change" id="change-company" type="button">Corrigir CNPJ</button>
-              <div class="form-row" style="margin-top: 30px">
-                <label class="field-label" for="contact-name">Seu nome</label>
-                <input class="field-input" id="contact-name" name="name" type="text" autocomplete="name" maxlength="90" aria-describedby="contact-name-error" required />
-                <p class="field-error" id="contact-name-error" aria-live="polite"></p>
-              </div>
-              <div class="form-row">
-                <label class="field-label" for="contact-phone">WhatsApp</label>
-                <input class="field-input" id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="15" placeholder="(00) 00000-0000" aria-describedby="contact-phone-error" required />
-                <p class="field-error" id="contact-phone-error" aria-live="polite"></p>
-              </div>
-              <div class="form-row">
-                <label class="field-label" for="contact-email">E-mail</label>
-                <input class="field-input" id="contact-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="150" aria-describedby="contact-email-error email-suggestion-text" required />
-                <p class="field-error" id="contact-email-error" aria-live="polite"></p>
-              </div>
-              <div class="email-suggestion" id="email-suggestion" hidden>
-                <p id="email-suggestion-text"></p>
-                <div class="email-suggestion-actions">
-                  <button class="text-button" id="email-correct" type="button">Corrigir e-mail</button>
-                  <button class="text-button" id="email-keep" type="button">O endereço está correto</button>
-                </div>
-              </div>
-              <div class="stage-actions"><button class="primary-button" type="submit">Continuar <span aria-hidden="true">↗</span></button></div>
-            </form>
-
-            <form class="stage" id="stage-operation" novalidate>
-              <h3 tabindex="-1">Como a operação funciona hoje?</h3>
-              <p class="stage-intro">Essas informações ajudam a preparar a proposta para sua equipe.</p>
-              <div class="form-row">
-                <label class="field-label" for="team-size">Quantas pessoas atuam na operação comercial?</label>
-                <select class="field-input" id="team-size" name="team_size" aria-describedby="operation-feedback" required>
-                  <option value="" selected disabled>Selecione uma faixa</option>
-                  <option>Somente eu</option><option>2 a 5 pessoas</option><option>6 a 10 pessoas</option><option>11 a 20 pessoas</option><option>Mais de 20 pessoas</option>
-                </select>
-              </div>
-              <div class="form-row">
-                <label class="field-label" for="acquisition-channel">De onde vem a maior parte dos clientes hoje?</label>
-                <select class="field-input" id="acquisition-channel" name="acquisition_channel" aria-describedby="operation-feedback" required>
-                  <option value="" selected disabled>Selecione o canal principal</option>
-                  <option>Indicações e parcerias</option><option>Instagram e Facebook</option><option>Google</option><option>Prospecção ativa</option><option>Portais e marketplaces</option><option>Loja física e eventos</option><option>Ainda não temos um canal previsível</option><option>Outro canal</option>
-                </select>
-              </div>
-              <p class="form-feedback" id="operation-feedback" role="status" aria-live="polite"></p>
-              <div class="stage-actions">
-                <button class="primary-button" type="submit">Continuar <span aria-hidden="true">↗</span></button>
-                <button class="text-button" id="back-contact" type="button">Voltar</button>
-              </div>
-            </form>
-
-            <form class="stage" id="stage-goal" novalidate>
-              <h3 tabindex="-1">Por onde começamos?</h3>
-              <p class="stage-intro">Selecione tudo o que faz sentido para sua empresa agora.</p>
-              <div class="choices" role="group" aria-label="Interesses da sua empresa" aria-describedby="goal-feedback">
-                <label class="choice"><input type="checkbox" name="goal" value="Atrair contatos com páginas e anúncios" /><span>Atrair contatos com páginas e anúncios</span></label>
-                <label class="choice"><input type="checkbox" name="goal" value="Organizar contatos e negociações no CRM" /><span>Organizar contatos e negociações no CRM</span></label>
-                <label class="choice"><input type="checkbox" name="goal" value="Organizar retornos pelo WhatsApp" /><span>Organizar retornos pelo WhatsApp</span></label>
-                <label class="choice"><input type="checkbox" name="goal" value="Acompanhar resultados e gestão" /><span>Acompanhar resultados e gestão</span></label>
-              </div>
-              <label class="consent"><input id="consent" type="checkbox" /><span>Autorizo o contato da ORYNEO sobre esta solicitação por WhatsApp ou e-mail. <a href="privacidade.html" target="_blank" rel="noopener">Como usamos seus dados</a>.</span></label>
-              <p class="form-feedback" id="goal-feedback" role="status" aria-live="polite"></p>
-              <div class="stage-actions">
-                <button class="primary-button" type="submit">Conferir dados <span aria-hidden="true">↗</span></button>
-                <button class="text-button" id="back-operation" type="button">Voltar</button>
-              </div>
-              <p class="preview-note">Na próxima etapa, confira os dados antes de enviar sua solicitação.</p>
-            </form>
-
-            <div class="stage" id="stage-summary">
-              <h3 tabindex="-1">Revise sua escolha.</h3>
-              <p class="stage-intro">Confira os dados e envie sua solicitação. A confirmação aparecerá assim que a equipe receber seus dados.</p>
-              <dl class="summary" id="request-summary"></dl>
-              <p class="preview-note">O envio solicita uma conversa sobre esta configuração. Preços e condições serão confirmados antes da contratação; nenhum pagamento ocorre nesta página.</p>
-              <div class="stage-actions"><button class="primary-button" id="send-request" type="button">Enviar solicitação <span aria-hidden="true">↗</span></button><button class="text-button" id="copy-request" type="button">Copiar solicitação</button></div>
-              <p class="form-feedback" id="request-feedback" role="status" aria-live="polite"></p>
-              <div class="stage-actions"><button class="text-button" id="back-goal" type="button">Editar informações</button><a class="text-button" href="#planos">Alterar plano</a></div>
-            </div>
-          </div>
-          <section class="submission-success" id="submission-success" aria-labelledby="submission-success-title" role="status" aria-live="polite" tabindex="-1" hidden>
-            <p class="submission-success-kicker">Solicitação recebida</p>
-            <h3 id="submission-success-title">Agora, a conversa começa pela sua operação.</h3>
-            <p class="submission-success-copy" id="submission-success-copy"></p>
-            <p class="submission-success-next" id="submission-success-next">Vamos falar com você pelo contato informado. Não é preciso enviar novamente.</p>
-            <p class="submission-success-demo" id="submission-success-demo" hidden>Prévia local: esta demonstração não enviou dados.</p>
-            <a href="#conteudo">Voltar para o início <span aria-hidden="true">↗</span></a>
-          </section>
-        </div>
+      <section class="closing" aria-labelledby="closing-title">
+        <div><p class="section-index">Seu próximo passo</p><h2 id="closing-title">Vamos organizar a sua operação comercial?</h2></div>
+        <a class="closing-cta" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Fale com a ORYNEO <span aria-hidden="true">↗</span></a>
       </section>
     </main>
     <footer class="site-footer">
@@ -1667,477 +1437,46 @@
         <nav aria-label="Links institucionais"><a href="mailto:contato@oryneo.com.br">contato@oryneo.com.br</a><a href="https://www.instagram.com/oryneo_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da ORYNEO, @oryneo_, abre em nova aba"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg> @oryneo_</a><a href="privacidade.html">Privacidade</a></nav>
       </div>
     </footer>
-    <script>
-      (() => {
-        const tabs = [...document.querySelectorAll('.acquisition-tab')];
-        const figure = document.querySelector('.browser-figure');
-        function select(tab, moveFocus = false) {
-          tabs.forEach((item) => {
-            const active = item === tab;
-            item.setAttribute('aria-selected', String(active));
-            item.tabIndex = active ? 0 : -1;
-            document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
-          });
-          figure.dataset.previewFocus = tab.dataset.focus;
-          if (moveFocus) tab.focus();
-        }
-        tabs.forEach((tab, index) => tab.addEventListener('click', () => select(tab)));
-        tabs.forEach((tab, index) => tab.addEventListener('keydown', (event) => {
-          let next;
-          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
-          if (event.key === 'Home') next = 0;
-          if (event.key === 'End') next = tabs.length - 1;
-          if (next !== undefined) { event.preventDefault(); select(tabs[next], true); }
-        }));
-      })();
-    </script>
     <script src="assets/commercial.js"></script>
     <script>
       (() => {
-        const choice = window.oryneoCommercialChoice = { plan: null, cycle: 'monthly', services: [], serviceKeys: [], intent: null };
-        const cards = [...document.querySelectorAll('.plan-option')];
-        const serviceInputs = [...document.querySelectorAll('input[name="service"]')];
-        const feedback = document.getElementById('plan-feedback');
-        const selectedContext = document.getElementById('selection-context');
-        const byId = (id) => document.getElementById(id);
-        const purchaseLayout = byId('purchase-layout');
         const { quote, brl, buildCommercialUrl, buildDirectCheckoutUrl } = window.OryneoPricing;
-        function renderChoice() {
+        const cards = [...document.querySelectorAll('.plan-option')];
+        const attribution = new URLSearchParams(window.location.search);
+        let cycle = 'monthly';
+
+        function renderPrices() {
           cards.forEach((card) => {
-            const selected = card.dataset.plan === choice.plan;
-            card.setAttribute('aria-current', String(selected));
-            const price = quote(card.dataset.plan, choice.cycle);
+            const plan = card.dataset.plan;
+            const price = quote(plan, cycle);
             card.querySelector('[data-price]').textContent = brl(price.monthlyEquivalent);
-            card.querySelector('[data-billing]').textContent = choice.cycle === 'annual'
-              ? brl(price.periodCharge) + ' cobrados a cada 12 meses.' : 'Cobrança mensal.';
+            card.querySelector('[data-billing]').textContent = cycle === 'annual'
+              ? brl(price.periodCharge) + ' cobrados a cada 12 meses.'
+              : 'Cobrança mensal.';
           });
-          choice.services = serviceInputs.filter((input) => input.checked).map((input) => input.value);
-          choice.serviceKeys = serviceInputs.filter((input) => input.checked).map((input) => input.dataset.service);
-          purchaseLayout.hidden = !choice.plan;
-          if (choice.plan) {
-            const price = window.OryneoPricing.orderQuote(choice.plan, choice.cycle, choice.serviceKeys);
-            byId('purchase-plan').textContent = choice.plan;
-            byId('purchase-cycle').textContent = choice.cycle === 'annual' ? '· anual' : '· mensal';
-            byId('purchase-period-label').textContent = choice.cycle === 'annual' ? 'anual' : 'mensal';
-            byId('purchase-period').textContent = brl(price.periodCharge);
-            byId('purchase-setup').textContent = brl(price.setup);
-            byId('purchase-saving').hidden = choice.cycle !== 'annual';
-            byId('purchase-saving').textContent = 'Equivale a ' + brl(price.monthlyEquivalent) + '/mês. Economia de ' + brl(price.savings) + ' em 12 meses sobre o valor mensal.';
-            byId('purchase-capacity').textContent = 'Até ' + price.users + ' usuários · ' + price.aiReplies.toLocaleString('pt-BR') + ' respostas de IA/mês · ' + price.audioMinutes.toLocaleString('pt-BR') + ' min de áudio transcrito/mês.';
-            const servicesList = byId('purchase-services-list');
-            servicesList.replaceChildren();
-            price.serviceLines.forEach((service) => {
-              const item = document.createElement('li');
-              const name = document.createElement('span');
-              const priceLabel = document.createElement('small');
-              name.textContent = service.label;
-              priceLabel.textContent = service.billing === 'monthly'
-                ? brl(service.minimumCommitment) + ' · ' + service.minimumMonths + ' meses'
-                : brl(service.amount) + ' · único';
-              item.append(name, priceLabel);
-              servicesList.append(item);
-            });
-            byId('purchase-services-count').textContent = choice.services.length
-              ? choice.services.length + (choice.services.length === 1 ? ' selecionado' : ' selecionados')
-              : 'Nenhum';
-            byId('purchase-services-note').textContent = choice.services.length
-              ? (choice.serviceKeys.includes('traffic') ? 'Tráfego: R$ 2.969,70 por trimestre, equivalente a R$ 989,90/mês. Verba de mídia paga separadamente.' : 'Landing page: pagamento único, incluído na primeira cobrança.')
-              : 'Selecione landing page ou gestão de tráfego para incluir.';
-            byId('purchase-first').textContent = brl(price.firstCharge);
-          }
-          if (choice.intent) {
-            selectedContext.textContent = 'Plano ' + choice.plan + ' · ' + (choice.cycle === 'annual' ? 'anual' : 'mensal') + (choice.services.length ? ' · ' + choice.services.join(' + ') : '');
-            selectedContext.hidden = false;
-          } else {
-            selectedContext.textContent = '';
-            selectedContext.hidden = true;
-          }
-          window.dispatchEvent(new Event('oryneo-choice-changed'));
-        }
-        function continueWith(selectedPlan, selectedIntent) {
-          if (selectedPlan) choice.plan = selectedPlan;
-          choice.intent = selectedIntent;
-          renderChoice();
-          window.location.assign((choice.intent === 'contract' ? buildDirectCheckoutUrl : buildCommercialUrl)(choice, new URLSearchParams(window.location.search)));
-        }
-        document.querySelectorAll('[data-plan-action]').forEach((button) => button.addEventListener('click', () => {
-          continueWith(button.dataset.planAction, button.dataset.intent);
-        }));
-        serviceInputs.forEach((input) => input.addEventListener('change', () => {
-          feedback.textContent = input.checked ? input.value + ' incluído na configuração.' : input.value + ' removido da configuração.';
-          renderChoice();
-        }));
-        document.querySelectorAll('input[name="billing"]').forEach((input) => input.addEventListener('change', () => {
-          if (!input.checked) return;
-          choice.cycle = input.value;
-          renderChoice();
-        }));
-        byId('purchase-continue').addEventListener('click', () => {
-          choice.intent = 'contract';
-          renderChoice();
-          window.location.assign((choice.intent === 'contract' ? buildDirectCheckoutUrl : buildCommercialUrl)(choice, new URLSearchParams(window.location.search)));
-        });
-        renderChoice();
-      })();
-    </script>
-    <script>
-      (() => {
-        const tabs = [...document.querySelectorAll('.operation-tab')];
-        function selectTab(tab, focus = false) {
-          const stage = tab.id.replace('op-tab-', '');
-          tabs.forEach((item) => {
-            const active = item === tab;
-            item.setAttribute('aria-selected', String(active));
-            item.tabIndex = active ? 0 : -1;
-            document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
-          });
-          document.querySelectorAll('[data-operation-record]').forEach((record) => {
-            record.hidden = record.dataset.operationRecord !== stage;
-          });
-          if (focus) tab.focus();
-        }
-        tabs.forEach((tab, index) => {
-          tab.addEventListener('click', () => selectTab(tab));
-          tab.addEventListener('keydown', (event) => {
-            let next;
-            if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-            if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
-            if (event.key === 'Home') next = 0;
-            if (event.key === 'End') next = tabs.length - 1;
-            if (next !== undefined) { event.preventDefault(); selectTab(tabs[next], true); }
-          });
-        });
-      })();
-    </script>
-    <script src="assets/company.js"></script>
-    <script>
-      (() => {
-        const $ = (id) => document.getElementById(id);
-        const form = $('cnpj-form');
-        const input = $('cnpj');
-        const feedback = $('cnpj-feedback');
-        const button = $('cnpj-button');
-        const stages = ['company', 'contact', 'operation', 'goal', 'summary'];
-        const progress = { company: ['Etapa 1 de 4', 'Empresa', 1], contact: ['Etapa 2 de 4', 'Contato', 2], operation: ['Etapa 3 de 4', 'Operação', 3], goal: ['Etapa 4 de 4', 'Interesses', 4], summary: ['Revisão', 'Conferir dados', 4] };
-        let company = null;
-        let activeRequest = 0;
-        let requestText = '';
-
-        const digits = (value) => value.replace(/\D/g, '');
-        const { formatCnpj, validCnpj, normalizeCnpj } = window.OryneoCompany;
-        const formatPhone = (value) => {
-          const d = digits(value).slice(0, 11);
-          if (d.length < 3) return d ? '(' + d : '';
-          if (d.length < 8) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
-          return '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length === 11 ? 7 : 6) + '-' + d.slice(d.length === 11 ? 7 : 6);
-        };
-        function message(node, value, kind = 'error') {
-          node.textContent = value;
-          node.dataset.kind = kind;
-        }
-        function showStage(name, focus = false) {
-          stages.forEach((stage) => { $('stage-' + stage).dataset.active = String(stage === name); });
-          const [count, label, value] = progress[name];
-          $('progress-count').textContent = count;
-          $('progress-label').textContent = label;
-          $('progress-track').setAttribute('aria-valuenow', String(value));
-          $('progress-fill').style.width = (value / 4 * 100) + '%';
-          if (focus) {
-            $('solicitacao').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
-            $('stage-' + name).querySelector('h3').focus({ preventScroll: true });
-          }
         }
 
-        input.addEventListener('input', () => {
-          input.value = formatCnpj(input.value);
-          input.removeAttribute('aria-invalid');
-          message(feedback, '');
-          if (button.disabled) {
-            ++activeRequest;
-            button.disabled = false;
-            button.textContent = 'Identificar empresa';
-          }
-          if (company && normalizeCnpj(input.value) !== company.cnpj) {
-            company = null;
-            showStage('company');
-          }
-        });
-        form.addEventListener('submit', async (event) => {
-          event.preventDefault();
-          const cnpj = normalizeCnpj(input.value);
-          if (!validCnpj(cnpj)) {
-            input.setAttribute('aria-invalid','true');
-            message(feedback, 'Confira o CNPJ e tente novamente.');
-            input.focus();
-            return;
-          }
-          if (company?.cnpj === cnpj) { showStage('contact', true); return; }
-          if (/[A-Z]/.test(cnpj)) {
-            openManualCompany();
-            message(feedback, 'CNPJ válido. Informe o nome da empresa para continuar.', 'success');
-            return;
-          }
-          const request = ++activeRequest;
-          button.disabled = true;
-          button.textContent = 'Consultando…';
-          message(feedback, 'Buscando os dados da empresa…', 'success');
-          try {
-            const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 10000);
-            let response;
-            try { response = await fetch('https://brasilapi.com.br/api/cnpj/v1/' + cnpj, { signal: controller.signal }); }
-            finally { clearTimeout(timeout); }
-            if (request !== activeRequest) return;
-            if (response.status === 404) throw new Error('Não encontramos esse CNPJ. Confira os números e tente novamente.');
-            if (!response.ok) throw new Error('A consulta está indisponível agora. Tente novamente em instantes.');
-            const data = await response.json();
-            if (request !== activeRequest) return;
-            const name = data.razao_social || data.nome_fantasia;
-            if (!name) throw new Error('Não foi possível confirmar os dados da empresa. Tente novamente.');
-            company = {
-              cnpj,
-              razaoSocial: data.razao_social || name,
-              nomeFantasia: data.nome_fantasia || '',
-              municipio: data.municipio || '',
-              uf: data.uf || '',
-              situacao: data.descricao_situacao_cadastral || ''
-            };
-            $('company-status').textContent = 'Dados encontrados · confira abaixo';
-            $('company-name').textContent = company.nomeFantasia || company.razaoSocial;
-            $('company-detail').textContent = formatCnpj(cnpj) + (company.nomeFantasia && company.razaoSocial !== company.nomeFantasia ? ' · ' + company.razaoSocial : '') + (company.municipio && company.uf ? ' · ' + company.municipio + '/' + company.uf : '');
-            message(feedback, 'Empresa encontrada. Continue abaixo.', 'success');
-            showStage('contact', true);
-          } catch (error) {
-            if (request === activeRequest) {
-              openManualCompany(false);
-              message(feedback, 'Não foi possível consultar agora. Informe o nome da empresa abaixo para continuar.');
-            }
-          } finally {
-            if (request === activeRequest) { button.disabled = false; button.textContent = 'Identificar empresa'; }
-          }
-        });
-        function openManualCompany(focus = true) {
-          ++activeRequest;
-          button.disabled = false;
-          button.textContent = 'Identificar empresa';
-          $('manual-company-form').hidden = false;
-          $('manual-company-toggle').setAttribute('aria-expanded', 'true');
-          if (company) $('manual-company-name').value = company.nomeFantasia || company.razaoSocial;
-          if (focus) $('manual-company-name').focus();
-        }
-        $('manual-company-toggle').addEventListener('click', () => openManualCompany());
-        $('manual-company-form').addEventListener('submit', event => {
-          event.preventDefault();
-          const cnpj = normalizeCnpj(input.value);
-          if (!validCnpj(cnpj)) { message(feedback, 'Confira o CNPJ, incluindo os dois dígitos finais.'); input.setAttribute('aria-invalid','true'); input.focus(); return; }
-          const companyName = $('manual-company-name').value.trim();
-          if (companyName.length < 2) { message($('manual-company-error'), 'Informe o nome da empresa.'); $('manual-company-name').setAttribute('aria-invalid','true'); $('manual-company-name').focus(); return; }
-          $('manual-company-name').removeAttribute('aria-invalid');
-          input.removeAttribute('aria-invalid');
-          company = {cnpj, razaoSocial: companyName, nomeFantasia: '', municipio: '', uf: '', situacao: '', source: 'manual'};
-          $('company-status').textContent = 'Dados informados por você';
-          $('company-name').textContent = companyName;
-          $('company-detail').textContent = formatCnpj(cnpj);
-          message($('manual-company-error'), '');
-          showStage('contact', true);
-        });
-        $('change-company').addEventListener('click', () => {
-          company = null;
-          ++activeRequest;
-          showStage('company');
-          input.focus();
-          input.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
-        });
-        const phone = $('contact-phone');
-        const validDdds = new Set('11 12 13 14 15 16 17 18 19 21 22 24 27 28 31 32 33 34 35 37 38 41 42 43 44 45 46 47 48 49 51 53 54 55 61 62 63 64 65 66 67 68 69 71 73 74 75 77 79 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99'.split(' '));
-        const commonEmailDomains = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'yahoo.com.br', 'icloud.com', 'live.com', 'uol.com.br', 'bol.com.br', 'terra.com.br', 'proton.me', 'protonmail.com'];
-        const commonEmailTypos = {
-          'gmayl.com': 'gmail.com', 'gmyal.com': 'gmail.com', 'gmaill.com': 'gmail.com',
-          'hotmial.com': 'hotmail.com', 'hotamil.com': 'hotmail.com',
-          'outllook.com': 'outlook.com',
-          'yahoi.com': 'yahoo.com', 'yaho.com': 'yahoo.com', 'yahooo.com': 'yahoo.com', 'yaoo.com': 'yahoo.com',
-          'yahoo.combr': 'yahoo.com.br', 'yahoo.con.br': 'yahoo.com.br',
-          'iclod.com': 'icloud.com', 'icluod.com': 'icloud.com',
-          'protton.me': 'proton.me', 'protonmai.com': 'protonmail.com'
-        };
-        let suggestedEmail = '';
-        let emailSuggestionAcknowledged = false;
-        const name = $('contact-name');
-        const email = $('contact-email');
-        const hideEmailSuggestion = () => { $('email-suggestion').hidden = true; suggestedEmail = ''; };
-        function editDistance(a, b) {
-          const rows = Array.from({ length: a.length + 1 }, (_, i) => [i]);
-          for (let j = 0; j <= b.length; j++) rows[0][j] = j;
-          for (let i = 1; i <= a.length; i++) {
-            for (let j = 1; j <= b.length; j++) {
-              rows[i][j] = Math.min(rows[i - 1][j] + 1, rows[i][j - 1] + 1, rows[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
-              if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) rows[i][j] = Math.min(rows[i][j], rows[i - 2][j - 2] + 1);
-            }
-          }
-          return rows[a.length][b.length];
-        }
-        function suggestedDomain(domain) {
-          const typed = domain.toLowerCase();
-          if (commonEmailDomains.includes(typed)) return '';
-          if (commonEmailTypos[typed]) return commonEmailTypos[typed];
-          return commonEmailDomains.find((known) => typed.slice(0, 2) === known.slice(0, 2) && editDistance(typed, known) === 1) || '';
-        }
-        function fieldError(field, value) {
-          $(field.id + '-error').textContent = value;
-          if (value) field.setAttribute('aria-invalid', 'true');
-          else field.removeAttribute('aria-invalid');
-          return !value;
-        }
-        function validateName() {
-          return fieldError(name, name.value.trim().length < 2 ? 'Informe seu nome.' : '');
-        }
-        function validatePhone() {
-          const number = digits(phone.value);
-          if (!number) return fieldError(phone, 'Informe seu WhatsApp com DDD.');
-          if (number.length !== 11 || !validDdds.has(number.slice(0, 2)) || number[2] !== '9' || /^(\d)\1{8}$/.test(number.slice(2))) {
-            return fieldError(phone, 'Confira o número: use um DDD válido e um celular começando com 9.');
-          }
-          return fieldError(phone, '');
-        }
-        function validateEmail() {
-          const value = email.value.trim();
-          hideEmailSuggestion();
-          if (!value) return fieldError(email, 'Informe seu e-mail.');
-          if (!email.checkValidity() || !/^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/.test(value)) {
-            return fieldError(email, 'Confira o e-mail. Exemplo: nome@empresa.com.br');
-          }
-          fieldError(email, '');
-          const [local, domain] = value.split('@');
-          const correction = suggestedDomain(domain);
-          if (correction && !emailSuggestionAcknowledged) {
-            suggestedEmail = local + '@' + correction;
-            $('email-suggestion-text').textContent = 'Esse domínio pode ter um erro de digitação. Você quis dizer ' + suggestedEmail + '?';
-            $('email-suggestion').hidden = false;
-            return false;
-          }
-          return true;
-        }
-        name.addEventListener('blur', validateName);
-        phone.addEventListener('blur', validatePhone);
-        email.addEventListener('blur', validateEmail);
-        name.addEventListener('input', () => fieldError(name, ''));
-        phone.addEventListener('input', () => { phone.value = formatPhone(phone.value); fieldError(phone, ''); });
-        email.addEventListener('input', () => { hideEmailSuggestion(); emailSuggestionAcknowledged = false; fieldError(email, ''); });
-        $('email-correct').addEventListener('click', () => {
-          if (!suggestedEmail) return;
-          email.value = suggestedEmail;
-          hideEmailSuggestion();
-          fieldError(email, '');
-          email.focus();
-        });
-        $('email-keep').addEventListener('click', () => {
-          emailSuggestionAcknowledged = true;
-          hideEmailSuggestion();
-          fieldError(email, '');
-          email.focus();
-        });
-        $('stage-contact').addEventListener('submit', (event) => {
-          event.preventDefault();
-          const validName = validateName();
-          const validPhone = validatePhone();
-          const validEmail = validateEmail();
-          if (!validName) { name.focus(); return; }
-          if (!validPhone) { phone.focus(); return; }
-          if (!validEmail) { (suggestedEmail ? $('email-correct') : email).focus(); return; }
-          showStage('operation', true);
-        });
-        $('back-contact').addEventListener('click', () => showStage('contact', true));
-        ['team-size', 'acquisition-channel'].forEach((id) => $(id).addEventListener('change', () => { $(id).removeAttribute('aria-invalid'); message($('operation-feedback'), ''); }));
-        $('stage-operation').addEventListener('submit', (event) => {
-          event.preventDefault();
-          const team = $('team-size');
-          const channel = $('acquisition-channel');
-          if (!team.value) { team.setAttribute('aria-invalid', 'true'); message($('operation-feedback'), 'Selecione o tamanho da operação comercial.'); team.focus(); return; }
-          if (!channel.value) { channel.setAttribute('aria-invalid', 'true'); message($('operation-feedback'), 'Selecione o principal canal de aquisição.'); channel.focus(); return; }
-          message($('operation-feedback'), '');
-          showStage('goal', true);
-        });
-        $('back-operation').addEventListener('click', () => showStage('operation', true));
-        document.querySelectorAll('input[name="goal"], #consent').forEach((item) => item.addEventListener('change', () => message($('goal-feedback'), '')));
-        function renderRequestSummary() {
-          if (!company) return;
-          const goals = [...document.querySelectorAll('input[name="goal"]:checked')].map((item) => item.value);
-          const selection = window.oryneoCommercialChoice;
-          const price = window.OryneoPricing.orderQuote(selection.plan, selection.cycle, selection.serviceKeys);
-          const money = window.OryneoPricing.brl;
-          const serviceRows = price.serviceLines.map((service) => [
-            service.label,
-            service.billing === 'monthly'
-              ? money(service.minimumCommitment) + ' · cobrança trimestral (' + money(service.amount) + '/mês) · mídia à parte'
-              : money(service.amount) + ' · pagamento único'
-          ]);
-          const rows = [
-            ['Empresa', company.nomeFantasia || company.razaoSocial],
-            ['CNPJ', formatCnpj(company.cnpj)],
-            ['Contato', $('contact-name').value.trim()],
-            ['WhatsApp', phone.value],
-            ['E-mail', $('contact-email').value.trim()],
-            ['Equipe comercial', $('team-size').value],
-            ['Canal principal', $('acquisition-channel').value],
-            ['Interesses', goals.join(' · ')],
-            ['Plano', selection.plan],
-            ['Ciclo', selection.cycle === 'annual' ? 'Anual · 10% de desconto na mensalidade, cobrança antecipada' : 'Mensal'],
-            [selection.cycle === 'annual' ? 'Plano anual' : 'Plano mensal', money(price.periodCharge)],
-            ['Implantação única', money(price.setup)],
-            ...serviceRows,
-            ['Primeira cobrança estimada', money(price.firstCharge)],
-            ['Capacidade', 'Até ' + price.users + ' usuários · ' + price.aiReplies.toLocaleString('pt-BR') + ' respostas IA/mês · ' + price.audioMinutes.toLocaleString('pt-BR') + ' min de áudio transcrito/mês'],
-            ['Complementos', selection.services.join(' · ') || 'Nenhum selecionado'],
-            ['Intenção', selection.intent === 'conversation' ? 'Quero conversar' : 'Quero contratar']
-          ];
-          requestText = rows.map(([label, value]) => label + ': ' + value).join('\n');
-          message($('request-feedback'), '');
-          const summary = $('request-summary');
-          summary.replaceChildren();
-          rows.forEach(([label, value]) => {
-            const row = document.createElement('div');
-            const dt = document.createElement('dt');
-            const dd = document.createElement('dd');
-            dt.textContent = label; dd.textContent = value;
-            row.append(dt, dd); summary.append(row);
+        document.querySelectorAll('input[name="billing"]').forEach((input) => {
+          input.addEventListener('change', () => {
+            if (!input.checked) return;
+            cycle = input.value;
+            renderPrices();
           });
-        }
-        $('stage-goal').addEventListener('submit', (event) => {
-          event.preventDefault();
-          if (!window.oryneoCommercialChoice.plan) {
-            message($('goal-feedback'), 'Escolha um plano para revisar a solicitação.');
-            $('planos').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
-            return;
-          }
-          const goals = [...document.querySelectorAll('input[name="goal"]:checked')].map((item) => item.value);
-          if (!goals.length) { message($('goal-feedback'), 'Selecione ao menos um interesse.'); document.querySelector('input[name="goal"]').focus(); return; }
-          if (!$('consent').checked) { message($('goal-feedback'), 'Confirme que podemos entrar em contato sobre a solicitação.'); $('consent').focus(); return; }
-          message($('goal-feedback'), '');
-          renderRequestSummary();
-          showStage('summary', true);
         });
-        window.addEventListener('oryneo-choice-changed', () => {
-          if ($('stage-summary').dataset.active === 'true') renderRequestSummary();
+
+        document.querySelectorAll('[data-plan-action]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const choice = { plan: button.dataset.planAction, cycle, intent: button.dataset.intent, serviceKeys: [] };
+            const buildUrl = choice.intent === 'contract' ? buildDirectCheckoutUrl : buildCommercialUrl;
+            window.location.assign(buildUrl(choice, attribution));
+          });
         });
-        $('send-request').addEventListener('click', () => {
-          if (!requestText || !company) return;
-          window.OryneoLeadIntake.send({company:company.nomeFantasia || company.razaoSocial,cnpj:company.cnpj,contact:$('contact-name').value.trim(),phone:phone.value,email:$('contact-email').value.trim(),consent:$('consent').checked,summary:requestText,plan:window.oryneoCommercialChoice.plan,cycle:window.oryneoCommercialChoice.cycle,services:[...window.oryneoCommercialChoice.serviceKeys],intent:window.oryneoCommercialChoice.intent,team_size:$('team-size').value,acquisition_channel:$('acquisition-channel').value,goals:[...document.querySelectorAll('input[name="goal"]:checked')].map(el=>el.value)},$('send-request'),$('request-feedback'));
+
+        document.querySelectorAll('[data-open-talk]').forEach((link) => {
+          link.href = buildCommercialUrl({ cycle: 'monthly', intent: 'conversation' }, attribution);
         });
-        $('copy-request').addEventListener('click', async () => {
-          if (!requestText) return;
-          try {
-            await navigator.clipboard.writeText(requestText);
-            message($('request-feedback'), 'Solicitação copiada. Envie para contato@oryneo.com.br.', 'success');
-          } catch (_) {
-            message($('request-feedback'), 'Não foi possível copiar automaticamente. Selecione os dados acima para copiar.');
-          }
-        });
-        $('back-goal').addEventListener('click', () => showStage('goal', true));
+        renderPrices();
       })();
     </script>
-    <script src="assets/lead-intake.js"></script>
-    <script src="assets/quick-contact.js?v=20261017-1"></script>
-    <script src="assets/submission-confirmation.js"></script>
   </body>
 </html>

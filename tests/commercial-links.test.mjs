@@ -73,18 +73,17 @@ test('todos os CTAs comerciais públicos saem do formulário legado', () => {
   assert.equal(planActions.length, 6);
   assert.deepEqual(new Set(planActions.map((match) => `${match[1]}:${match[2]}`)).size, 6);
   assert.match(html, /class="hero-contact-cta"[^>]+data-open-talk/);
-  assert.match(html, /class="operation-cta"[^>]+href="\.\/comecar\//);
-  assert.match(html, /id="purchase-continue"/);
+  assert.match(html, /class="closing-cta"[^>]+href="\.\/comecar\//);
+  assert.doesNotMatch(html, /id="purchase-layout"|id="purchase-continue"/);
   assert.match(html, /buildCommercialUrl/);
   assert.match(quickContact, /buildCommercialUrl/);
 });
 
 
-test('formulário da página inicial abre a conversa quando ainda não há plano', () => {
-  const quickContact = fs.readFileSync(new URL('../assets/quick-contact.js', import.meta.url), 'utf8');
-  assert.match(quickContact, /mode\(window\.oryneoCommercialChoice\?\.intent \|\| 'conversation'\)/);
+test('landing usa somente a jornada consultiva progressiva', () => {
   const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-  assert.match(html, /assets\/quick-contact\.js\?v=20261017-1/);
+  assert.doesNotMatch(html, /assets\/quick-contact\.js|assets\/lead-intake\.js|assets\/company\.js/);
+  assert.match(html, /class="closing-cta"[^>]+href="\.\/comecar\//);
 });
 
 test('botões de compra levam ao checkout seguro preservando somente seleção e UTMs', () => {
@@ -111,6 +110,6 @@ test('botões de compra levam ao checkout seguro preservando somente seleção e
 test('CTA contratar usa rota direta e CTA conversar mantém formulário progressivo', () => {
   const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
   assert.match(html, /choice\.intent === 'contract' \? buildDirectCheckoutUrl : buildCommercialUrl/);
-  assert.equal((html.match(/choice\.intent === 'contract' \? buildDirectCheckoutUrl : buildCommercialUrl/g) || []).length, 2);
+  assert.equal((html.match(/choice\.intent === 'contract' \? buildDirectCheckoutUrl : buildCommercialUrl/g) || []).length, 1);
   assert.match(html,/data-intent="conversation"/);
 });
