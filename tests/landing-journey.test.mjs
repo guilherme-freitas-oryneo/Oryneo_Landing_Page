@@ -22,7 +22,10 @@ test('landing apresenta oferta curta e o CRM em notebook e celular sem legenda i
   assert.match(home, /<figure class="product-scene"/);
   assert.match(home, /crm-capture-desktop-sanitized\.png/);
   assert.match(home, /crm-capture-mobile-sanitized\.png/);
-  assert.match(home, /<aside class="crm-future-menu">/);
+  assert.match(home, /<aside class="crm-sidebar"/);
+  assert.match(home, /src="assets\/crm-wordmark\.png"/);
+  assert.match(home, /class="crm-phone-sidebar"/);
+  assert.match(home, /\.phone-screen\s*\{[^}]*position:\s*relative/);
   assert.match(home, /EM EVOLUÇÃO/);
   assert.doesNotMatch(home, /Interface ilustrativa com dados fictícios/);
   assert.match(home, /class="device-laptop"/);
