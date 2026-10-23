@@ -13,15 +13,18 @@ test('primeira dobra identifica o CRM e mantém conversa como ação principal',
   assert.match(home, /class="nav-talk"[^>]*href="\.\/comecar\/\?cycle=monthly&amp;intent=conversation"/);
 });
 
-test('landing apresenta oferta curta e uma visão de produto identificada como ilustrativa', () => {
+test('landing apresenta oferta curta e o CRM em notebook e celular sem legenda intrusiva', () => {
   const visibleSections = [...home.matchAll(/<section class="(intro|value|plans|buying-guide|closing)"/g)].map((match) => match[1]);
   assert.deepEqual(visibleSections, ['intro', 'value', 'plans', 'buying-guide', 'closing']);
   assert.doesNotMatch(home, /class="hero-demo"|class="browser-figure"|class="laptop-scene"/);
   assert.doesNotMatch(home, /class="acquisition-tab"|class="operation-tab"/);
   assert.doesNotMatch(home, /class="consultation"|id="quick-form"|id="cnpj-form"/);
   assert.match(home, /<figure class="product-scene"/);
-  assert.match(home, /Interface ilustrativa com dados fictícios/);
-  assert.match(home, /WhatsApp e novos módulos representam a evolução planejada/);
+  assert.match(home, /crm-capture-desktop-sanitized\.png/);
+  assert.match(home, /crm-capture-mobile-sanitized\.png/);
+  assert.match(home, /<aside class="crm-future-menu">/);
+  assert.match(home, /EM EVOLUÇÃO/);
+  assert.doesNotMatch(home, /Interface ilustrativa com dados fictícios/);
   assert.match(home, /class="device-laptop"/);
   assert.match(home, /class="device-phone"/);
   assert.match(home, /id="solucoes"/);
