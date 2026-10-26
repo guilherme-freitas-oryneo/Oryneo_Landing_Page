@@ -6,19 +6,19 @@
     <meta name="robots" content="index, follow">
     <title>Privacidade e contato | ORYNEO</title>
     <meta name="description" content="Entenda como a ORYNEO usa os dados informados em uma solicitação comercial.">
-    <link rel="icon" href="assets/oryneo-symbol.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/oryneo-symbol-official.svg" type="image/svg+xml">
     <style>
-      *{box-sizing:border-box}body{margin:0;background:#f8f7f4;color:#0f1115;font:16px/1.7 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}main,header,footer{width:min(760px,calc(100% - 40px));margin:auto}header{padding:28px 0;border-bottom:1px solid #d8d8d5;display:flex;justify-content:space-between;align-items:center;gap:20px}header img{display:block;width:143px;height:auto;filter:invert(1)}a{color:#3547c8;text-underline-offset:4px;overflow-wrap:anywhere}a:focus-visible{outline:2px solid #4357e8;outline-offset:5px}main{padding:42px 0}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.12;letter-spacing:-.04em;margin:0 0 24px}h2{font-size:1.2rem;margin:30px 0 8px}p{margin:0 0 16px;color:#454950}footer{padding:24px 0 40px;border-top:1px solid #d8d8d5}small{font-size:14px;color:#60646d}@media(max-width:520px){header{align-items:flex-start;flex-direction:column}}
+      *{box-sizing:border-box}body{margin:0;background:#f8f7f4;color:#0f1115;font:16px/1.7 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}main,header,footer{width:min(760px,calc(100% - 40px));margin:auto}header{padding:28px 0;border-bottom:1px solid #d8d8d5;display:flex;justify-content:space-between;align-items:center;gap:20px}header img{display:block;width:143px;height:auto}a{color:#3547c8;text-underline-offset:4px;overflow-wrap:anywhere}a:focus-visible{outline:2px solid #4357e8;outline-offset:5px}main{padding:42px 0}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.12;letter-spacing:-.04em;margin:0 0 24px}h2{font-size:1.2rem;margin:30px 0 8px}p{margin:0 0 16px;color:#454950}footer{padding:24px 0 40px;border-top:1px solid #d8d8d5}small{font-size:14px;color:#60646d}@media(max-width:520px){header{align-items:flex-start;flex-direction:column}}
     </style>
   </head>
   <body>
-    <header><a href="./" aria-label="Voltar à ORYNEO"><img src="assets/oryneo-wordmark-mono-reverse.png" width="143" height="27" alt="ORYNEO"></a><a href="./">Voltar ao site</a></header>
+    <header><a href="./" aria-label="Voltar à ORYNEO"><img src="assets/oryneo-wordmark-official.png" width="143" height="27" alt="ORYNEO"></a><a href="./">Voltar ao site</a></header>
     <main>
       <h1>Seus dados na solicitação.</h1>
       <p>Esta página explica o tratamento dos dados que você envia à ORYNEO para iniciar uma conversa ou solicitar uma contratação.</p>
 
       <h2>Dados informados</h2>
-      <p>O fluxo pode registrar nome, e-mail, WhatsApp, empresa, tamanho da operação comercial, canais de aquisição, prioridades, intenção, plano, ciclo e complementos escolhidos. O CNPJ é opcional para uma conversa e obrigatório quando a intenção informada é contratar.</p>
+      <p>O fluxo pode registrar nome, e-mail, WhatsApp, empresa, tamanho da operação comercial, canais de aquisição, prioridades, intenção, plano, ciclo e complementos escolhidos. O formulário de solicitação comercial e a contratação exigem um CNPJ válido para identificar a empresa.</p>
       <p>Também podemos registrar parâmetros de origem da visita — como campanha, mídia e conteúdo —, a página de entrada e o endereço de referência, quando essas informações estiverem disponíveis no navegador.</p>
 
       <h2>Finalidades</h2>
@@ -28,8 +28,11 @@
       <p>Enquanto você preenche o formulário progressivo, um rascunho temporário fica na sessão do navegador para evitar perda de dados. Nenhum lead parcial é criado. Ao confirmar o envio, a solicitação é validada pelo backend da ORYNEO no Supabase e, se aceita, registrada no CRM. O rascunho é apagado somente depois dessa confirmação ou quando a sessão do navegador termina.</p>
       <p>Um identificador técnico acompanha tentativas do mesmo envio para impedir duplicidade em caso de instabilidade de rede. Esse identificador não substitui os dados de contato nem autoriza cobrança. Nenhum pagamento acontece no formulário.</p>
 
-      <h2>Consulta opcional de CNPJ</h2>
-      <p>Na consulta opcional disponível na página comercial, o CNPJ pode ser enviado à BrasilAPI para recuperar dados cadastrais públicos. É possível informar a empresa sem usar essa consulta quando a intenção for apenas conversar.</p>
+      <h2>Consulta de CNPJ</h2>
+      <p>O CNPJ informado é consultado na BrasilAPI para recuperar dados cadastrais públicos e identificar a empresa. Na contratação, a confirmação cadastral pode ser necessária para continuar. Se a consulta estiver indisponível, a interface informa o impedimento.</p>
+
+      <h2>Rascunho na contratação direta</h2>
+      <p>Na página de contratação, o comportamento é diferente do formulário progressivo: ao começar a preencher os dados de contato, um rascunho pode ser enviado automaticamente ao backend e registrado no CRM, antes de você concluir a contratação. Ele permite manter o andamento da solicitação. Esse registro não confirma a contratação nem autoriza uma cobrança.</p>
 
       <h2>Infraestrutura e terceiros</h2>
       <p>O site e o backend utilizam provedores de hospedagem, banco de dados e segurança necessários para disponibilizar o serviço e registrar a solicitação. Ao abrir links externos, como o Instagram, aplicam-se também as regras do respectivo serviço. A ORYNEO não declara nem utiliza nesta página ferramentas próprias de publicidade comportamental ou análise de visitantes.</p>
@@ -40,6 +43,6 @@
       <h2>Seus direitos e contato</h2>
       <p>Você pode pedir confirmação do tratamento, acesso, correção, informação sobre compartilhamento, exclusão quando aplicável ou retirada da autorização de contato. Escreva para <a href="mailto:contato@oryneo.com.br">contato@oryneo.com.br</a>. Obrigações legais de conservação serão consideradas ao responder ao pedido.</p>
     </main>
-    <footer><small>ORYNEO · Atualizado em 13 de outubro de 2026.</small></footer>
+    <footer><small>ORYNEO · Atualizado em 25 de outubro de 2026.</small></footer>
   </body>
 </html>

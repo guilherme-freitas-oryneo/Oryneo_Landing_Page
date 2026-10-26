@@ -12,6 +12,8 @@
     <meta name="robots" content="index, follow" />
     <meta property="og:description" content="CRM com WhatsApp e automação comercial para organizar leads, conversas e retornos. Conheça os planos, landing pages e gestão de tráfego pago da ORYNEO." />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://guilherme-freitas-oryneo.github.io/Oryneo_Landing_Page/assets/oryneo-wordmark-official.png" />
+    <meta property="og:image:alt" content="ORYNEO — CRM e operação comercial" />
     <meta property="og:locale" content="pt_BR" />
     <title>CRM com WhatsApp e automação comercial | ORYNEO</title>
     <link rel="icon" type="image/svg+xml" href="assets/oryneo-symbol-official.svg" />
@@ -1406,6 +1408,21 @@
         .plan-purpose { min-height: 0; }
         .closing-cta { width: 100%; }
       }
+
+      .product-evidence{margin-top:36px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+      .product-evidence summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;cursor:pointer;font-weight:600;color:var(--indigo-ink)}
+      .product-evidence-copy{max-width:680px;padding:0 0 20px}
+      .product-evidence-copy h3{margin:8px 0;font-size:1.25rem}
+      .product-evidence-copy p,.product-evidence-note{color:var(--muted);font-size:.9rem;line-height:1.6}
+      .product-evidence-image{overflow:auto;max-width:100%;border:1px solid var(--rule)}
+      .product-evidence-image img{display:block;width:100%;min-width:760px;height:auto}
+      .product-evidence-note{margin:12px 0 20px}
+      /* Accessible anchors and native disclosure targets. */
+      section[id]{scroll-margin-top:96px}
+      summary{min-height:44px}
+      .product-scene picture{display:contents}
+      .buying-guide a{text-decoration:underline;text-underline-offset:3px}
+      @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
     </style>
   </head>
   <body>
@@ -1431,7 +1448,7 @@
         <div class="intro-copy">
           <p class="section-index">CRM ORYNEO · Sua operação em movimento</p>
           <h1 id="hero-title">Seu CRM. <span>Sua operação em movimento.</span></h1>
-          <p class="intro-lead">Oportunidades, conversas e automações em um só lugar. Cada contato tem um responsável e um próximo passo.</p>
+          <p class="intro-lead">Acompanhe oportunidades, organize atividades e mantenha sua equipe alinhada. Cada negociação com responsável e próximo passo.</p>
           <div class="intro-actions"><a class="hero-contact-cta" href="./comecar/?cycle=monthly&amp;intent=conversation" data-open-talk>Converse com a ORYNEO <span aria-hidden="true">↗</span></a><a class="intro-link quiet-link" href="#planos">Ver planos</a></div>
         </div>
         <figure class="product-scene" aria-label="CRM ORYNEO em notebook e celular, com dados anonimizados e menus futuros indicados no produto">
@@ -1448,9 +1465,9 @@
           </svg>
           <div class="device-laptop" aria-hidden="true">
             <div class="crm-screen">
-              <img src="assets/crm-capture-desktop-sanitized.png" width="1586" height="992" alt="" decoding="async" fetchpriority="high" />
+              <picture><source srcset="assets/crm-capture-desktop-sanitized.webp" type="image/webp" /><img src="assets/crm-capture-desktop-sanitized.png" width="1586" height="992" alt="" decoding="async" fetchpriority="high" /></picture>
               <aside class="crm-sidebar">
-                <div class="crm-brand"><img src="assets/crm-wordmark.png" width="1590" height="294" alt="" /><span>CRM</span></div>
+                <div class="crm-brand"><img src="assets/crm-wordmark.png" width="1600" height="298" alt="" /><span>CRM</span></div>
                 <div class="crm-workspace"><span class="crm-workspace-avatar">O</span><span><strong>Workspace ORYNEO</strong><small>Operação comercial</small></span></div>
                 <span class="crm-menu-section">COMERCIAL</span>
                 <div class="crm-menu-item active"><svg><use href="#crm-i-pipeline" /></svg><span>Pipeline</span><small>06</small></div>
@@ -1469,7 +1486,7 @@
           </div>
           <div class="device-base" aria-hidden="true"></div>
           <div class="device-phone" aria-hidden="true">
-            <div class="phone-screen"><img src="assets/crm-capture-mobile-sanitized.png" width="847" height="1857" alt="" decoding="async" /><aside class="crm-phone-sidebar"><span class="crm-phone-brand"><img src="assets/oryneo-y.svg" alt="" /></span><div class="crm-phone-icons"><span class="active"><svg><use href="#crm-i-pipeline" /></svg></span><span><svg><use href="#crm-i-mail" /></svg></span><span><svg><use href="#crm-i-calendar" /></svg></span><span class="future-start"><svg><use href="#crm-i-whatsapp" /></svg></span><span><svg><use href="#crm-i-contacts" /></svg></span><span><svg><use href="#crm-i-automation" /></svg></span><span><svg><use href="#crm-i-campaigns" /></svg></span><span><svg><use href="#crm-i-reports" /></svg></span><span><svg><use href="#crm-i-files" /></svg></span></div></aside></div>
+            <div class="phone-screen"><picture><source srcset="assets/crm-capture-mobile-sanitized.webp" type="image/webp" /><img src="assets/crm-capture-mobile-sanitized.png" width="847" height="1857" alt="" decoding="async" /></picture><aside class="crm-phone-sidebar"><span class="crm-phone-brand"><img src="assets/oryneo-y.svg" alt="" /></span><div class="crm-phone-icons"><span class="active"><svg><use href="#crm-i-pipeline" /></svg></span><span><svg><use href="#crm-i-mail" /></svg></span><span><svg><use href="#crm-i-calendar" /></svg></span><span class="future-start"><svg><use href="#crm-i-whatsapp" /></svg></span><span><svg><use href="#crm-i-contacts" /></svg></span><span><svg><use href="#crm-i-automation" /></svg></span><span><svg><use href="#crm-i-campaigns" /></svg></span><span><svg><use href="#crm-i-reports" /></svg></span><span><svg><use href="#crm-i-files" /></svg></span></div></aside></div>
           </div>
         </figure>
       </section>
@@ -1477,10 +1494,18 @@
       <section class="value" id="solucoes" aria-labelledby="value-title">
         <div class="value-head"><p class="section-index">O que muda na prática</p><h2 id="value-title">Menos trabalho para lembrar.<br>Mais clareza para agir.</h2></div>
         <div class="value-grid">
-          <article><span>01</span><h3>Conversa com contexto</h3><p>WhatsApp e histórico ligados ao contato no CRM.</p></article>
+          <article><span>01</span><h3>Oportunidade com contexto</h3><p>Acompanhe a negociação no funil e identifique quem conduz o próximo passo.</p></article>
           <article><span>02</span><h3>Próxima ação definida</h3><p>Responsáveis, tarefas e lembretes organizam o retorno.</p></article>
-          <article><span>03</span><h3>Visão da operação</h3><p>Funis e painel de vendas mostram o andamento à equipe.</p></article>
+          <article><span>03</span><h3>Visão da operação</h3><p>Veja em que etapa estão as oportunidades e organize o acompanhamento da equipe.</p></article>
         </div>
+        <details class="product-evidence">
+          <summary>Examinar o pipeline do CRM <span aria-hidden="true">↗</span></summary>
+          <div class="product-evidence-copy"><h3>O andamento da negociação, em contexto.</h3><p>Observe a distribuição das oportunidades entre as etapas do funil. A captura abaixo usa dados anonimizados; os itens marcados como em evolução não demonstram funcionalidades disponíveis.</p></div>
+          <div class="product-evidence-image" tabindex="0" role="region" aria-label="Captura do pipeline; em telas pequenas, role horizontalmente para examinar">
+            <picture><source srcset="assets/crm-capture-desktop-sanitized.webp" type="image/webp"><img src="assets/crm-capture-desktop-sanitized.png" width="1586" height="992" alt="Pipeline do CRM ORYNEO com oportunidades anonimizadas organizadas por etapa." loading="lazy" decoding="async"></picture>
+          </div>
+          <p class="product-evidence-note">Em telas pequenas, deslize a captura para examinar os detalhes.</p>
+        </details>
       </section>
       <section class="plans" id="planos" aria-labelledby="plans-title">
         <div class="plans-inner">
@@ -1542,6 +1567,8 @@
         <div class="buying-guide-inner"><div><p class="plans-kicker">Em poucas palavras</p><h2 id="guide-title">Antes de decidir.</h2><p>Valores e condições aparecem antes da confirmação no checkout. Se preferir, converse com a equipe primeiro.</p></div>
         <div class="buying-questions">
           <details><summary>O que a implantação inclui?</summary><p>Entendimento da operação, configuração do ambiente conforme o escopo contratado, testes e orientação da equipe para começar. O cronograma e os responsáveis são combinados na proposta.</p></details>
+          <details><summary>O que acontece ao solicitar uma conversa?</summary><p>Você informa seu contato e o contexto da empresa em seis etapas, incluindo CNPJ, canais de aquisição e prioridades. Pode revisar os dados antes do envio. Essa solicitação não gera cobrança nem contratação.</p></details>
+          <details><summary>Quando os dados são salvos?</summary><p>No formulário de conversa, o rascunho fica na sessão do navegador até você confirmar o envio. No checkout direto, o preenchimento pode ser salvo automaticamente no CRM antes da conclusão. Consulte a <a href="privacidade.html">política de privacidade</a>.</p></details>
           <details><summary>Como funciona o plano anual?</summary><p>Você paga 12 meses antecipadamente com 10% de desconto sobre a assinatura. Implantação e complementos não recebem esse desconto.</p></details>
           <details><summary>Preciso contratar página e anúncios?</summary><p>Não. Os dois serviços são opcionais. A landing page custa R$ 889,90, uma única vez. A gestão de tráfego custa R$ 2.969,70 por trimestre, equivalente a R$ 989,90/mês. A verba dos anúncios é paga separadamente.</p></details>
         </div></div>
