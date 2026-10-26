@@ -14,6 +14,11 @@ try {
    const geometry=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,viewport:innerWidth}));
    assert.ok(geometry.scroll<=geometry.viewport+1,`${path} ${width}: overflow ${JSON.stringify(geometry)}`);
    if(path==='/'){
+    await page.locator('.product-evidence summary').click();
+    assert.equal(await page.locator('.product-evidence').getAttribute('open'),'');
+    const expanded=await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1);
+    assert.ok(expanded,`Demonstração aberta causa overflow em ${width}px`);
+    await page.locator('.product-evidence summary').click();
     await page.getByRole('radio',{name:/Anual/}).check();
     assert.match(await page.locator('[data-price="Start"]').innerText(),/674,91/);
     await page.getByRole('radio',{name:'Mensal',exact:true}).check();
