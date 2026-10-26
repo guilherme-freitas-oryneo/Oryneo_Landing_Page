@@ -1409,6 +1409,14 @@
         .closing-cta { width: 100%; }
       }
 
+      .product-evidence{margin-top:36px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+      .product-evidence summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;cursor:pointer;font-weight:600;color:var(--indigo-ink)}
+      .product-evidence-copy{max-width:680px;padding:0 0 20px}
+      .product-evidence-copy h3{margin:8px 0;font-size:1.25rem}
+      .product-evidence-copy p,.product-evidence-note{color:var(--muted);font-size:.9rem;line-height:1.6}
+      .product-evidence-image{overflow:auto;max-width:100%;border:1px solid var(--rule)}
+      .product-evidence-image img{display:block;width:100%;min-width:760px;height:auto}
+      .product-evidence-note{margin:12px 0 20px}
       /* Accessible anchors and native disclosure targets. */
       section[id]{scroll-margin-top:96px}
       summary{min-height:44px}
@@ -1490,6 +1498,14 @@
           <article><span>02</span><h3>Próxima ação definida</h3><p>Responsáveis, tarefas e lembretes organizam o retorno.</p></article>
           <article><span>03</span><h3>Visão da operação</h3><p>Veja em que etapa estão as oportunidades e organize o acompanhamento da equipe.</p></article>
         </div>
+        <details class="product-evidence">
+          <summary>Examinar o pipeline do CRM <span aria-hidden="true">↗</span></summary>
+          <div class="product-evidence-copy"><h3>O andamento da negociação, em contexto.</h3><p>Observe a distribuição das oportunidades entre as etapas do funil. A captura abaixo usa dados anonimizados; os itens marcados como em evolução não demonstram funcionalidades disponíveis.</p></div>
+          <div class="product-evidence-image" tabindex="0" role="region" aria-label="Captura do pipeline; em telas pequenas, role horizontalmente para examinar">
+            <picture><source srcset="assets/crm-capture-desktop-sanitized.webp" type="image/webp"><img src="assets/crm-capture-desktop-sanitized.png" width="1586" height="992" alt="Pipeline do CRM ORYNEO com oportunidades anonimizadas organizadas por etapa." loading="lazy" decoding="async"></picture>
+          </div>
+          <p class="product-evidence-note">Em telas pequenas, deslize a captura para examinar os detalhes.</p>
+        </details>
       </section>
       <section class="plans" id="planos" aria-labelledby="plans-title">
         <div class="plans-inner">
